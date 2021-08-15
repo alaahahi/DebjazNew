@@ -33,7 +33,11 @@
 
 </head>
 <body>
-	
+@if(App::getLocale() == 'en')
+    <a href="{{url('/locale/ar')}}">العربية</a>
+ @elseif(App::getLocale() == 'ar')
+    <a href="{{url('/locale/en')}}">English</a>
+ @endif
 	<!-- Header section -->
 	<header class="header-section">
 		<div class="header-top">
@@ -58,14 +62,21 @@
 										<span>{{ Cart::instance('wishlist')->count() }}</span>
 									@endif
 								</div>
-								<a href="{{ route('wishlist.index') }}">Wishlist</a>
+								<a href="{{ route('wishlist.index') }}">{{ trans('frontend.Wishlist') }}</a>
 							</div>
 							<div class="up-item">
 								<div class="shopping-card">
 									<i class="flaticon-bag"></i>
 									<span>{{ Cart::instance('default')->count() }}</span>
 								</div>
-								<a href="{{ route('cart.index') }}">Shopping Cart</a>
+								<a href="{{ route('cart.index') }}">{{ trans('frontend.Cart') }}</a>
+							</div>
+							<div class="up-item">
+							<select class="form-control" onchange="getComboA(this)"> ?>
+							<option value="en">English</option>
+							<option value="ar">عربي</option>
+							<option value="it">Swidthis</option>
+							</select>
 							</div>
 						</div>
 					</div>
@@ -107,4 +118,13 @@
 	@yield('scripts')
 
 	</body>
+	<script>
+
+function getComboA(selectObject) {
+  var value = selectObject.value; 
+  console.log(value);
+  return value;
+}
+	</script>
+	
 </html>
