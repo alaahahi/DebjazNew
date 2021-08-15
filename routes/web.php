@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Gloudemans\Shoppingcart\Facades\Cart;
-
+use Illuminate\Support\Facades\App;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -75,3 +75,9 @@ Route::middleware(['auth', 'admin'])->group(function () {
 	Route::resource('admin/privacy', 'Admin\PrivacyPolicyController');
 	Route::resource('admin/social-links', 'Admin\SocialLinkController');
 });
+
+
+Route::get('setlocale/{locale}', function ($locale) {
+	  session(['locale' => $locale]);
+	return redirect()->back();
+  });

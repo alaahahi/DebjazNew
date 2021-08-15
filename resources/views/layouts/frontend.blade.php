@@ -33,11 +33,7 @@
 
 </head>
 <body>
-@if(App::getLocale() == 'en')
-    <a href="{{url('/locale/ar')}}">العربية</a>
- @elseif(App::getLocale() == 'ar')
-    <a href="{{url('/locale/en')}}">English</a>
- @endif
+{{ App::setLocale(session()->get('locale')) }}
 	<!-- Header section -->
 	<header class="header-section">
 		<div class="header-top">
@@ -72,10 +68,20 @@
 								<a href="{{ route('cart.index') }}">{{ trans('frontend.Cart') }}</a>
 							</div>
 							<div class="up-item">
-							<select class="form-control" onchange="getComboA(this)"> ?>
-							<option value="en">English</option>
-							<option value="ar">عربي</option>
-							<option value="it">Swidthis</option>
+							<select class="form-control" onchange="location = this.value;"> ?>
+							@if(App::getLocale() == 'en')
+							<option value="{{url('/setlocale/en')}}" selected>English</option>
+							<option value="{{url('/setlocale/ar')}}">العربية</option>
+							<option value="{{url('/setlocale/it')}}">Swidthis</option>
+							@elseif(App::getLocale() == 'ar')
+							<option value="{{url('/setlocale/ar')}}">العربية</option>
+							<option value="{{url('/setlocale/en')}}">English</option>
+							<option value="{{url('/setlocale/en')}}">Swidthis</option>
+							@elseif(App::getLocale() == 'it')
+							<option value="{{url('/setlocale/it')}}">Swidthis</option>
+							<option value="{{url('/setlocale/ar')}}">العربية</option>
+							<option value="{{url('/setlocale/en')}}">English</option>
+							@endif
 							</select>
 							</div>
 						</div>
@@ -108,7 +114,6 @@
 	    toastr.success("{{ Session::get('success')}}")
 	    @endif
 	</script>
-
 	<script>
 	    @if(Session::has('error'))
 	    toastr.error("{{ Session::get('error')}}")
