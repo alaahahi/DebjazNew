@@ -7,6 +7,7 @@
 <meta name="description" content="{{ $systemInfo->description }}">
 <meta name="keywords" content="{{ $systemInfo->description }}, {{ $systemInfo->description }}">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script crossorigin="anonymous" src="https://unpkg.com/@dintero/checkout-web-sdk@0.0.17/dist/dintero-checkout-web-sdk.umd.min.js" integrity="sha384-C+s7429Bxo4cmt8Tt3N5MRR4fZ/OsEBHDJaHwOnhlizydtc7wgCGvH5u5cXnjSSx"></script>
 
 @endsection
 
@@ -100,7 +101,7 @@
 							</li> --}}
 							<li>
 								<input type="radio" name="payment_method" value="cash_on_delivery">
-								Pay when you get the package
+								<div id="checkout-container"> <img src="https://backoffice.dintero.com/api/checkout/v1/branding/profiles/T11113099.55zmdrmcMJakno7aqiet3W/variant/colors/width/420/dintero_top_frame.svg"></img> </div>
 							</li>
 						</ul>
 					<button type="submit" class="site-btn submit-order-btn">Place Order</button>
@@ -136,5 +137,42 @@
 	</div>
 </section>
 <!-- checkout section end -->
+<script type="text/javascript">
+    const container = document.getElementById("checkout-container");
+    dintero
+        .embed({
+            container,
+            sid: "T11113099.55rjJtC4NUfpHDTa8P6op4",
+            language: "no", 
+            onSession: function(event, checkout) {
+                console.log("session", event.session);
+            },
+            onPayment: function(event, checkout) {
+                console.log("transaction_id", event.transaction_id);
+                console.log("href", event.href);
+                checkout.destroy();
+            },
+            onPaymentError: function(event, checkout) {
+                console.log("href", event.href);
+                checkout.destroy();
+            },
+            onSessionCancel: function(event, checkout) {
+                console.log("href", event.href);
+                checkout.destroy();
+            },
+            onSessionLocked: function(event, checkout) {
+                console.log("pay_lock_id", event.pay_lock_id);
+            },
+            onSessionLockFailed: function(event, checkout) {
+                console.log("session lock failed");
+            },
+            onActivePaymentType: function(event, checkout) {
+                console.log("payment product type selected", event.payment_product_type);
+            },
+        })
+        .then(function(checkout) {
+            console.log("checkout", checkout);
+        });
+</script>
 
 @endsection

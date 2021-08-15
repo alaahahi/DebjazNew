@@ -39,15 +39,17 @@
 		<div class="header-top">
 			<div class="container">
 				<div class="row">
-					<div class="col-lg-2 text-center text-lg-left">
+					<div class="col-sm-2 text-center text-lg-left">
 						<!-- logo -->
-						<a href="/" class="site-logo">
+						<a href="<?php echo url("/") ?>" class="site-logo">
 							<img src="{{ $shareSettings->logo }}" alt="" width="150px">
 						</a>
 					</div>
-					<!-- search area -->
+					<div class="col-sm-6"></div>
+					<!-- search area
 					<livewire:search-dropdown>
-					<div class="col-xl-4 col-lg-5">
+					 -->
+					<div class="col-sm-4" style="text-align: right;">
 						<div class="user-panel">
 							<div class="up-item">
 								<div class="shopping-card">

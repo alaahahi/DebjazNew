@@ -11,6 +11,7 @@ use App\Category;
 use App\SubCategory;
 use App\PrivacyPolicy;
 use App\SystemSetting;
+use App\OrderProduct;
 use Illuminate\Http\Request;
 
 class FrontendController extends Controller
@@ -22,11 +23,13 @@ class FrontendController extends Controller
 
         $products = Product::orderBy('created_at', 'DESC')->with('category', 'photos')->paginate(8); 
 
+        $orderProduct = OrderProduct::all();
+
         $slides = Slide::all();
 
         $systemName = SystemSetting::first();
         //return response()->json($systemName);
-        return view('welcome', compact('products', 'slides', 'categories', 'systemName'));
+        return view('welcome', compact('products', 'slides', 'categories', 'systemName','orderProduct'));
     }
 
     // show single product details

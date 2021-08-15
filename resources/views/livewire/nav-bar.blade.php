@@ -2,7 +2,7 @@
 	<div class="container">
 		<!-- menu -->
 		<ul class="main-menu">
-			<li><a href="/">Home</a></li>
+			<li><a href="<?php echo url("/")?>">Home</a></li>
 			<li><a href="{{ route('frontendCategories') }}">Our Shop</a>
 				<ul class="sub-menu">
 					@foreach($navCategories as $cat)
