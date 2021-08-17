@@ -46,7 +46,7 @@
 					<div class="col-sm-2 text-center text-lg-left">
 						<!-- logo -->
 						<a href="<?php echo url("/") ?>" class="site-logo">
-							<img src="{{ $shareSettings->logo }}" alt="" width="150px">
+							<img src="<?php echo env('APP_NAME') ?>images\logo.png" alt="" width="150px">
 						</a>
 					</div>
 					<div class="col-sm-6"></div>

@@ -12,7 +12,7 @@
 @endsection
 
 @section('content')
-<?php echo env('APP_NAME') ?>
+
 <!-- checkout section  -->
 <section class="checkout-section spad">
 	<div class="container">
