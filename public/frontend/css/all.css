@@ -4175,7 +4175,7 @@ ol {
 ---------------------*/
 
 .hero-section {
-	padding-bottom: 54px;
+	padding-bottom: 46px;
 }
 
 .hero-slider .hs-item {
@@ -4816,7 +4816,7 @@ ol {
 	height: 5px;
 	left: 0;
 	top: 8px;
-	border: 1px solid #ec105a;
+
 	border-radius: 50%;
 	-webkit-transition: all 0.2s;
 	-o-transition: all 0.2s;
@@ -4831,7 +4831,6 @@ ol {
 	width: 7px;
 	height: 7px;
 	top: 6px;
-	background: #ec105a;
 }
 
 .fw-latest-post-widget .lp-item {
@@ -6518,3 +6517,7 @@ ol {
 
 .StripeElement--webkit-autofill {
   background-color: #fefde5 !important;}
+
+  .main-menu {
+    padding-top: 10px;}
+    

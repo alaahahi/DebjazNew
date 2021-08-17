@@ -2,7 +2,7 @@
 
 return [
     "Products"=> "المنتجات",
-    "Buy a"=> "اشتري",
+    "Buy"=> "اشتري الأن",
     "Product price per unit Including all taxes"=> "السعر يتضمن الضرائب",
     "Get a chance to win=>"=> "احصل على فرصة للفوز بـ=>",
     "Learn more about this"=> "المزيد",
@@ -37,7 +37,7 @@ return [
     "Settings"=> "الاعدادات",
     "Admin Dashboard"=> "لوحة التحكم",
     "Campaigns"=> "الحملات الترويجية",
-    "About us"=> "عنا",
+    "About us"=> "عن debjaz",
     "Help Center"=> "مركز المساعدة",
     "Type something"=> "اكتب هنا",
     "Business Hours"=> "ساعات العمل من التاسعة صباحا للخامسة عصرا من الاثنين الى الجمعة",
@@ -109,6 +109,7 @@ return [
     "remove this item"=> "ازالة من السلة",
     "item total"=> "عدد القطع",
     "Total"=> "الاجمالي",
+    "Shop"=>"المتجر",
     "Prices inclusive of VAT"=> "السعر يتضمن الضريبة",
     "Total Coupons"=> "عدد القسائم",
     "Total Products"=> "عدد القطع",
@@ -119,6 +120,7 @@ return [
     "you will be redirected to order page after 3 seconds"=> "سوف يتم اعادة التوجيه لصفحة الطلبات تلقائيا بعد ثلاث ثواني",
     "Nothing Found"=> "لم يتم العثور على شيء",
     "Return Home"=> "العودة للصفحة الرئيسية",
+    "Home"=> "الرئيسية",
     "unpaid"=> "غير مدفوعة",
     "processing"=> "قيد المعالجة",
     "Checkout"=> "حفظ الطلب",
@@ -130,5 +132,12 @@ return [
     "How it Works"=> "كيف نعمل",
     "Charities"=> "الجمعيات الخيرية",
     "Privacy Policy"=> "شروط الاستخدام",
-    "Campaign Draw Terms & Conditions"=> "شروط وأحكام السحب"
+    "Campaign Draw Terms & Conditions"=> "شروط وأحكام السحب",
+    "Fast Secure Payments"=>"مدفوعات سريعة وآمنة",
+    "Premium Products"=>"منتجات متميزة",
+    "Affordable Delivery"=>"التسليم في متناول الجميع",
+    "BROWSE TOP SELLING PRODUCTS"=>"تصفح أفضل المنتجات مبيعًا",
+    "More"=>"المزيد",
+    "CONTACT" => "معلومات التواصل"
+
 ];

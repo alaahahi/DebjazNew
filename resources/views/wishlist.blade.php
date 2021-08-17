@@ -41,7 +41,7 @@
 								<td class="product-col">
 									<a href="{{ route('single-product', $item->model->slug) }}">
 										@if($item->model->photos->count() > 0)
-			                               <img src="https://localhost/ZimCart/storage/app/public/{{ $item->model->photos->first()->images }}" alt="">
+			                               <img src="<?php echo env('APP_NAME') ?>{{ $item->model->photos->first()->images }}" alt="">
 			                            @else
 			                                <img src="{{ asset('frontend/img/no-image.png') }}" alt="">
 			                            @endif

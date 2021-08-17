@@ -6,69 +6,51 @@
 		<div class="row">
 			<div class="col-lg-3 col-sm-6">
 				<div class="footer-widget about-widget">
-					<h2>About</h2>
+					<h2>{{ trans('frontend.About us') }}</h2>
 					<p>{{ $systemDetail->description }}</p>
 					<img src="{{ asset('frontend/img/cards.png') }}" alt="">
 				</div>
 			</div>
 			<div class="col-lg-3 col-sm-6">
 				<div class="footer-widget about-widget">
-					<h2>Useful Links</h2>
+					<h2>{{ trans('frontend.Quick links') }}</h2>
 					<ul>
-						<li><a href="{{ route('about-us') }}">About Us</a></li>
-						<li><a href="">Track Orders</a></li>
-						<li><a href="">Shipping</a></li>
-						<li><a href="{{ route('contact-us') }}">Contact</a></li>
-						<li><a href="{{ route('my-orders.index') }}">My Orders</a></li>
-					</ul>
-					<ul>
-						<li><a href="{{ route('contact-us') }}">Support</a></li>
-						<li><a href="{{ route('terms.conditions') }}">Terms of Use</a></li>
-						<li><a href="{{ route('privacy.policy') }}">Privacy Policy</a></li>
-						<li><a href="">Blog</a></li>
+						<li><a href="{{ route('about-us') }}">{{ trans('frontend.About Debjaz') }}</a></li>
+						<li><a href="">{{ trans('frontend.My Account') }}</a></li>
+						<li><a href="">{{ trans('frontend.Active Tickets') }}</a></li>
+						<li><a href="{{ route('contact-us') }}">{{ trans('frontend.Campaigns') }}</a></li>
+						<li><a href="{{ route('my-orders.index') }}">{{ trans('frontend.Products') }}</a></li>
 					</ul>
 				</div>
 			</div>
 			<div class="col-lg-3 col-sm-6">
 				<div class="footer-widget about-widget">
-					<h2>Blog</h2>
+					<h2>{{ trans('frontend.More') }}</h2>
 					<div class="fw-latest-post-widget">
-						<div class="lp-item">
-							<div class="lp-thumb set-bg" data-setbg="{{ asset('frontend/img/blog-thumbs/1.jpg') }}"></div>
-							<div class="lp-content">
-								<h6>How to order?</h6>
-								<span>July 11, 2020</span>
-								<a href="#" class="readmore">Read More</a>
-							</div>
-						</div>
-						<div class="lp-item">
-							<div class="lp-thumb set-bg" data-setbg="{{ asset('frontend/img/blog-thumbs/2.jpg') }}"></div>
-							<div class="lp-content">
-								<h6>Returns</h6>
-								<span>July 11, 2020</span>
-								<a href="#" class="readmore">Read More</a>
-							</div>
-						</div>
+					<ul>
+						<li><a href="{{ route('contact-us') }}">{{ trans('frontend.Contact Us') }}</a></li>
+						<li><a href="{{ route('contact-us') }}">{{ trans('frontend.FAQs') }}</a></li>
+						<li><a href="">{{ trans('frontend.How it Works') }}</a></li>
+						<li><a href="{{ route('terms.conditions') }}">{{ trans('frontend.Charities') }}</a></li>
+						<li><a href="{{ route('privacy.policy') }}">{{ trans('frontend.Campaign Draw Terms & Conditions') }}</a></li>
+
+					</ul>
 					</div>
 				</div>
 			</div>
 			<div class="col-lg-3 col-sm-6">
 				<div class="footer-widget contact-widget">
-					<h2>Contact</h2>
+					<h2>{{ trans('frontend.CONTACT') }}</h2>
 					<div class="con-info">
-						<span>C.</span>
 						<p>{{ $systemDetail->name }} </p>
 					</div>
 					<div class="con-info">
-						<span>B.</span>
 						<p>{{ $systemDetail->address }} </p>
 					</div>
-					<div class="con-info">
-						<span>T.</span>
+					<div class="con-info tel">
 						<p>{{ $systemDetail->tel }}</p>
 					</div>
 					<div class="con-info">
-						<span>E.</span>
 						<p>{{ $systemDetail->email }}</p>
 					</div>
 				</div>

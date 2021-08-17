@@ -143,7 +143,7 @@
                         @endif
 						<a href="{{ route('single-product', $like->slug) }}">
 							@if($like->photos->count() > 0)
-                                <img src="https://localhost/ZimCart/storage/app/public/{{ $like->photos->first()->images }}" alt="">
+                                <img src="<?php echo env('APP_NAME') ?>{{ $like->photos->first()->images }}" alt="">
                             @else
                                 <img src="{{ asset('frontend/img/no-image.png') }}" alt="">
                             @endif

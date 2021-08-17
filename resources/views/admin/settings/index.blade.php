@@ -29,10 +29,10 @@
 				<tr>
 					<td> {{ $setting->name }} </td>
 					<td> 
-						<img src="https://localhost/ZimCart/storage/app/public/{{ $setting->logo }}" style="width: 81px; height: 22px;">
+						<img src="<?php echo env('APP_NAME') ?>{{ $setting->logo }}" style="width: 81px; height: 22px;">
 					</td>
 					<td> 
-						<img src="https://localhost/ZimCart/storage/app/public/{{ $setting->favicon }}" style="width: 40px; height: 40px; border-radius: 100%;">
+						<img src="<?php echo env('APP_NAME') ?>{{ $setting->favicon }}" style="width: 40px; height: 40px; border-radius: 100%;">
 					</td>
 					<td> {{ $setting->tel }} </td>
 					<td> {{ $setting->email }} </td>

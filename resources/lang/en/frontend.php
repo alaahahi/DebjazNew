@@ -2,7 +2,7 @@
 
 return [
     "Products"=> "Products",
-    "Buy a"=> "Buy a",
+    "Buy"=> "Buy Now",
     "Product price per unit Including all taxes"=> "Product price per unit Including all taxes",
     "Get a chance to win=>"=> "Get a chance to win=>",
     "Learn more about this"=> "Learn more",
@@ -78,6 +78,7 @@ return [
     "Done"=> "Done",
     "Saving"=> "Saving",
     "Your Account info"=> "Your Account info",
+    "Shop"=>"Our Shop",
     "Cart"=> "Shopping Cart",
     "Your Cart is empty"=> "Your Cart is empty",
     "Unit price"=> "Unit price",
@@ -120,6 +121,7 @@ return [
     "Your wishlist is empty"=> "Your wishlist is empty",
     "Page Not Found"=> "Page Not Found",
     "Return Home"=> "Return Home",
+    "Home"=> "Home",
     "unpaid"=> "unpaid",
     "processing"=> "processing",
     "Checkout"=> "Checkout",
@@ -131,5 +133,11 @@ return [
     "How it Works"=> "How it Works",
     "Charities"=> "Charities",
     "Privacy Policy"=> "Privacy Policy",
-    "Campaign Draw Terms & Conditions"=> "Campaign Draw Terms & Conditions"
+    "Campaign Draw Terms & Conditions"=> "Campaign Draw Terms & Conditions",
+    "Fast Secure Payments"=>"Fast Secure Payments",
+    "Premium Products"=>"Premium Products",
+    "Affordable Delivery"=>"Affordable Delivery",
+    "BROWSE TOP SELLING PRODUCTS"=>"BROWSE TOP SELLING PRODUCTS",
+    "More"=>"More",
+    "CONTACT" => "CONTACT INFO"
 ];

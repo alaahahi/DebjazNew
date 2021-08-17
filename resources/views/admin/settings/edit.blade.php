@@ -22,7 +22,7 @@
 			</div>
 			<!-- Company logo -->
 			@if(isset($setting))
-				<img src="https://localhost/ZimCart/storage/app/public/{{$setting->logo}}" style="width: 162px; height: 55px;">
+				<img src="<?php echo env('APP_NAME') ?>{{$setting->logo}}" style="width: 162px; height: 55px;">
 			@endif
 			<div class="form-group">
 				<label for="logo">Company Logo</label>
@@ -36,7 +36,7 @@
 			</div>
 			<!-- Company favicon -->
 			@if(isset($setting))
-				<img src="https://localhost/ZimCart/storage/app/public/{{$setting->favicon}}" style="width: 128px; height: 128px;">
+				<img src="<?php echo env('APP_NAME') ?>{{$setting->favicon}}" style="width: 128px; height: 128px;">
 			@endif
 			<div class="form-group">
 				<label for="favicon">Company Favicon</label>

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Favicon -->
-    <link href="https://localhost/ZimCart/storage/app/public/{{$shareSettings->favicon}}" rel="shortcut icon"/>
+    <link href="<?php echo env('APP_NAME') ?>{{$shareSettings->favicon}}" rel="shortcut icon"/>
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">

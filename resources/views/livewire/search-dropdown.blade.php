@@ -12,7 +12,7 @@
 						<li class="border-bottom mt-1 pb-1">
 							<a href="{{ route('single-product', $result->slug) }}" class="d-flex align-items-center justify-content-between ml-3 mr-3">
 							@if($result->photos->count() > 0)
-                               <img src="https://localhost/ZimCart/storage/app/public/{{ $result->photos->first()->images }}" width="50">
+                               <img src="<?php echo env('APP_NAME') ?>{{ $result->photos->first()->images }}" width="50">
                             @else
                                 <img src="{{ asset('frontend/img/no-image.png') }}" width="50">
                             @endif

@@ -3,7 +3,7 @@
 <head>
 	@yield('seo')
 	<!-- Favicon -->
-	<link href=https://localhost/ZimCart/storage/app/public/{{$shareSettings->favicon}}" rel="shortcut icon"/>
+	<link href=<?php echo env('APP_NAME') ?>{{$shareSettings->favicon}}" rel="shortcut icon"/>
 
 	<!-- Google Font -->
 	<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,300i,400,400i,700,700i" rel="stylesheet">
@@ -11,10 +11,15 @@
 
 	<!-- Stylesheets -->
 	<link rel="stylesheet" href="{{ asset('frontend/css/all.css') }}"/>
+	@if( session()->get('locale')  == 'ar')
+    <link href="{{ asset('frontend/css/allrtl.css') }}" rel="stylesheet">
+	@endif
 
 	<link rel="stylesheet" href="{{ asset('css/toastr.min.css') }}"/>
 	<!-- font-owesome icons link -->
     <link href="{{ asset('frontend/fontawesome/css/all.css') }}" rel="stylesheet">
+	
+
 
 	<livewire:styles />
 	@yield('css')
@@ -30,10 +35,9 @@
 	  gtag('config', '{{ $shareSettings->google_analytics }}');
 	</script>
 	@endif
-
 </head>
 <body>
-{{ App::setLocale(session()->get('locale')) }}
+{{ App::setLocale(session()->get('locale') ? session()->get('locale')  : "en") }}
 	<!-- Header section -->
 	<header class="header-section">
 		<div class="header-top">
@@ -122,14 +126,5 @@
 
 	@yield('scripts')
 
-	</body>
-	<script>
-
-function getComboA(selectObject) {
-  var value = selectObject.value; 
-  console.log(value);
-  return value;
-}
-	</script>
-	
+	</body>	
 </html>

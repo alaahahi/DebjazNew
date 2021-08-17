@@ -13,7 +13,7 @@
 
 			@if(isset($slide))
 				<div class="form-group">
-					<img src="https://localhost/ZimCart/storage/app/public/{{$slide->image}}" style="max-width: 60%; height: 300px;">
+					<img src="<?php echo env('APP_NAME') ?>{{$slide->image}}" style="max-width: 60%; height: 300px;">
 				</div>
 			@endif
 			<div class="form-group">

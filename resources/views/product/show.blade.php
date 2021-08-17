@@ -36,7 +36,7 @@
 					<div class="product-pic-zoom">
 						
 						@if($singleImage != null)
-                            <img class="product-big-img" src="https://localhost/ZimCart/storage/app/public/{{ $singleImage->images }}" alt="">
+                            <img class="product-big-img" src="<?php echo env('APP_NAME') ?>{{ $singleImage->images }}" alt="">
                         @else
                             <img src="{{ asset('frontend/img/no-image.png') }}" alt="">
                         @endif
@@ -46,13 +46,13 @@
 							@foreach($product->photos as $image)
 								<div class="pt active" data-imgbigurl="
 								@if($image->count() > 0)
-								https://localhost/ZimCart/storage/app/public/{{ $image->images }}
+								<?php echo env('APP_NAME') ?>{{ $image->images }}
 		                            @else
 		                                {{ asset('frontend/img/no-image.png') }}
 		                            @endif
 								">	
 									@if($image->count() > 0)
-		                                <img src="https://localhost/ZimCart/storage/app/public/{{ $image->images }}" alt="">
+		                                <img src="<?php echo env('APP_NAME') ?>{{ $image->images }}" alt="">
 		                            @else
 		                                <img src="{{ asset('frontend/img/no-image.png') }}" alt="">
 		                            @endif
@@ -168,7 +168,7 @@
 					<div class="pi-pic">
 						<a href="{{ route('single-product', $related->slug) }}">
 							@if($related->photos->count() > 0)
-                                <img src="https://localhost/ZimCart/storage/app/public/{{ $related->photos->first()->images }}" alt="">
+                                <img src="<?php echo env('APP_NAME') ?>{{ $related->photos->first()->images }}" alt="">
                             @else
                                 <img src="{{ asset('frontend/img/no-image.png') }}" alt="">
                             @endif

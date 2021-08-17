@@ -114,6 +114,9 @@
 
 
 </style>
+@if( session()->get('locale')  == 'ar')
+    <link href="{{ asset('frontend/css/allrtl.css') }}" rel="stylesheet">
+	@endif
 @endsection
 <?php 
 function color($x){
@@ -136,6 +139,7 @@ switch ($x) {
 }
 }
 ?>
+{{ App::setLocale(session()->get('locale') ? session()->get('locale')  : "en") }}
 @section('content')
 
   @if($slides->count() > 0)
@@ -143,14 +147,14 @@ switch ($x) {
     <section class="hero-section">
         <div class="hero-slider owl-carousel">
             @foreach($slides as $slide)
-            <div class="hs-item set-bg" data-setbg="https://localhost/ZimCart/storage/app/public/{{ $slide->image }}">
+            <div class="hs-item set-bg" data-setbg="<?php echo env('APP_NAME') ?>{{ $slide->image }}">
                 <div class="container">
-                    <div class="row">
-                        <div class="col-xl-6 col-lg-7 text-white">
+                    <div class="row hero-section-row">
+                        <div class="col-xl-12 col-lg-12 text-white">
                             <span>{{ $slide->heading }}</span>
                             <p>{{ Str::limit($slide->description, 100) }}</p>
-                            <a href="/{{ $slide->link }}" class="site-btn sb-line">BUY NOW</a>
-                            <a href="{{ route('contact-us') }}" class="inquire site-btn sb-white">INQUIRE</a>
+                            <a href="/{{ $slide->link }}" class="site-btn sb-line">{{ trans('frontend.Buy') }}</a>
+                            <a href="{{ route('contact-us') }}" class="inquire site-btn sb-white">{{ trans('frontend.More') }}</a>
                         </div>
                     </div>
                     @if($slide->from_price != null)
@@ -181,7 +185,7 @@ switch ($x) {
                         <div class="feature-icon">
                             <img src="{{ asset('frontend/img/icons/1.png') }}" alt="#">
                         </div>
-                        <h4>Fast Secure Payments</h4>
+                        <h4>{{ trans('frontend.Fast Secure Payments') }}</h4>
                     </div>
                 </div>
                 <div class="col-md-4 p-0 feature">
@@ -189,7 +193,7 @@ switch ($x) {
                         <div class="feature-icon">
                             <img src="{{ asset('frontend/img/icons/2.png') }}" alt="#">
                         </div>
-                        <h4 class="text-white">Premium Products</h4>
+                        <h4 class="text-white">{{ trans('frontend.Premium Products') }}</h4>
                     </div>
                 </div>
                 <div class="col-md-4 p-0 feature">
@@ -197,7 +201,7 @@ switch ($x) {
                         <div class="feature-icon">
                             <img src="{{ asset('frontend/img/icons/3.png') }}" alt="#">
                         </div>
-                        <h4>Affordable Delivery</h4>
+                        <h4>{{ trans('frontend.Affordable Delivery') }}</h4>
                     </div>
                 </div>
             </div>
@@ -211,7 +215,7 @@ switch ($x) {
         <div class="container">
             <div class="section-title">
               <br>
-                <h3>BROWSE TOP SELLING PRODUCTS</h3>
+                <h3>{{ trans('frontend.BROWSE TOP SELLING PRODUCTS') }}</h3>
             </div>
             <ul class="product-filter-menu">
                 @foreach($categories as $cat)
@@ -234,7 +238,7 @@ switch ($x) {
                                 @if($p->photos->count() > 0)
                                 <div class="row">
                                     <div  class="col-md-4" >
-                                    <img src="https://localhost/ZimCart/storage/app/public/{{ $p->photos->first()->images }} " alt="">
+                                    <img src="<?php echo env('APP_NAME') ?>{{ $p->photos->first()->images }} " alt="">
                                     </div>
                                     <div  class="col-md-4" >
                                     <div  style="  position: absolute;top: 30%;left: 35%;">
@@ -247,7 +251,7 @@ switch ($x) {
                                     </div>
 
                                     </div>
-                                    <img class="col-md-4" src="https://localhost/ZimCart/storage/app/public/{{ $p->photos->last()->images }} " alt="">
+                                    <img class="col-md-4" src="<?php echo env('APP_NAME') ?>{{ $p->photos->last()->images }} " alt="">
                                     </div>
                                 </div>
 
@@ -308,7 +312,7 @@ switch ($x) {
                         @endif
                         <a href="{{ route('single-product', $p->slug) }}">
                             @if($p->photos->count() > 0)
-                                <img src="https://localhost/ZimCart/storage/app/public/{{ $p->photos->first()->images }} " alt="">
+                                <img src="<?php echo env('APP_NAME') ?>{{ $p->photos->first()->images }} " alt="">
                             @else
                                 <img src="{{ asset('frontend/img/no-image.png') }}" alt="">
                             @endif

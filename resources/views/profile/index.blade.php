@@ -70,7 +70,7 @@
 						<div class="tag-new">New</div>
 						<a href="{{ route('single-product', $view->slug) }}">
 							@if($view->photos->count() > 0)
-                                <img src="https://localhost/ZimCart/storage/app/public/{{ $view->photos->first()->images }}" alt="">
+                                <img src="<?php echo env('APP_NAME') ?>{{ $view->photos->first()->images }}" alt="">
                             @else
                                 <img src="{{ asset('frontend/img/no-image.png') }}" alt="">
                             @endif

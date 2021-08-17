@@ -2,19 +2,22 @@
 	<div class="container">
 		<!-- menu -->
 		<ul class="main-menu">
-			<li><a href="<?php echo url("/")?>">Home</a></li>
-			<li><a href="{{ route('frontendCategories') }}">Our Shop</a>
+			<li><a href="<?php echo url("/")?>">{{ trans('frontend.Home') }}</a></li>
+			<li><a href="{{ route('frontendCategories') }}">{{ trans('frontend.Shop') }}</a>
+					<!-- 
 				<ul class="sub-menu">
 					@foreach($navCategories as $cat)
 						<li><a href="{{ route('frontendCategory', $cat->slug) }}">{{ $cat->name }}</a></li>
 					@endforeach	
 				</ul>
+				 -->
 			</li>
-			<li><a href="{{ route('on-sale') }}">On Sale
+			<li><a href="{{ route('on-sale') }}">{{ trans('frontend.Campaigns') }}
 				<span class="new">Sale</span>
 			</a></li>
-			<li><a href="#">Blog</a></li>
-			<li><a href="{{ route('contact-us') }}">Contact</a></li>
+			<li><a href="#">{{ trans('frontend.About us') }}</a></li>
+			<li><a href="#">{{ trans('frontend.Help Center') }}</a></li>
+			<li><a href="{{ route('contact-us') }}">{{ trans('frontend.Contact Us') }}</a></li>
 			@auth
 			<li><i class="flaticon-profile mr-2  text-light"></i><a href="#">{{ auth()->user()->name }}</a>
 				<ul class="sub-menu">
@@ -36,8 +39,8 @@
 				</ul>
 			</li>
 			@else
-			<li><a href="{{ route('login') }}">Signin</a></li>
-			<li> <a href="{{ route('register') }}">Signup</a></li>
+			<li><a href="{{ route('login') }}">{{ trans('frontend.Sign In') }}</a></li>
+			<li> <a href="{{ route('register') }}">{{ trans('frontend.Sign Up') }}</a></li>
 			@endauth
 		</ul>
 	</div>

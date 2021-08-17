@@ -2,7 +2,7 @@
 
 return [
     "Products"=> "Produkter",
-    "Buy a"=> "Köp",
+    "Buy"=> "Köp Now",
     "Product price per unit Including all taxes"=> "Produktpris per enhet Inklusive alla skatter",
     "Get a chance to win=>"=> "Få en chans att vinna=>",
     "Learn more about this"=> "Läs mer",
@@ -48,6 +48,7 @@ return [
     "Customer service"=> "Kund service",
     "Quick links"=> "Snabblänkar",
     "We accept"=> "Vi accepterar",
+    "Shop"=>"shoppingupplevelsen",
     "For the ultimate shopping experience download our app."=> "Ladda ner vår app för den bästa shoppingupplevelsen.",
     "Your email has verified"=> "Din e-post har verifierats",
     "PasswordForget"=> "LösenordGlömma",
@@ -120,6 +121,7 @@ return [
     "Your wish list is empty"=> "Din önskelista är tom",
     "Page Not Found"=> "Sida inte hittad",
     "Return Home"=> "Tillbaka till Hemsida",
+    "Home"=> "Hemsida",
     "unpaid"=> "obetalad",
     "processing"=> "processing",
     "Checkout"=> "Kassa",
@@ -131,5 +133,13 @@ return [
     "How it Works"=> "How it Works",
     "Charities"=> "Charities",
     "Privacy Policy"=> "Privacy Policy",
-    "Campaign Draw Terms & Conditions"=> "Campaign Draw Terms & Conditions"
+    "Campaign Draw Terms & Conditions"=> "Campaign Draw Terms & Conditions",
+    "Fast Secure Payments"=>"Fast Secure Payments",
+    "Premium Products"=>"Premium Products",
+    "Fast Secure Payments"=>"Fast Secure Payments",
+    "Affordable Delivery"=>"Affordable Delivery",
+    "Premium Products"=>"Premium Products",
+    "BROWSE TOP SELLING PRODUCTS"=>"BROWSE TOP SELLING PRODUCTS",
+    "More"=>"More",
+    "CONTACT" => "CONTACT INFO"
 ];

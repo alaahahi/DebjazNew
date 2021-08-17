@@ -35,7 +35,7 @@
 					<td>{{ $slide->heading }}</td>
 					<td>{{ $slide->description }}</td>
 					<td>
-						<img src="https://localhost/ZimCart/storage/app/public/{{ $slide->image }}" style="border-radius: 100%; width: 25px; height: 25px;">
+						<img src="<?php echo env('APP_NAME') ?>{{ $slide->image }}" style="border-radius: 100%; width: 25px; height: 25px;">
 					</td>
 					<td>{{ $slide->link }}</td>
 					<td>

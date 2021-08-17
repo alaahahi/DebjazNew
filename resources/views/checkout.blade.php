@@ -12,7 +12,7 @@
 @endsection
 
 @section('content')
-
+<?php echo env('APP_NAME') ?>
 <!-- checkout section  -->
 <section class="checkout-section spad">
 	<div class="container">
@@ -91,17 +91,33 @@
 					{{-- </div> --}}
 					<div class="cf-title">Payment</div>
 						<ul class="payment-list">
+							
 							@if(env('PAYPAL_SANDBOX_API_SECRET') != null)
 							<li>
 								<input type="radio" name="payment_method" value="paypal">
 								Paypal<a href="#"><img src="{{ asset('frontend/img/paypal.png') }}" alt=""></a>
 							</li>
 							@endif
+							<li>
+							<div id="smart-button-container">
+      <div style="text-align: center;">
+        <div style="margin-bottom: 1.25rem;">
+          <p></p>
+          <select id="item-options"><option value="" price="0"> - 0 USD</option></select>
+          <select style="visibility: hidden" id="quantitySelect"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option></select>
+        </div>
+      <div id="paypal-button-container"></div>
+      </div>
+    </div>
+							</li>
 							{{-- <li>Credit / Debit card<a href="#"><img src="{{ asset('frontend/img/mastercart.png') }}" alt=""></a>
 							</li> --}}
 							<li>
 								<input type="radio" name="payment_method" value="cash_on_delivery">
-								<div id="checkout-container"> <img src="https://backoffice.dintero.com/api/checkout/v1/branding/profiles/T11113099.55zmdrmcMJakno7aqiet3W/variant/colors/width/420/dintero_top_frame.svg"></img> </div>
+								cash_on_delivery
+							</li>
+							<li>
+							<div id="checkout-container"> <img src="https://backoffice.dintero.com/api/checkout/v1/branding/profiles/T11113099.55zmdrmcMJakno7aqiet3W/variant/colors/width/420/dintero_top_frame.svg"></img> </div>
 							</li>
 						</ul>
 					<button type="submit" class="site-btn submit-order-btn">Place Order</button>
@@ -115,7 +131,7 @@
 						<li>
 							<div class="pl-thumb">
 								@if($item->model->photos->count() > 0)
-	                                <img src="https://localhost/ZimCart/storage/app/public/{{ $item->model->photos->first()->images }}" alt="">
+	                                <img src="{{ $item->model->photos->first()->images }}" alt="">
 	                            @else
 	                                <img src="{{ asset('frontend/img/no-image.png') }}" alt="">
 	                            @endif
@@ -132,6 +148,11 @@
 						<li class="total">Total<span>${{ $newTotal }}.00</span></li>
 					</ul>
 				</div>
+				<div id="smart-button-container">
+      <div style="text-align: center;">
+        <div id="paypal-button-container"></div>
+      </div>
+    </div>
 			</div>
 		</div>
 	</div>
@@ -174,5 +195,48 @@
             console.log("checkout", checkout);
         });
 </script>
+
+
+  <script src="https://www.paypal.com/sdk/js?client-id=AaqzAhQhbTpvd-6P7-Vgj26JNgu63CS8etFcLX6h2Z89LW1AEGSGvWIXSDB71HKanLrx3XL4XKk-613B&enable-funding=venmo&currency=USD" data-sdk-integration-source="button-factory"></script>
+  <script>
+    function initPayPalButton() {
+      paypal.Buttons({
+        style: {
+          shape: 'pill',
+          color: 'blue',
+          layout: 'vertical',
+          label: 'paypal',
+          
+        },
+
+        createOrder: function(data, actions) {
+          return actions.order.create({
+            purchase_units: [{"amount":{"currency_code":"USD","value":1}}]
+          });
+        },
+
+        onApprove: function(data, actions) {
+          return actions.order.capture().then(function(orderData) {
+            
+            // Full available details
+            console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+
+            // Show a success message within this page, e.g.
+            const element = document.getElementById('paypal-button-container');
+            element.innerHTML = '';
+            element.innerHTML = '<h3>Thank you for your payment!</h3>';
+
+            // Or go to another URL:  actions.redirect('thank_you.html');
+            
+          });
+        },
+
+        onError: function(err) {
+          console.log(err);
+        }
+      }).render('#paypal-button-container');
+    }
+    initPayPalButton();
+  </script>
 
 @endsection

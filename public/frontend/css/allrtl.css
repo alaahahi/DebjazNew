@@ -1,0 +1,29 @@
+
+.main-menu
+    {
+    direction: rtl;
+    text-align: right;
+    font-weight: 700;
+    }
+.header-top 
+    {
+    direction: rtl;
+    }
+
+.hero-section-row
+    {
+    text-align: right;
+    }
+.footer-section
+    {
+    direction: rtl;
+    text-align: right;
+    }
+.footer-widget ul 
+    {
+    float: none;
+    }
+.tel 
+    {
+    direction: ltr;
+    }
