@@ -106,7 +106,7 @@ return [
     "New Password"=> "Nytt lösenord",
     "Confirm New Password"=> "Bekräfta nytt lösenord",
     "Password"=> "Lösenord",
-    "Don't have an account?"=> "Har du inget konto?",
+    "Dont have an account?"=> "Har du inget konto?",
     "Sign Up"=> "Registrera",
     "Sign In"=> "Logga in",
     "Sign In with Google"=> "Logga in med Google",
@@ -144,5 +144,12 @@ return [
     "More"=>"More",
     "CONTACT" => "CONTACT INFO",
     "/"=>"/",
-    "LATEST PRODUCTS"=>"LATEST PRODUCTS"
+    "LATEST PRODUCTS"=>"LATEST PRODUCTS",
+    "Your name"=>"Your name",
+    "Your e-mail"=>"Your e-mail",
+    "Subject"=>"Subject",
+    "Message"=>"Message",
+    "SEND NOW"=>"SEND NOW",
+    "Remember me"=>"Remember me"
+
 ];

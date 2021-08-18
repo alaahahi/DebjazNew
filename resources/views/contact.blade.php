@@ -5,6 +5,7 @@
 <meta name="description" content="Login">
 <meta name="keywords" content="login, sign">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{{ App::setLocale(session()->get('locale') ? session()->get('locale')  : "en") }}
  <style>
       /* Set the size of the div element that contains the map */
       #map {
@@ -22,10 +23,10 @@
 	<!-- Page info -->
 	<div class="page-top-info">
 		<div class="container">
-			<h4>Contact</h4>
+			<h4>{{ trans('frontend.Contact Us') }}</h4>
 			<div class="site-pagination">
-				<a href="/">Home</a> /
-				<a href="">Contact</a>
+				<a href="/">{{ trans('frontend.Home') }}</a> {{ trans('frontend./') }}
+				<a href="">{{ trans('frontend.Contact Us') }}</a>
 			</div>
 		</div>
 	</div>
@@ -37,9 +38,9 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-6 contact-info">
-					<h3>Get in touch</h3>
+					<h3>{{ trans('frontend.Get in Touch') }}</h3>
 					<p>{{ $info->address }}</p>
-					<p>{{ $info->tel }}</p>
+					<p class="tel">{{ $info->tel }}</p>
 					<p>{{ $info->email }}</p>
 					<!-- flash success messages -->
 					@if(Session::has('success'))
@@ -53,26 +54,26 @@
 						<!-- name -->
 						<input type="text" name="name" 
 							class="form-control @error('name') is-invalid @enderror" 
-							id="name" placeholder="Your name" 
+							id="name" placeholder="{{ trans('frontend.Your name') }}" 
 							value="{{ old('name') }}"
 						>
 						<!-- email -->
 						<input type="text" name="email" 
 							class="form-control @error('email') is-invalid @enderror"
-							id="email" placeholder="Your e-mail" 
+							id="email" placeholder="{{ trans('frontend.Your e-mail') }}" 
 							value="{{ old('email') }}"
 						 >
 						<!-- subject -->
 						<input type="text" name="subject" 
 							class="form-control @error('subject') is-invalid @enderror" 
-							id="subject" placeholder="Subject" 
+							id="subject" placeholder="{{ trans('frontend.Subject') }}" 
 							value="{{ old('subject') }}"
 						>
 						<!-- message -->
 						<textarea name="message" 
 							class="form-control @error('message') is-invalid @enderror" 
 							id="message" 
-							placeholder="Message">{{ old('message') }}</textarea>
+							placeholder="{{ trans('frontend.Message') }}">{{ old('message') }}</textarea>
 						<!-- google recaptcha -->
 						@if(config('services.recaptcha.key'))
 			                <div class="form-group">
@@ -86,7 +87,7 @@
 			                    @enderror
 			                </div>
 			            @endif
-						<button type="submit" class="site-btn">SEND NOW</button>
+						<button type="submit" class="site-btn">{{ trans('frontend.SEND NOW') }}</button>
 					</form>
 				</div>
 			</div>
@@ -102,7 +103,7 @@
 	<section class="related-product-section spad">
 		<div class="container">
 			<div class="section-title">
-				<h2>Your Favorites</h2>
+				<h2>{{ trans('frontend.My Wishlist') }}</h2>
 			</div>
 			<div class="row">
 				@foreach($products as $p)

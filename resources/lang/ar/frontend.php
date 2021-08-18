@@ -30,7 +30,7 @@ return [
     "retry"=> "اعادة المحاولة",
     "Sign Out"=> "تسجيل الخروج",
     "My Orders"=> "طلباتي",
-    "My Wishlist"=> "الامنيات",
+    "My Wishlist"=> "منتجاتي المفضلة",
     "Wishlist"=> "المفضلة",
     "My Coupons"=> "القسائم",
     "Account Info"=> "معلومات الحساب",
@@ -94,7 +94,7 @@ return [
     "New Password"=> "كلمة سر جديد",
     "Confirm New Password"=> "تاكيد كلمة السر",
     "Password"=> "كلمة السر",
-    "Don't have an account?"=> "ليس لديك حساب؟",
+    "Dont have an account?"=> "ليس لديك حساب؟",
     "Sign Up"=> "اشتراك",
     "Sign In"=> "تسجيل دخول",
     "Sign In with Google"=> "تسجيل دخول بواسطة غوغل",
@@ -141,5 +141,12 @@ return [
     "More"=>"المزيد",
     "CONTACT" => "معلومات التواصل",
     "/"=>"\\",
-    "LATEST PRODUCTS"=>"أخر المنتجات"
+    "LATEST PRODUCTS"=>"أخر المنتجات",
+    "Your name"=>"الأسم",
+    "Your e-mail"=>"الأيميل",
+    "Subject"=>"العنوان",
+    "Message"=>"الرسالة",
+    "SEND NOW"=>"إرسال الأن",
+    "Remember me"=>"تذكرني"
+
 ];

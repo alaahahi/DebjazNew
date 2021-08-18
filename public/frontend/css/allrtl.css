@@ -42,3 +42,18 @@
 .product-item {
     direction: rtl;
 }
+.map{
+    right: unset;
+    left: 0;
+}
+.contact-section{
+    direction: rtl;
+    text-align: right;
+}
+.card.col-lg{
+    direction: rtl;
+    text-align: right;
+}
+.card-body {
+    text-align: left;
+}

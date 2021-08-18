@@ -106,7 +106,7 @@ return [
     "New Password"=> "New Password",
     "Confirm New Password"=> "Confirm New Password",
     "Password"=> "Password",
-    "Don't have an account?"=> "Don't have an account?",
+    "Dont have an account?"=> "Don't have an account?",
     "Sign Up"=> "Sign Up",
     "Sign In"=> "Sign In",
     "Sign In with Google"=> "Sign In with Google",
@@ -142,5 +142,12 @@ return [
     "More"=>"More",
     "CONTACT" => "CONTACT INFO",
     "/"=>"/",
-    "LATEST PRODUCTS"=>"LATEST PRODUCTS"
+    "LATEST PRODUCTS"=>"LATEST PRODUCTS",
+    "Your name"=>"Your name",
+    "Your e-mail"=>"Your e-mail",
+    "Subject"=>"Subject",
+    "Message"=>"Message",
+    "SEND NOW"=>"SEND NOW",
+    "Remember me"=>"Remember me"
+    
 ];
