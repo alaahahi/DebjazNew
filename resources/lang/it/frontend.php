@@ -86,6 +86,7 @@ return [
     "remove this item"=> "ta bort enhet",
     "item total"=> "enhet total",
     "Total"=> "Total",
+    "Price"=> "Price",
     "Prices inclusive of VAT"=> "Priser inklusive VAT",
     "Total Coupons"=> "Totala kuponger",
     "Total Products"=> "Totala produkter",
@@ -141,5 +142,7 @@ return [
     "Premium Products"=>"Premium Products",
     "BROWSE TOP SELLING PRODUCTS"=>"BROWSE TOP SELLING PRODUCTS",
     "More"=>"More",
-    "CONTACT" => "CONTACT INFO"
+    "CONTACT" => "CONTACT INFO",
+    "/"=>"/",
+    "LATEST PRODUCTS"=>"LATEST PRODUCTS"
 ];

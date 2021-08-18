@@ -7,113 +7,6 @@
 <meta name="description" content="{{ $systemName->description }}">
 <meta name="keywords" content="{{ $systemName->name }}, {{ $systemName->name }}">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-.progress {
-    width: 150px;
-    height: 150px !important;
-    float: left;
-    line-height: 150px;
-    background: none;
-    margin: 20px;
-    box-shadow: none;
-    position: relative
-}
-
-.progress:after {
-    content: "";
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    border: 12px solid #fff;
-    position: absolute;
-    top: 0;
-    left: 0
-}
-
-.progress>span {
-    width: 50%;
-    height: 100%;
-    overflow: hidden;
-    position: absolute;
-    top: 0;
-    z-index: 1
-}
-
-.progress .progress-left {
-    left: 0
-}
-
-.progress .progress-bar {
-    width: 100%;
-    height: 100%;
-    background: none;
-    border-width: 12px;
-    border-style: solid;
-    position: absolute;
-    top: 0
-}
-
-.progress .progress-left .progress-bar {
-    left: 100%;
-    border-top-right-radius: 80px;
-    border-bottom-right-radius: 80px;
-    border-left: 0;
-    -webkit-transform-origin: center left;
-    transform-origin: center left
-}
-
-.progress .progress-right {
-    right: 0
-}
-
-.progress .progress-right .progress-bar {
-    left: -100%;
-    border-top-left-radius: 80px;
-    border-bottom-left-radius: 80px;
-    border-right: 0;
-    -webkit-transform-origin: center right;
-    transform-origin: center right;
-    animation: loading-1 1.8s linear forwards
-}
-
-.progress .progress-value {
-    width: 90%;
-    height: 90%;
-    border-radius: 50%;
-    background: #000;
-    font-size: 24px;
-    color: #fff;
-    line-height: 135px;
-    text-align: center;
-    position: absolute;
-    top: 5%;
-    left: 5%
-}
-
-.progress.blue .progress-bar {
-    border-color: #049dff
-}
-
-.progress.blue .progress-left .progress-bar {
-    animation: loading-2 1.5s linear forwards 1.8s
-}
-
-.progress.yellow .progress-bar {
-    border-color: #fdba04
-}
-
-.progress.yellow .progress-right .progress-bar {
-    animation: loading-3 1.8s linear forwards
-}
-
-.progress.yellow .progress-left .progress-bar {
-    animation: none
-}
-
-
-
-
-</style>
 @if( session()->get('locale')  == 'ar')
     <link href="{{ asset('frontend/css/allrtl.css') }}" rel="stylesheet">
 	@endif
@@ -298,7 +191,7 @@ switch ($x) {
     <section class="top-letest-product-section">
         <div class="container">
             <div class="section-title">
-                <h3>LATEST PRODUCTS</h3>
+                <h3>{{ trans('frontend.LATEST PRODUCTS') }}</h3>
             </div>
             <div class="product-slider owl-carousel">
                 @foreach($products as $p)

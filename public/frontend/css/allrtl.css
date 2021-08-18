@@ -27,3 +27,18 @@
     {
     direction: ltr;
     }
+.page-top-info
+    {
+    text-align: right;
+    direction: rtl;
+    }
+.category-section{
+    direction: rtl;
+    text-align: right;
+}
+.pi-text{
+    text-align: left;
+}
+.product-item {
+    direction: rtl;
+}

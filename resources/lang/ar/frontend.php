@@ -110,6 +110,7 @@ return [
     "item total"=> "عدد القطع",
     "Total"=> "الاجمالي",
     "Shop"=>"المتجر",
+    "Price"=>"السعر",
     "Prices inclusive of VAT"=> "السعر يتضمن الضريبة",
     "Total Coupons"=> "عدد القسائم",
     "Total Products"=> "عدد القطع",
@@ -138,6 +139,7 @@ return [
     "Affordable Delivery"=>"التسليم في متناول الجميع",
     "BROWSE TOP SELLING PRODUCTS"=>"تصفح أفضل المنتجات مبيعًا",
     "More"=>"المزيد",
-    "CONTACT" => "معلومات التواصل"
-
+    "CONTACT" => "معلومات التواصل",
+    "/"=>"\\",
+    "LATEST PRODUCTS"=>"أخر المنتجات"
 ];

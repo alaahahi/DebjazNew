@@ -86,6 +86,7 @@ return [
     "remove this item"=> "remove this item",
     "item total"=> "item total",
     "Total"=> "Total",
+    "Price"=>"Price",
     "Prices inclusive of VAT"=> "Prices inclusive of VAT",
     "Total Coupons"=> "Total Coupons",
     "Total Products"=> "Total Products",
@@ -139,5 +140,7 @@ return [
     "Affordable Delivery"=>"Affordable Delivery",
     "BROWSE TOP SELLING PRODUCTS"=>"BROWSE TOP SELLING PRODUCTS",
     "More"=>"More",
-    "CONTACT" => "CONTACT INFO"
+    "CONTACT" => "CONTACT INFO",
+    "/"=>"/",
+    "LATEST PRODUCTS"=>"LATEST PRODUCTS"
 ];

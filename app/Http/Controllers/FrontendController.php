@@ -95,8 +95,10 @@ class FrontendController extends Controller
         $category = Category::with('subcategories')->get();
 
         $systemInfo = SystemSetting::first();
+        
+        $orderProduct = OrderProduct::all();
 
-        return view('categories', compact('products', 'category', 'systemInfo'));
+        return view('categories', compact('products', 'category', 'systemInfo','orderProduct'));
     }
 
     // diplay a single category and its products
@@ -108,7 +110,9 @@ class FrontendController extends Controller
 
         $categories = Category::with('subcategories')->get();
 
-        return view('category', compact('category', 'categories', 'products'));
+        $orderProduct = OrderProduct::all();
+
+        return view('category', compact('category', 'categories', 'products','orderProduct'));
     }
 
     // diplay a single subcategory and its products

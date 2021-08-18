@@ -7,7 +7,6 @@
 <meta name="description" content="{{ $subCategory->name }}">
 <meta name="keywords" content="{{ $subCategory->name }}, {{ $subCategory->name }}">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 @endsection
 
 @section('content')
