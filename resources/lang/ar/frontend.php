@@ -147,6 +147,11 @@ return [
     "Subject"=>"العنوان",
     "Message"=>"الرسالة",
     "SEND NOW"=>"إرسال الأن",
-    "Remember me"=>"تذكرني"
+    "Remember me"=>"تذكرني",
+    "Quantity"=>"الكمية",
+    "Size"=>"عدد القسائم",
+    "Proceed to checkout"=>"متابعة للدفع",
+    "Continue shopping"=>"متابعة التسوق",
+    "MIGHT ALSO LIKE"=>"قد يعجبك أيضًا"
 
 ];

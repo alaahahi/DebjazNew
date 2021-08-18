@@ -5523,7 +5523,6 @@ ol {
 }
 
 .cart-table table tr th {
-	font-size: 12px;
 	font-weight: 400;
 	color: #414141;
 	text-align: center;
@@ -5531,11 +5530,11 @@ ol {
 }
 
 .cart-table table tr th.product-th {
-	text-align: left;
+	text-align: center;
 }
 
 .cart-table table tr th.size-th {
-	padding-right: 70px;
+	padding-right:10px;
 }
 
 .cart-table table tr th.quy-th {
@@ -5607,13 +5606,13 @@ ol {
 }
 
 .cart-table .size-col h4 {
-	padding-right: 70px;
+	padding-right: 10px;
 }
 
 .cart-table .total-cost {
 	background: #f51167;
 	margin: 0 -34px;
-	text-align: right;
+	text-align: center;
 	padding: 22px 0;
 	padding-right: 50px;
 }

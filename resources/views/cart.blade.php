@@ -13,7 +13,7 @@
 <meta name="description" content="{{ $systemInfo->description }}">
 <meta name="keywords" content="{{ $systemInfo->description }}, {{ $systemInfo->description }}">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+{{ App::setLocale(session()->get('locale') ? session()->get('locale')  : "en") }}
 @endsection
 
 @section('content')
@@ -24,15 +24,15 @@
 		<div class="row">
 			<div class="col-lg-8">
 				<div class="cart-table">
-					<h3>Your Cart</h3>
+					<h3>{{ trans('frontend.Cart') }}</h3>
 					<div class="cart-table-warp">
 						<table>
 						<thead>
 							<tr>
-								<th class="product-th">Product</th>
-								<th class="quy-th">Quantity</th>
-								<th class="size-th">Size</th>
-								<th class="total-th">Price</th>
+								<th class="product-th">{{ trans('frontend.Product') }}</th>
+								<th class="quy-th">{{ trans('frontend.Quantity') }}</th>
+								<th class="size-th">{{ trans('frontend.Size') }}</th>
+								<th class="total-th">{{ trans('frontend.Price') }}</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -104,20 +104,21 @@
 					</table>
 					</div>
 					<div class="total-cost">
-						<h6>Total <span>{{ $newTotal }}</span></h6>
+						<h6>{{ trans('frontend.Total Amount') }}<span style="padding: 0 20px ;font-size: 28px;">{{ $newTotal }}</span></h6>
 					</div>
 				</div>
 			</div>
 			<div class="col-lg-4 card-right">
-				@if(! session()->has('coupon'))
+				<!-- @if(! session()->has('coupon'))
 				<form action="{{ route('coupons.store') }}" class="promo-code-form" method="post">
 					@csrf
 					<input type="text" name="coupon_code" id="coupon_code" placeholder="Enter promo code">
 					<button type="submit">Submit</button>
 				</form>
 				@endif
-				<a href="{{ route('checkout.index') }}" class="site-btn">Proceed to checkout</a>
-				<a href="{{ route('frontendCategories') }}" class="site-btn sb-dark">Continue shopping</a>
+-->
+				<a href="{{ route('checkout.index') }}" class="site-btn">{{ trans('frontend.Proceed to checkout') }}</a>
+				<a href="{{ route('frontendCategories') }}" class="site-btn sb-dark">{{ trans('frontend.Continue shopping') }}</a>
 			</div>
 		</div>
 	</div>
@@ -128,7 +129,7 @@
 <section class="related-product-section">
 	<div class="container">
 		<div class="section-title text-uppercase">
-			<h2>Might Also Like</h2>
+			<h2>{{ trans('frontend.MIGHT ALSO LIKE') }}</h2>
 		</div>
 		<div class="row">
 			@foreach($mightAlsoLike as $like)

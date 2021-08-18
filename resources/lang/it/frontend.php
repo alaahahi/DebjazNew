@@ -150,6 +150,11 @@ return [
     "Subject"=>"Subject",
     "Message"=>"Message",
     "SEND NOW"=>"SEND NOW",
-    "Remember me"=>"Remember me"
+    "Remember me"=>"Remember me",
+    "Quantity"=>"Quantity",
+    "Size"=>"Loto Cards",
+    "Proceed to checkout"=>"Proceed to checkout",
+    "Continue shopping"=>"Continue shopping",
+    "MIGHT ALSO LIKE"=>"MIGHT ALSO LIKE"
 
 ];

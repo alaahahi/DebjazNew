@@ -125,7 +125,7 @@
 			</div>
 			<div class="col-lg-4 order-1 order-lg-2">
 				<div class="checkout-cart">
-					<h3>Your Cart</h3>
+					<h3>Cart</h3>
 					<ul class="product-list">
 						@foreach(Cart::content() as $item)
 						<li>

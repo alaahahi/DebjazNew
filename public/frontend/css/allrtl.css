@@ -57,3 +57,7 @@
 .card-body {
     text-align: left;
 }
+.cart-section.spad {
+    direction: rtl;
+    text-align: right;
+}
