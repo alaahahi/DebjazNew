@@ -163,5 +163,11 @@ return [
     "City"=>"المدينة",
     "Notes. Eg on delivery hoot or beep, am available Monday to Friday 7am to 7pm"=>"تلاحظ. على سبيل المثال ، عند التسليم أو التنبيه ، صباحًا متاح من الاثنين إلى الجمعة من الساعة 7 صباحًا حتى 7 مساءً",
     "Free"=>"مجاني",
-    "Shipping"=>" الشحن"
+    "Shipping"=>" الشحن",
+    "Order Number"=>"رقم الفاتورة",
+    "Amount"=>"المبلغ",
+    "YOU ALSO VIEWED"=>"أنت أيضا شاهدت",
+    "Profile Settings"=>"إعدادات الملف الشخصي",
+    "Edit your account"=>"تعديل حسابك",
+    "Submit Profile Changes"=>"إرسال تغييرات ملف التعريف"
 ];

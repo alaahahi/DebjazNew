@@ -166,5 +166,10 @@ return [
     "City"=>"City",
     "Notes. Eg on delivery hoot or beep, am available Monday to Friday 7am to 7pm"=>"Notes. Eg on delivery hoot or beep, am available Monday to Friday 7am to 7pm",
     "Free"=>"Free",
-    "Shipping"=>"Shipping"
+    "Shipping"=>"Shipping",
+    "Order Number"=>"Order Number",
+    "YOU ALSO VIEWED"=>"YOU ALSO VIEWED",
+    "Profile Settings"=>"Profile Settings",
+    "Edit your account"=>"Edit your account",
+    "Submit Profile Changes"=>"Submit Profile Changes"
 ];

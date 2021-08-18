@@ -25,8 +25,8 @@
 							<table>
 								<thead>
 									<tr>
-										<th class="size-col">Order Number</th>
-										<th class="size-col">Amount</th>
+										<th class="size-col">{{ trans('frontend.Order Number') }}</th>
+										<th class="size-col">{{ trans('frontend.Amount') }}</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -42,14 +42,14 @@
 								</tbody>
 							</table>
 							<div class="ml-3">
-								{{ $orders->links() }}
+								<!--{{ $orders->links() }} -->
 							</div>
 						</div>
 					</div>
 				</div>
 				<div class="col-lg-4 card-right">
-					<a href="{{ route('my-profile.edit') }}" class="site-btn">Profile Settings</a>
-					<a href="{{ route('frontendCategories') }}" class="site-btn sb-dark">Continue shopping</a>
+					<a href="{{ route('my-profile.edit') }}" class="site-btn">{{ trans('frontend.Profile Settings') }}</a>
+					<a href="{{ route('frontendCategories') }}" class="site-btn sb-dark">{{ trans('frontend.Continue shopping') }}</a>
 				</div>
 			</div>
 		</div>
@@ -60,7 +60,7 @@
 <section class="related-product-section">
 	<div class="container">
 		<div class="section-title text-uppercase">
-			<h2>You Also Viewed</h2>
+			<h2>{{ trans('frontend.YOU ALSO VIEWED') }}</h2>
 		</div>
 		<div class="row">
 			@foreach($recentlyViewed as $view)
