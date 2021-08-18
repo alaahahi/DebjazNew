@@ -152,6 +152,16 @@ return [
     "Size"=>"عدد القسائم",
     "Proceed to checkout"=>"متابعة للدفع",
     "Continue shopping"=>"متابعة التسوق",
-    "MIGHT ALSO LIKE"=>"قد يعجبك أيضًا"
-
+    "MIGHT ALSO LIKE"=>"قد يعجبك أيضًا",
+    "Billing Address"=>"عنوان التوصيل",
+    "Billing Information"=>"معلومات الدفع",
+    "Use my regular address"=>"استخدم عنواني العادي",
+    "Use a different address"=>"استخدم عنوان مختلف",
+    "Delivery Info"=>"معلومات التوصيل",
+    "Zip code"=>"الرمز البريدي",
+    "Province or State"=>"مقاطعة أو ولاية",
+    "City"=>"المدينة",
+    "Notes. Eg on delivery hoot or beep, am available Monday to Friday 7am to 7pm"=>"تلاحظ. على سبيل المثال ، عند التسليم أو التنبيه ، صباحًا متاح من الاثنين إلى الجمعة من الساعة 7 صباحًا حتى 7 مساءً",
+    "Free"=>"مجاني",
+    "Shipping"=>" الشحن"
 ];

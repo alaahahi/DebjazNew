@@ -155,6 +155,16 @@ return [
     "Size"=>"Loto Cards",
     "Proceed to checkout"=>"Proceed to checkout",
     "Continue shopping"=>"Continue shopping",
-    "MIGHT ALSO LIKE"=>"MIGHT ALSO LIKE"
-
+    "MIGHT ALSO LIKE"=>"MIGHT ALSO LIKE",
+    "Billing Address"=>"Billing Address",
+    "Billing Information"=>"Billing Information",
+    "Use my regular address"=>"Use my regular address",
+    "Use a different address"=>"Use a different address",
+    "Delivery Info"=>"Delivery Info",
+    "Zip code"=>"Zip code",
+    "Province or State"=>"Province or State",
+    "City"=>"City",
+    "Notes. Eg on delivery hoot or beep, am available Monday to Friday 7am to 7pm"=>"Notes. Eg on delivery hoot or beep, am available Monday to Friday 7am to 7pm",
+    "Free"=>"Free",
+    "Shipping"=>"Shipping"
 ];

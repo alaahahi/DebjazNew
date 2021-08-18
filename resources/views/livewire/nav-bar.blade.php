@@ -21,16 +21,16 @@
 			@auth
 			<li><i class="flaticon-profile mr-2  text-light"></i><a href="#">{{ auth()->user()->name }}</a>
 				<ul class="sub-menu">
-					<li><a href="{{ route('my-profile.edit') }}">Settings</a></li>
-					<li><a href="{{ route('my-orders.index') }}">My Orders</a></li>
+					<li><a href="{{ route('my-profile.edit') }}">{{ trans('frontend.Settings') }}</a></li>
+					<li><a href="{{ route('my-orders.index') }}">{{ trans('frontend.My Orders') }}</a></li>
 					@if(auth()->user()->isAdmin())
-					<li><a href="{{ route('home') }}" target="_blank">Admin Dashboard</a></li>
+					<li><a href="{{ route('home') }}" target="_blank">{{ trans('frontend.Admin Dashboard') }}</a></li>
 					@endif
 					<li>
 						<a href="{{ route('logout') }}"
                            onclick="event.preventDefault();
                                          document.getElementById('logout-form').submit();">
-                            {{ __('Logout') }}
+                           {{ trans('frontend.Sign Out') }}
                         </a>
 						<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             @csrf

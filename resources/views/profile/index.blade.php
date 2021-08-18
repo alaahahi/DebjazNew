@@ -9,7 +9,7 @@
 </title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+{{ App::setLocale(session()->get('locale') ? session()->get('locale')  : "en") }}
 @endsection
 
 @section('content')
@@ -20,7 +20,7 @@
 			<div class="row">
 				<div class="col-lg-8">
 					<div class="cart-table">
-						<h3>My Orders</h3>
+						<h3>{{ trans('frontend.My Orders') }}</h3>
 						<div class="cart-table-warp">
 							<table>
 								<thead>

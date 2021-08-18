@@ -8,7 +8,7 @@
 <meta name="keywords" content="{{ $systemInfo->description }}, {{ $systemInfo->description }}">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script crossorigin="anonymous" src="https://unpkg.com/@dintero/checkout-web-sdk@0.0.17/dist/dintero-checkout-web-sdk.umd.min.js" integrity="sha384-C+s7429Bxo4cmt8Tt3N5MRR4fZ/OsEBHDJaHwOnhlizydtc7wgCGvH5u5cXnjSSx"></script>
-
+{{ App::setLocale(session()->get('locale') ? session()->get('locale')  : "en") }}
 @endsection
 
 @section('content')
@@ -20,51 +20,51 @@
 			<div class="col-lg-8 order-2 order-lg-1">
 				<form class="checkout-form" action="{{ route('checkout.store') }}" method="post">
 					@csrf
-					<div class="cf-title">Billing Address</div>
+					<div class="cf-title">{{ trans('frontend.Billing Address') }}</div>
 					<div class="row">
 						<div class="col-md-7">
-							<p>*Billing Information</p>
+							<p>{{ trans('frontend.Billing Information') }}</p>
 						</div>
 						<div class="col-md-5">
 							<div class="cf-radio-btns address-rb">
 								<div class="cfr-item">
 									<input type="radio" name="pm" id="one">
-									<label for="one">Use my regular address</label>
+									<label for="one">{{ trans('frontend.Use my regular address') }}</label>
 								</div>
 								<div class="cfr-item">
 									<input type="radio" name="pm" id="two">
-									<label for="two">Use a different address</label>
+									<label for="two">{{ trans('frontend.Use a different address') }}</label>
 								</div>
 							</div>
 						</div>
 					</div>
 					<div class="row address-inputs">
 						<div class="col-md-6">
-							<input type="text" name="billing_fullname" placeholder="Full Name" value="{{ auth()->user()->name }}">
+							<input type="text" name="billing_fullname" placeholder="{{ trans('frontend.Full Name') }}" value="{{ auth()->user()->name }}">
 						</div>
 						<div class="col-md-6">
-							<input type="text" name="billing_email" placeholder="Email" value="{{ auth()->user()->email }}">
+							<input type="text" name="billing_email" placeholder="{{ trans('frontend.Email') }}" value="{{ auth()->user()->email }}">
 						</div>
 						<div class="col-md-12">
-							<input type="text" name="billing_address" placeholder="Address"  value="{{ auth()->user()->address }}">
+							<input type="text" name="billing_address" placeholder="{{ trans('frontend.Address') }}"  value="{{ auth()->user()->address }}">
 						</div>
 						<div class="col-md-6">
-							<input type="text" name="billing_city" placeholder="City" value="{{ auth()->user()->city }}">
+							<input type="text" name="billing_city" placeholder="{{ trans('frontend.City') }}" value="{{ auth()->user()->city }}">
 						</div>
 						<div class="col-md-6">
-							<input type="text" name="billing_province" placeholder="Province or State" value="{{ auth()->user()->province }}">
+							<input type="text" name="billing_province" placeholder="{{ trans('frontend.Province or State') }}" value="{{ auth()->user()->province }}">
 						</div>
 						<div class="col-md-6">
-							<input type="text" name="billing_zipcode" placeholder="Zip code"  value="{{ auth()->user()->zipcode }}">
+							<input type="text" name="billing_zipcode" placeholder="{{ trans('frontend.Zip code') }}"  value="{{ auth()->user()->zipcode }}">
 						</div>
 						<div class="col-md-6">
-							<input type="text" name="billing_phone" placeholder="Phone no." value="{{ auth()->user()->phone }}">
+							<input type="text" name="billing_phone" placeholder="{{ trans('frontend.Phone') }}" value="{{ auth()->user()->phone }}">
 						</div>
 						<div class="col-md-12">
-							<input type="text" name="notes" placeholder="Notes. Eg on delivery hoot or beep, am available Monday to Frinday 7am to 7pm" value="{{ auth()->user()->notes }}">
+							<input type="text" name="notes" placeholder="{{ trans('frontend.Notes. Eg on delivery hoot or beep, am available Monday to Friday 7am to 7pm') }}" value="{{ auth()->user()->notes }}">
 						</div>
 					</div>
-					{{-- <div class="cf-title">Delievery Info</div>
+					{{-- <div class="cf-title">{{ trans('frontend.Delivery Info') }}</div>
 					<div class="row shipping-btns">
 						<div class="col-6">
 							<h4>Standard</h4>
@@ -89,7 +89,7 @@
 							</div>
 						</div> --}}
 					{{-- </div> --}}
-					<div class="cf-title">Payment</div>
+					<div class="cf-title">{{ trans('frontend.Payment') }}</div>
 						<ul class="payment-list">
 							
 							@if(env('PAYPAL_SANDBOX_API_SECRET') != null)
@@ -125,7 +125,7 @@
 			</div>
 			<div class="col-lg-4 order-1 order-lg-2">
 				<div class="checkout-cart">
-					<h3>Cart</h3>
+					<h3>{{ trans('frontend.Cart') }}</h3>
 					<ul class="product-list">
 						@foreach(Cart::content() as $item)
 						<li>
@@ -143,9 +143,9 @@
 						@endforeach
 					</ul>
 					<ul class="price-list">
-						<li>Total<span>${{ $newSubtotal }}.00</span></li>
-						<li>Shipping<span>free</span></li>
-						<li class="total">Total<span>${{ $newTotal }}.00</span></li>
+						<li>{{ trans('frontend.Total') }}<span>${{ $newSubtotal }}.00</span></li>
+						<li>{{ trans('frontend.Shipping') }}<span>{{ trans('frontend.Free') }}</span></li>
+						<li class="total">{{ trans('frontend.Total') }}<span>${{ $newTotal }}.00</span></li>
 					</ul>
 				</div>
 				<div id="smart-button-container">
