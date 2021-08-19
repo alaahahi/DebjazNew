@@ -49,11 +49,11 @@
 							<img src="<?php echo env('APP_NAME') ?>images\logo.png" alt="" width="150px">
 						</a>
 					</div>
-					<div class="col-sm-6"></div>
+					<div class="col-sm-5"></div>
 					<!-- search area
 					<livewire:search-dropdown>
 					 -->
-					<div class="col-sm-4" style="text-align: right;">
+					<div class="col-sm-5" style="text-align: right;">
 						<div class="user-panel">
 							<div class="up-item">
 								<div class="shopping-card">
@@ -70,6 +70,23 @@
 									<span>{{ Cart::instance('default')->count() }}</span>
 								</div>
 								<a href="{{ route('cart.index') }}">{{ trans('frontend.Cart') }}</a>
+							</div>
+							<div class="up-item">
+							<select class="form-control" onchange="location = this.value;"> ?>
+							@if(App::getLocale() == 'en')
+							<option value="{{url('/setlocale/en')}}" selected>English</option>
+							<option value="{{url('/setlocale/ar')}}">العربية</option>
+							<option value="{{url('/setlocale/it')}}">Swidthis</option>
+							@elseif(App::getLocale() == 'ar')
+							<option value="{{url('/setlocale/ar')}}">العربية</option>
+							<option value="{{url('/setlocale/en')}}">English</option>
+							<option value="{{url('/setlocale/en')}}">Swidthis</option>
+							@elseif(App::getLocale() == 'it')
+							<option value="{{url('/setlocale/it')}}">Swidthis</option>
+							<option value="{{url('/setlocale/ar')}}">العربية</option>
+							<option value="{{url('/setlocale/en')}}">English</option>
+							@endif
+							</select>
 							</div>
 							<div class="up-item">
 							<select class="form-control" onchange="location = this.value;"> ?>
