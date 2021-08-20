@@ -12,6 +12,8 @@ use App\SubCategory;
 use App\PrivacyPolicy;
 use App\SystemSetting;
 use App\OrderProduct;
+use App\Currency;
+
 use Illuminate\Http\Request;
 
 class FrontendController extends Controller
@@ -27,9 +29,11 @@ class FrontendController extends Controller
 
         $slides = Slide::all();
 
+        $currency = Currency::first();
+
         $systemName = SystemSetting::first();
-        //return response()->json($systemName);
-        return view('welcome', compact('products', 'slides', 'categories', 'systemName','orderProduct'));
+
+        return view('welcome', compact('products', 'currency','slides', 'categories', 'systemName','orderProduct'));
     }
 
     // show single product details

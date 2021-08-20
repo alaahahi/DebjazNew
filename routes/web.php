@@ -81,3 +81,8 @@ Route::get('setlocale/{locale}', function ($locale) {
 	  session(['locale' => $locale]);
 	return redirect()->back();
   });
+
+  Route::get('setcurrency/{currency}', function ($currency) {
+	session(['currency' => $currency]);
+  return redirect()->back();
+});

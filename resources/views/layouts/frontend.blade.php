@@ -90,18 +90,13 @@
 							</div>
 							<div class="up-item">
 							<select class="form-control" onchange="location = this.value;"> ?>
-							@if(App::getLocale() == 'en')
-							<option value="{{url('/setlocale/en')}}" selected>English</option>
-							<option value="{{url('/setlocale/ar')}}">العربية</option>
-							<option value="{{url('/setlocale/it')}}">Swidthis</option>
-							@elseif(App::getLocale() == 'ar')
-							<option value="{{url('/setlocale/ar')}}">العربية</option>
-							<option value="{{url('/setlocale/en')}}">English</option>
-							<option value="{{url('/setlocale/en')}}">Swidthis</option>
-							@elseif(App::getLocale() == 'it')
-							<option value="{{url('/setlocale/it')}}">Swidthis</option>
-							<option value="{{url('/setlocale/ar')}}">العربية</option>
-							<option value="{{url('/setlocale/en')}}">English</option>
+							@if(session()->get('currency') == 'usd' || session()->get('currency')==null)
+							<option value="{{url('/setcurrency/usd')}}" selected>USD</option>
+							<option value="{{url('/setcurrency/sek')}}">SEK</option>
+							@endif
+							@if(session()->get('currency') == 'sek')
+							<option value="{{url('/setcurrency/usd')}}">USD</option>
+							<option value="{{url('/setcurrency/sek')}}" selected>SEK</option>
 							@endif
 							</select>
 							</div>

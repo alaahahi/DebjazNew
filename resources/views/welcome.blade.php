@@ -173,7 +173,7 @@ switch ($x) {
                             </div>
                         </div>
                         <div class="pi-text">
-                            <h6>${{ $p->price }}</h6>
+                            <h6>{{ $p->price * $currency->price}} <?php echo  $currency->currency ?></h6>
                             <p> {{ $p->name }} </p>
                         </div>
                     </div>
@@ -230,7 +230,7 @@ switch ($x) {
                         </div>
                     </div>
                     <div class="pi-text">
-                        <h3>${{ $p->price }}</h3>
+                        <h3>{{ $p->price * $currency->price}} <?php echo  $currency->currency ?></h3>
                         <a href="{{ route('single-product', $p->slug) }}"><p>{{ $p->name }}</p></a> 
                     </div>
                 </div>
@@ -239,7 +239,6 @@ switch ($x) {
         </div>
     </section>
     <!-- letest product section end -->
-
 
 
   
