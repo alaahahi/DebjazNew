@@ -7,7 +7,9 @@
 <meta name="description" content="{{ $systemInfo->description }}">
 <meta name="keywords" content="{{ $systemInfo->description }}, {{ $systemInfo->description }}">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+@if(env('Dintero_API_SECRET') != null)
 <script crossorigin="anonymous" src="https://unpkg.com/@dintero/checkout-web-sdk@0.0.17/dist/dintero-checkout-web-sdk.umd.min.js" integrity="sha384-C+s7429Bxo4cmt8Tt3N5MRR4fZ/OsEBHDJaHwOnhlizydtc7wgCGvH5u5cXnjSSx"></script>
+@endif
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 {{ App::setLocale(session()->get('locale') ? session()->get('locale')  : "en") }}
 <style type="text/css">
@@ -110,6 +112,7 @@
 					{{-- </div> --}}
 					<div class="cf-title">{{ trans('frontend.Payment') }}</div>
 					<div id="accordion">
+					@if(env('STRIPE_KEY') != null)
 					<div class="card ">
 						<div class="card-header" id="headingOne">
 						<h5 class="mb-0 ">
@@ -123,14 +126,9 @@
 						<div class="card-body">
 						<div class="container">
 							<div class="row">
-								<div class="col-md-6 col-md-offset-3">
-								<div class="panel panel-default credit-card-box">
-									<div class="panel-heading display-table" >
-										<div class="row display-tr" >
-											<h3 class="panel-title display-td" >Payment Details</h3>
-										</div>
-									</div>
-									<div class="panel-body">
+								<div class="col-md-12 text-center">
+									<h3 >Payment Details</h3>
+									<div >
 										@if (Session::has('success'))
 										<div class="alert alert-success text-center">
 											<a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
@@ -146,38 +144,34 @@
 											data-stripe-publishable-key="{{ env('STRIPE_KEY') }}"
 											id="payment-form">
 											@csrf
-											<div class='form-row row'>
 											<div class='col-xs-12 form-group required'>
 												<label class='control-label'>Name on Card</label> <input
-													class='form-control' size='4' type='text'>
+													class='form-control' size='12' type='text'>
 											</div>
-											</div>
-											<div class='form-row row'>
-											<div class='col-xs-12 form-group card required'>
+											<div class='col-xs-12 form-group required'>
 												<label class='control-label'>Card Number</label> <input
 													autocomplete='off' class='form-control card-number' size='20'
 													type='text'>
 											</div>
-											</div>
 											<div class='form-row row'>
 											<div class='col-xs-12 col-md-4 form-group cvc required'>
 												<label class='control-label'>CVC</label> <input autocomplete='off'
-													class='form-control card-cvc' placeholder='ex. 311' size='4'
-													type='text'>
+													class='form-control card-cvc'  placeholder='ex. 311' size='4'
+													type='number'>
 											</div>
 											<div class='col-xs-12 col-md-4 form-group expiration required'>
 												<label class='control-label'>Expiration Month</label> <input
 													class='form-control card-expiry-month' placeholder='MM' size='2'
-													type='text'>
+													type='number'>
 											</div>
 											<div class='col-xs-12 col-md-4 form-group expiration required'>
 												<label class='control-label'>Expiration Year</label> <input
 													class='form-control card-expiry-year' placeholder='YYYY' size='4'
-													type='text'>
+													type='number'>
 											</div>
 											</div>
 											<div class='form-row row'>
-											<div class='col-md-12 error form-group hide'>
+											<div class='col-md-12 error form-group hide' hidden>
 												<div class='alert-danger alert'>Please correct the errors and try
 													again.
 												</div>
@@ -191,12 +185,12 @@
 										</form>
 									</div>
 								</div>
-								</div>
 							</div>
 						</div>
 						</div>
 						</div>
 					</div>
+					@endif
 					@if(env('PAYPAL_SANDBOX_API_SECRET') != null)
 					<div class="card">
 						<div class="card-header" id="headingTwo">
@@ -222,6 +216,7 @@
 						</div>
 					</div>
 					@endif
+					@if(env('Dintero_API_SECRET') != null)
 					<div class="card">
 						<div class="card-header" id="headingThree">
 						<h5 class="mb-0">
@@ -236,6 +231,7 @@
 						</div>
 						</div>
 					</div>
+					@endif
 					<div class="card">
 						<div class="card-header" id="headingThree">
 						<h5 class="mb-0">
@@ -288,6 +284,7 @@
 		</div>
 	</div>
 </section>
+@if(env('STRIPE_KEY') != null)
 <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
    <script type="text/javascript">
       $(function() {
@@ -339,6 +336,8 @@
 });
    </script>
 <!-- checkout section end -->
+@endif
+@if(env('Dintero_API_SECRET') != null)
 <script type="text/javascript">
     const container = document.getElementById("checkout-container");
     dintero
@@ -376,8 +375,8 @@
             console.log("checkout", checkout);
         });
 </script>
-
-<!--
+@endif
+@if(env('PAYPAL_SANDBOX_API_SECRET') != null)
   <script src="https://www.paypal.com/sdk/js?client-id=AaqzAhQhbTpvd-6P7-Vgj26JNgu63CS8etFcLX6h2Z89LW1AEGSGvWIXSDB71HKanLrx3XL4XKk-613B&enable-funding=venmo&currency=USD" data-sdk-integration-source="button-factory"></script>
   <script>
     function initPayPalButton() {
@@ -419,5 +418,5 @@
     }
     initPayPalButton();
   </script>
--->
+@endif
 @endsection
