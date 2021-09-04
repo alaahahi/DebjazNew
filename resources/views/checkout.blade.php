@@ -8,7 +8,25 @@
 <meta name="keywords" content="{{ $systemInfo->description }}, {{ $systemInfo->description }}">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script crossorigin="anonymous" src="https://unpkg.com/@dintero/checkout-web-sdk@0.0.17/dist/dintero-checkout-web-sdk.umd.min.js" integrity="sha384-C+s7429Bxo4cmt8Tt3N5MRR4fZ/OsEBHDJaHwOnhlizydtc7wgCGvH5u5cXnjSSx"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 {{ App::setLocale(session()->get('locale') ? session()->get('locale')  : "en") }}
+<style type="text/css">
+         .panel-title {
+         display: inline;
+         font-weight: bold;
+         }
+         .display-table {
+         display: table;
+         }
+         .display-tr {
+         display: table-row;
+         }
+         .display-td {
+         display: table-cell;
+         vertical-align: middle;
+         width: 61%;
+         }
+      </style>
 @endsection
 
 @section('content')
@@ -90,36 +108,148 @@
 						</div> --}}
 					{{-- </div> --}}
 					<div class="cf-title">{{ trans('frontend.Payment') }}</div>
-						<ul class="payment-list">
-							
-							@if(env('PAYPAL_SANDBOX_API_SECRET') != null)
-							<li>
-								<input type="radio" name="payment_method" value="paypal">
-								Paypal<a href="#"><img src="{{ asset('frontend/img/paypal.png') }}" alt=""></a>
-							</li>
-							@endif
-							<li>
-							<div id="smart-button-container">
-      <div style="text-align: center;">
-        <div style="margin-bottom: 1.25rem;">
-          <p></p>
-          <select id="item-options"><option value="" price="0"> - 0 USD</option></select>
-          <select style="visibility: hidden" id="quantitySelect"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option></select>
-        </div>
-      <div id="paypal-button-container"></div>
-      </div>
-    </div>
-							</li>
-							{{-- <li>Credit / Debit card<a href="#"><img src="{{ asset('frontend/img/mastercart.png') }}" alt=""></a>
-							</li> --}}
-							<li>
-								<input type="radio" name="payment_method" value="cash_on_delivery">
-								cash_on_delivery
-							</li>
-							<li>
-							<div id="checkout-container"> <img src="https://backoffice.dintero.com/api/checkout/v1/branding/profiles/T11113099.55zmdrmcMJakno7aqiet3W/variant/colors/width/420/dintero_top_frame.svg"></img> </div>
-							</li>
-						</ul>
+					<div id="accordion">
+					<div class="card ">
+						<div class="card-header" id="headingOne">
+						<h5 class="mb-0 ">
+							<button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+							Payment cards
+							</button>
+						</h5>
+						</div>
+
+						<div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+						<div class="card-body">
+						<div class="container">
+							<div class="row">
+								<div class="col-md-6 col-md-offset-3">
+								<div class="panel panel-default credit-card-box">
+									<div class="panel-heading display-table" >
+										<div class="row display-tr" >
+											<h3 class="panel-title display-td" >Payment Details</h3>
+										</div>
+									</div>
+									<div class="panel-body">
+										@if (Session::has('success'))
+										<div class="alert alert-success text-center">
+											<a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+											<p>{{ Session::get('success') }}</p>
+										</div>
+										@endif
+										<form
+											role="form"
+											action="{{ route('stripe.post') }}"
+											method="post"
+											class="require-validation"
+											data-cc-on-file="false"
+											data-stripe-publishable-key="{{ env('STRIPE_KEY') }}"
+											id="payment-form">
+											@csrf
+											<div class='form-row row'>
+											<div class='col-xs-12 form-group required'>
+												<label class='control-label'>Name on Card</label> <input
+													class='form-control' size='4' type='text'>
+											</div>
+											</div>
+											<div class='form-row row'>
+											<div class='col-xs-12 form-group card required'>
+												<label class='control-label'>Card Number</label> <input
+													autocomplete='off' class='form-control card-number' size='20'
+													type='text'>
+											</div>
+											</div>
+											<div class='form-row row'>
+											<div class='col-xs-12 col-md-4 form-group cvc required'>
+												<label class='control-label'>CVC</label> <input autocomplete='off'
+													class='form-control card-cvc' placeholder='ex. 311' size='4'
+													type='text'>
+											</div>
+											<div class='col-xs-12 col-md-4 form-group expiration required'>
+												<label class='control-label'>Expiration Month</label> <input
+													class='form-control card-expiry-month' placeholder='MM' size='2'
+													type='text'>
+											</div>
+											<div class='col-xs-12 col-md-4 form-group expiration required'>
+												<label class='control-label'>Expiration Year</label> <input
+													class='form-control card-expiry-year' placeholder='YYYY' size='4'
+													type='text'>
+											</div>
+											</div>
+											<div class='form-row row'>
+											<div class='col-md-12 error form-group hide'>
+												<div class='alert-danger alert'>Please correct the errors and try
+													again.
+												</div>
+											</div>
+											</div>
+											<div class="row">
+											<div class="col-xs-12">
+												<button class="btn btn-primary btn-lg btn-block" type="submit">Pay Now ($100)</button>
+											</div>
+											</div>
+										</form>
+									</div>
+								</div>
+								</div>
+							</div>
+						</div>
+						</div>
+						</div>
+					</div>
+					@if(env('PAYPAL_SANDBOX_API_SECRET') != null)
+					<div class="card">
+						<div class="card-header" id="headingTwo">
+						<h5 class="mb-0">
+							<button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+							Paypal
+							</button>
+						</h5>
+						</div>
+						<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+						<div class="card-body">
+						<div id="smart-button-container">
+						<div style="text-align: center;">
+							<div style="margin-bottom: 1.25rem;">
+							<p></p>
+							<select id="item-options"><option value="" price="0"> - 0 USD</option></select>
+							<select style="visibility: hidden" id="quantitySelect"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option></select>
+							</div>
+						<div id="paypal-button-container"></div>				
+						</div>
+						</div>
+						</div>
+						</div>
+					</div>
+					@endif
+					<div class="card">
+						<div class="card-header" id="headingThree">
+						<h5 class="mb-0">
+							<button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+							Dintero
+							</button>
+						</h5>
+						</div>
+						<div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+						<div class="card-body">
+						<div id="checkout-container"> <img src="https://backoffice.dintero.com/api/checkout/v1/branding/profiles/T11113099.55zmdrmcMJakno7aqiet3W/variant/colors/width/420/dintero_top_frame.svg"></img> </div>
+						</div>
+						</div>
+					</div>
+					<div class="card">
+						<div class="card-header" id="headingThree">
+						<h5 class="mb-0">
+							<button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+							Cash on delivery
+							</button>
+						</h5>
+						</div>
+						<div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+						<div class="card-body">
+						
+						</div>
+						</div>
+					</div>
+					</div>				
 					<button type="submit" class="site-btn submit-order-btn">Place Order</button>
 				</form>
 			</div>
@@ -157,6 +287,56 @@
 		</div>
 	</div>
 </section>
+<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+   <script type="text/javascript">
+      $(function() {
+    var $form = $(".require-validation");
+    $('form.require-validation').bind('submit', function(e) {
+        var $form = $(".require-validation"),
+            inputSelector = ['input[type=email]', 'input[type=password]',
+                'input[type=text]', 'input[type=file]',
+                'textarea'
+            ].join(', '),
+            $inputs = $form.find('.required').find(inputSelector),
+            $errorMessage = $form.find('div.error'),
+            valid = true;
+        $errorMessage.addClass('hide');
+        $('.has-error').removeClass('has-error');
+        $inputs.each(function(i, el) {
+            var $input = $(el);
+            if ($input.val() === '') {
+                $input.parent().addClass('has-error');
+                $errorMessage.removeClass('hide');
+                e.preventDefault();
+            }
+        });
+        if (!$form.data('cc-on-file')) {
+            e.preventDefault();
+            Stripe.setPublishableKey($form.data('stripe-publishable-key'));
+            Stripe.createToken({
+                number: $('.card-number').val(),
+                cvc: $('.card-cvc').val(),
+                exp_month: $('.card-expiry-month').val(),
+                exp_year: $('.card-expiry-year').val()
+            }, stripeResponseHandler);
+        }
+    });
+    function stripeResponseHandler(status, response) {
+        if (response.error) {
+            $('.error')
+                .removeClass('hide')
+                .find('.alert')
+                .text(response.error.message);
+        } else {
+            /* token contains id, last4, and card type */
+            var token = response['id'];
+            $form.find('input[type=text]').empty();
+            $form.append("<input type='hidden' name='stripeToken' value='" + token + "'/>");
+            $form.get(0).submit();
+        }
+    }
+});
+   </script>
 <!-- checkout section end -->
 <script type="text/javascript">
     const container = document.getElementById("checkout-container");
@@ -196,7 +376,7 @@
         });
 </script>
 
-
+<!--
   <script src="https://www.paypal.com/sdk/js?client-id=AaqzAhQhbTpvd-6P7-Vgj26JNgu63CS8etFcLX6h2Z89LW1AEGSGvWIXSDB71HKanLrx3XL4XKk-613B&enable-funding=venmo&currency=USD" data-sdk-integration-source="button-factory"></script>
   <script>
     function initPayPalButton() {
@@ -238,5 +418,5 @@
     }
     initPayPalButton();
   </script>
-
+-->
 @endsection

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\App;
+use App\Http\Controllers\StripeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,6 +17,8 @@ use Illuminate\Support\Facades\App;
 
 // Open Routes
 Route::get('/', 'FrontendController@index')->name('welcome');
+Route::get('stripe', [StripeController::class, 'stripe']);
+Route::post('stripe', [StripeController::class, 'stripePost'])->name('stripe.post');
 Route::get('on-sale', 'FrontendController@onSale')->name('on-sale');
 Route::get('/category/{slug}', 'FrontendController@category')->name('frontendCategory');
 Route::get('/categories', 'FrontendController@categories')->name('frontendCategories');
@@ -86,3 +89,5 @@ Route::get('setlocale/{locale}', function ($locale) {
 	session(['currency' => $currency]);
   return redirect()->back();
 });
+
+

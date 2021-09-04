@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '33acc9b8f01ef6209063880a3cb295cc77f26edb',
+        'reference' => 'efc1e05f3539794b760198efa736ee958fa9dd4c',
         'name' => 'laravel/laravel',
         'dev' => true,
     ),
@@ -465,7 +465,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '33acc9b8f01ef6209063880a3cb295cc77f26edb',
+            'reference' => 'efc1e05f3539794b760198efa736ee958fa9dd4c',
             'dev_requirement' => false,
         ),
         'laravel/legacy-factories' => array(
@@ -1076,6 +1076,15 @@
             'install_path' => __DIR__ . '/../srmklive/paypal',
             'aliases' => array(),
             'reference' => '779bc87eb4cd62982e4f2f57fb667fe47c78e259',
+            'dev_requirement' => false,
+        ),
+        'stripe/stripe-php' => array(
+            'pretty_version' => 'v7.94.0',
+            'version' => '7.94.0.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../stripe/stripe-php',
+            'aliases' => array(),
+            'reference' => '03cd6b5c1c4fc9087ddd1dd046457bff274294d6',
             'dev_requirement' => false,
         ),
         'swiftmailer/swiftmailer' => array(

@@ -8,7 +8,6 @@
 	<!-- Google Font -->
 	<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,300i,400,400i,700,700i" rel="stylesheet">
 
-
 	<!-- Stylesheets -->
 	<link rel="stylesheet" href="{{ asset('frontend/css/all.css') }}"/>
 	@if( session()->get('locale')  == 'ar')
@@ -19,8 +18,6 @@
 	<!-- font-owesome icons link -->
     <link href="{{ asset('frontend/fontawesome/css/all.css') }}" rel="stylesheet">
 	
-
-
 	<livewire:styles />
 	@yield('css')
 
