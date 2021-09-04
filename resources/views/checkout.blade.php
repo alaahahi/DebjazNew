@@ -38,6 +38,7 @@
 			<div class="col-lg-8 order-2 order-lg-1">
 				<form class="checkout-form" action="{{ route('checkout.store') }}" method="post">
 					@csrf
+					</form>
 					<div class="cf-title">{{ trans('frontend.Billing Address') }}</div>
 					<div class="row">
 						<div class="col-md-7">
@@ -251,7 +252,7 @@
 					</div>
 					</div>				
 					<button type="submit" class="site-btn submit-order-btn">Place Order</button>
-				</form>
+
 			</div>
 			<div class="col-lg-4 order-1 order-lg-2">
 				<div class="checkout-cart">
