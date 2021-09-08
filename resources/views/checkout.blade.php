@@ -28,6 +28,9 @@
          vertical-align: middle;
          width: 61%;
          }
+		 .hide{
+			 display: none;
+		 }
       </style>
 @endsection
 
@@ -38,9 +41,15 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-8 order-2 order-lg-1">
-				<form class="checkout-form" action="{{ route('checkout.store') }}" method="post">
-					@csrf
-					</form>
+			<form 	role="form"	action="{{ route('stripe.post') }}"
+											method="post"
+											class="require-validation checkout-form"
+											data-cc-on-file="false"
+											data-stripe-publishable-key="{{ env('STRIPE_KEY') }}"
+											id="payment-form">
+											@csrf
+				<!--<form class="checkout-form" action="{{ route('checkout.store') }}" method="post">
+					</form>-->
 					<div class="cf-title">{{ trans('frontend.Billing Address') }}</div>
 					<div class="row">
 						<div class="col-md-7">
@@ -127,7 +136,6 @@
 						<div class="container">
 							<div class="row">
 								<div class="col-md-12 text-center">
-									<h3 >Payment Details</h3>
 									<div >
 										@if (Session::has('success'))
 										<div class="alert alert-success text-center">
@@ -135,15 +143,7 @@
 											<p>{{ Session::get('success') }}</p>
 										</div>
 										@endif
-										<form
-											role="form"
-											action="{{ route('stripe.post') }}"
-											method="post"
-											class="require-validation"
-											data-cc-on-file="false"
-											data-stripe-publishable-key="{{ env('STRIPE_KEY') }}"
-											id="payment-form">
-											@csrf
+
 											<div class='col-xs-12 form-group required'>
 												<label class='control-label'>Name on Card</label> <input
 													class='form-control' size='12' type='text'>
@@ -171,18 +171,12 @@
 											</div>
 											</div>
 											<div class='form-row row'>
-											<div class='col-md-12 error form-group hide' hidden>
-												<div class='alert-danger alert'>Please correct the errors and try
+											<div class='col-md-12 error form-group hide' >
+												<div class='alert-danger alert '>Please correct the errors and try
 													again.
 												</div>
 											</div>
 											</div>
-											<div class="row">
-											<div class="col-xs-12">
-												<button class="btn btn-primary btn-lg btn-block" type="submit">Pay Now ($100)</button>
-											</div>
-											</div>
-										</form>
 									</div>
 								</div>
 							</div>
@@ -232,6 +226,7 @@
 						</div>
 					</div>
 					@endif
+					@if(false)
 					<div class="card">
 						<div class="card-header" id="headingThree">
 						<h5 class="mb-0">
@@ -246,10 +241,12 @@
 						</div>
 						</div>
 					</div>
+					@endif
 					</div>				
 					<button type="submit" class="site-btn submit-order-btn">Place Order</button>
 
 			</div>
+			</form>
 			<div class="col-lg-4 order-1 order-lg-2">
 				<div class="checkout-cart">
 					<h3>{{ trans('frontend.Cart') }}</h3>
@@ -330,6 +327,7 @@
             var token = response['id'];
             $form.find('input[type=text]').empty();
             $form.append("<input type='hidden' name='stripeToken' value='" + token + "'/>");
+			$form.append("<input type='hidden' name='amount' value='" + {{ $newSubtotal }} + "'/>");
             $form.get(0).submit();
         }
     }

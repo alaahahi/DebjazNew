@@ -8,9 +8,12 @@ use App\OrderProduct;
 use App\SystemSetting;
 use Illuminate\Http\Request;
 use Gloudemans\Shoppingcart\Facades\Cart;
+use Session;
+use Stripe;
 
 class CheckoutController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -40,14 +43,13 @@ class CheckoutController extends Controller
     {
         return 'create payment working';
     }
-
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function stripePost(Request $request)
     {
         $request->validate([
             'billing_fullname' => 'required',
@@ -104,6 +106,16 @@ class CheckoutController extends Controller
             return redirect(route('paypal.checkout', $order->id));
 
         }
+        Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+        Stripe\Charge::create ([
+                    "amount" => $request->amount * 100,
+                    "currency" => "usd",
+                    "source" => $request->stripeToken,
+                    "description" => "This payment is tested purpose phpcodingstuff.com"
+            ]);
+       
+        Session::flash('success', 'Payment successful!');
+
 
         //clear cart contents
         Cart::destroy();

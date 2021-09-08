@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\App;
 use App\Http\Controllers\StripeController;
+use App\Http\Controllers\CheckoutController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,8 +18,7 @@ use App\Http\Controllers\StripeController;
 
 // Open Routes
 Route::get('/', 'FrontendController@index')->name('welcome');
-Route::get('stripe', [StripeController::class, 'stripe']);
-Route::post('stripe', [StripeController::class, 'stripePost'])->name('stripe.post');
+
 Route::get('on-sale', 'FrontendController@onSale')->name('on-sale');
 Route::get('/category/{slug}', 'FrontendController@category')->name('frontendCategory');
 Route::get('/categories', 'FrontendController@categories')->name('frontendCategories');
@@ -49,8 +49,10 @@ Route::middleware('auth')->group(function () {
 	Route::get('my-orders/{id}', 'ProfileController@show')->name('my-profile.show');
 	Route::resource('orders', 'OrderController');
 	Route::resource('checkout', 'CheckoutController');
-});
 
+});
+	Route::get('stripe', [CheckoutController::class, 'stripe']);
+	Route::post('stripe', [CheckoutController::class, 'stripePost'])->name('stripe.post');
 // Login & Register Routes
 Auth::routes();
 Route::get('login/{provider}', 'Auth\LoginController@redirectToProvider');
