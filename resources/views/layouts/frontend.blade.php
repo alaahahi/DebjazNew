@@ -88,13 +88,13 @@
 							<div class="up-item">
 							<select class="form-control" onchange="location = this.value;"> ?>
 							@if(session()->get('currency') == 'sek'  || session()->get('currency')==null)
-							<option value="{{url('/setcurrency/usd')}}" selected>SEK</option>
-							<option value="{{url('/setcurrency/sek')}}">USD</option>
+							<option value="{{url('/setcurrency/sek')}}" selected>SEK</option>
+							<option value="{{url('/setcurrency/usd')}}">USD</option>
 							<option value="{{url('/setcurrency/eur')}}">EUR</option>
 							@endif
 							@if(session()->get('currency') == 'usd')
-							<option value="{{url('/setcurrency/usd')}}">SEK</option>
-							<option value="{{url('/setcurrency/sek')}}" selected>USD</option>
+							<option value="{{url('/setcurrency/sek')}}">SEK</option>
+							<option value="{{url('/setcurrency/usd')}}" selected>USD</option>
 							<option value="{{url('/setcurrency/eur')}}">EUR</option>
 							@endif
 							@if(session()->get('currency') == 'eur')
