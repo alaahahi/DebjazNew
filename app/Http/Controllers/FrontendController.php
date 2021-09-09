@@ -13,6 +13,7 @@ use App\PrivacyPolicy;
 use App\SystemSetting;
 use App\OrderProduct;
 use App\Currency;
+use Session;
 
 use Illuminate\Http\Request;
 
@@ -21,6 +22,8 @@ class FrontendController extends Controller
     // Returns the platform welcome or landing page
     public function index()
     {
+        $currency_def= Session::get('currency') ? Session::get('currency') :'SEK';
+
         $categories = Category::all();
 
         $products = Product::orderBy('created_at', 'DESC')->with('category', 'photos')->paginate(8); 
@@ -28,9 +31,9 @@ class FrontendController extends Controller
         $orderProduct = OrderProduct::all();
 
         $slides = Slide::all();
-
-        $currency = Currency::first();
-
+       
+        $currency = Currency::where('currency', strtoupper($currency_def))->first();
+        //return response()->json( $currency_def );
         $systemName = SystemSetting::first();
 
         return view('welcome', compact('products', 'currency','slides', 'categories', 'systemName','orderProduct'));
