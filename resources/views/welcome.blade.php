@@ -117,7 +117,7 @@ switch ($x) {
             </ul>
             <div class="row">
                 @foreach($products as $p)
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-bottom: 2%;background-color: #f8f8f8;border-radius: 20px;padding: 1%;">
                     <div class="product-item">
                         <div class="pi-pic">
                             @if($p->on_sale == 1)
@@ -136,7 +136,14 @@ switch ($x) {
                                     <div  class="col-md-4" >
                                     <div  style="  position: absolute;top: 30%;left: 35%;">
                                             <div  class="progress blue  mx-auto"   data-value='<?php echo $value = (100/$p->quantity)*($orderProduct->where('product_id',"=",$p->id)->sum('quantity'))?>' ><span class="progress-left"><span class="progress-bar <?php color($value); ?>"></span></span><span class="progress-right"><span class="progress-bar  <?php color($value); ?>"></span></span>
-                                                <div class="progress-value"><?php echo ($orderProduct->where('product_id',"=",$p->id)->sum('quantity'))."/".(int)$p->quantity  ?></div>
+                                                <div class="progress-value"><?php echo ($orderProduct->where('product_id',"=",$p->id)->sum('quantity'))  ?>
+                                            <br>
+                                            <span style="font-size: 12px;">{{trans('frontend.SOLD')}}</span>
+                                            <hr style="margin-top: 5px;margin-bottom: 0;width: 20px;">
+                                            <span style="font-size: 12px;">{{trans('frontend.OUT OF')}}</span>
+                                            <br>
+                                            <?php echo( int)$p->quantity ?>
+                                            </div>
                                             </div>
                                         <!--    <div class="progress yellow"> <span class="progress-left"> <span class="progress-bar"></span> </span> <span class="progress-right"> <span class="progress-bar"></span> </span>
                                                 <div class="progress-value">37.5%</div>
@@ -177,12 +184,11 @@ switch ($x) {
                             <p> {{ $p->name }} </p>
                         </div>
                     </div>
-                </div>
                 @endforeach
             </div>
             @if($products->count() > 8)
                 <div class="text-center pt-5">
-                    <a href="{{ route('frontendCategories') }}" class="site-btn sb-line sb-dark">VIEW MORE</a>
+                    <a href="{{ route('frontendCategories') }}" class="site-btn sb-line sb-dark">{{trans('frontend.More')}}</a>
                 </div>
             @endif
         </div>
@@ -217,7 +223,7 @@ switch ($x) {
                                 <input type="hidden" name="name" value="{{$p->name}}">
                                 <input type="hidden" name="price" value="{{$p->price}}">
                                 <input type="hidden" name="quantity" value="1">
-                                <button type="submit" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></button>
+                                <button type="submit" class="add-card"><i class="flaticon-bag"></i><span>{{ trans('frontend.Add to Cart') }}</span></button>
                             </form>
                             <form action="{{ route('wishlist.store') }}" method="post">
                                 @csrf
