@@ -32,7 +32,7 @@ switch ($x) {
 }
 }
 ?>
-{{ App::setLocale(session()->get('locale') ? session()->get('locale')  : "en") }}
+{{ App::setLocale(session()->get('locale') ? session()->get('locale')  : "it") }}
 @section('content')
 
   @if($slides->count() > 0)
@@ -110,13 +110,13 @@ switch ($x) {
               <br>
                 <h3>{{ trans('frontend.BROWSE TOP SELLING PRODUCTS') }}</h3>
             </div>
-            <ul class="product-filter-menu">
-                @foreach($categories as $cat)
-                    <li><a href="{{ route('frontendCategory', $cat->slug) }}">{{ $cat->name }}</a></li>
-                @endforeach
-            </ul>
             <div class="row">
                 @foreach($products as $p)
+                <ul class="product-filter-menu">
+                <li><a href="{{ route('frontendCategory', $categories->where('id','=',$p->category_id)->first()->slug) }}">
+                {{$categories->where('id','=',$p->category_id)->first()->name}}
+                </a></li>
+                </ul>
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-bottom: 2%;background-color: #f8f8f8;border-radius: 20px;padding: 1%;">
                     <div class="product-item">
                         <div class="pi-pic">
@@ -131,7 +131,7 @@ switch ($x) {
                                 @if($p->photos->count() > 0)
                                 <div class="row">
                                     <div  class="col-md-4" >
-                                    <img src="<?php echo env('APP_NAME') ?>{{ $p->photos->first()->images }} " alt="">
+                                    <img src="<?php echo env('APP_NAME') ?>{{ $p->photos->first()->images }} " class="img-fluid" alt="">
                                     </div>
                                     <div  class="col-md-4" >
                                     <div  style="  position: absolute;top: 30%;left: 35%;">
@@ -151,7 +151,7 @@ switch ($x) {
                                     </div>
 
                                     </div>
-                                    <img class="col-md-4" src="<?php echo env('APP_NAME') ?>{{ $p->photos->last()->images }} " alt="">
+                                    <img class="col-md-4" src="<?php echo env('APP_NAME') ?>{{ $p->photos->last()->images }} " class="img-fluid" alt="">
                                     </div>
                                 </div>
 
@@ -180,8 +180,43 @@ switch ($x) {
                             </div>
                         </div>
                         <div class="pi-text">
-                            <h6>{{ $p->price * $currency->price}} <?php echo  $currency->currency ?></h6>
-                            <p> {{ $p->name }} </p>
+                            <h5 class="text-center">{{ $p->price * $currency->price}} <?php echo  $currency->currency ?></h5>
+                            @if( session()->get('locale')  == 'en')
+                            <div class="row">
+                                <div class="col-md-6 text-center">
+                                <p> {{ $p->gift }} </p>
+                                <p> {{ $p->gift_description }} </p>
+                                </div>
+                                <div class="col-md-6 text-center">
+                                <p> {{ $p->name }} </p>
+                                <p> {{ $p->description }} </p>
+                                </div>
+                            </div>
+                            @endif
+                            @if( session()->get('locale')  == 'ar')
+                            <div class="row">
+                                <div class="col-md-6 text-center">
+                                <p> {{ $p->gift_ar }} </p>
+                                <p> {{ $p->gift_description_ar }} </p>
+                                </div>
+                                <div class="col-md-6 text-center">
+                                <p> {{ $p->name_ar }} </p>
+                                <p> {{ $p->description_ar }} </p>
+                                </div>
+                            </div>
+	                        @endif
+                            @if(session()->get('locale') == 'it')
+                            <div class="row">
+                                <div class="col-md-6 text-center">
+                                <p> {{ $p->gift_sw }} </p>
+                                <p> {{ $p->gift_description__ar }} </p>
+                                </div>
+                                <div class="col-md-6 text-center">
+                                <p> {{ $p->name_sw }} </p>
+                                <p> {{ $p->description_sw }} </p>
+                                </div>
+                            </div>
+	                        @endif
                         </div>
                     </div>
                 @endforeach

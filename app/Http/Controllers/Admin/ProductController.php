@@ -61,7 +61,17 @@ class ProductController extends Controller
         
         $product = Product::create([
             'name' => $request->name,
+            'name_ar' => $request->name_ar,
+            'name_sw' => $request->name_sw,
             'description' => $request->description,
+            'description_ar' => $request->description_ar,
+            'description_sw' => $request->description_sw,
+            'gift' => $request->gift,
+            'gift_ar' => $request->gift_ar,
+            'gift_sw' => $request->gift_sw,
+            'gift_description' => $request->gift_description,
+            'gift_description_ar' => $request->gift_description_ar,
+            'gift_description_sw' => $request->gift_description_sw,
             'code' => $request->code,
             'price' => $request->price,
             'is_new' => $request->is_new,
@@ -162,8 +172,8 @@ class ProductController extends Controller
                 $name = Str::random(14);
 
                 $extension = $photo->getClientOriginalExtension();
-
-                $image = Image::make($photo)->fit(1200, 1200)->encode($extension);
+                //$image = Image::make($photo)->fit(1200, 1200)->encode($extension);
+                $image = Image::make($photo)->encode($extension);
 
                 Storage::disk('public')->put($path = "products/{$product->id}/{$name}.{$extension}", (string) $image);
 

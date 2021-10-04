@@ -54,18 +54,7 @@
 				@method('PATCH')
 			@endif
 			<div class="row justify-content-between m-auto">
-				<!-- product name -->
-				<div class="form-group">
-					<label for="name">Product Name</label>
-					<input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror" value="{{ isset($product) ? $product->name :  old('name') }}">
-
-					@error('name')
-						<span class="invalid-feedback" role="alert">
-							<strong>{{$message}}</strong>
-						</span>
-					@enderror
-				</div>
-				<!-- product code -->
+			<!-- product code -->
 				<div class="form-group">
 					<label for="code">Product Code</label>
 					<input type="text" name="code" id="code" class="form-control @error('code') is-invalid @enderror" value="{{ isset($product) ? $product->code : old('code') }}">
@@ -76,8 +65,8 @@
 						</span>
 					@enderror
 				</div>
-				<!-- product category -->
-				<div class="form-group">
+			<!-- product category -->
+			<div class="form-group">
 					<label for="category_id">Product Category</label>
 					<select name="category_id" id="category_id" class="form-control @error('category') is-invalid @enderror">
 						@if(isset($product))
@@ -93,9 +82,9 @@
 							<strong>{{$message}}</strong>
 						</span>
 					@enderror
-				</div>
-				<!-- product sub-category -->
-				<div class="form-group">
+			</div>
+			<!-- product sub-category -->
+			<div class="form-group">
 					<label for="sub_category_id">Sub-Category (Optional)</label>
 					<select name="sub_category_id" id="sub_category_id" class="form-control @error('sub_category_id') is-invalid @enderror">
 						@if(isset($product))
@@ -113,8 +102,44 @@
 							<strong>{{$message}}</strong>
 						</span>
 					@enderror
+			</div>
+			</div>
+			<div class="row justify-content-between m-auto">
+				<!-- product name -->
+				<div class="form-group">
+					<label for="name">Product Name</label>
+					<input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror" value="{{ isset($product) ? $product->name :  old('name') }}">
+
+					@error('name')
+						<span class="invalid-feedback" role="alert">
+							<strong>{{$message}}</strong>
+						</span>
+					@enderror
+				</div>
+				<!-- product name_ar -->
+				<div class="form-group">
+					<label for="name_ar">Product Name Arbic</label>
+					<input type="text" name="name_ar" id="name_ar" class="form-control @error('name_ar') is-invalid @enderror" value="{{ isset($product) ? $product->name_ar :  old('name_ar') }}">
+
+					@error('name')
+						<span class="invalid-feedback" role="alert">
+							<strong>{{$message}}</strong>
+						</span>
+					@enderror
+				</div>
+				<!-- product name_sw -->
+				<div class="form-group">
+					<label for="name_sw">Product Name Sweden</label>
+					<input type="text" name="name_sw" id="name_sw" class="form-control @error('name_sw') is-invalid @enderror" value="{{ isset($product) ? $product->name_sw :  old('name_sw') }}">
+
+					@error('name')
+						<span class="invalid-feedback" role="alert">
+							<strong>{{$message}}</strong>
+						</span>
+					@enderror
 				</div>
 			</div>
+			<div class="row justify-content-between m-auto">
 			<!-- product description -->
 			<div class="form-group">
 				<label for="description">Product Description</label>
@@ -125,6 +150,100 @@
 						<strong>{{$message}}</strong>
 					</span>
 				@enderror
+			</div>
+			<!-- product description_ar -->
+			<div class="form-group">
+				<label for="description_ar">Product Description Arbic</label>
+				<textarea type="text" name="description_ar" id="description_ar" class="form-control @error('description_ar') is-invalid @enderror">{{ isset($product) ? $product->description_ar : old('description_ar') }}</textarea>
+
+				@error('description_ar')
+					<span class="invalid-feedback" role="alert">
+						<strong>{{$message}}</strong>
+					</span>
+				@enderror
+			</div>
+			<!-- product description_sw -->
+			<div class="form-group">
+				<label for="description_sw">Product Description Sweden</label>
+				<textarea type="text" name="description_sw" id="description_sw" class="form-control @error('description_sw') is-invalid @enderror">{{ isset($product) ? $product->description_sw : old('description_sw') }}</textarea>
+
+				@error('description_sw')
+					<span class="invalid-feedback" role="alert">
+						<strong>{{$message}}</strong>
+					</span>
+				@enderror
+			</div>
+			</div>
+			<div class="row justify-content-between m-auto">
+				<!-- gift name -->
+				<div class="form-group">
+					<label for="gift">Gift Name</label>
+					<input type="text" name="gift" id="gift" class="form-control @error('gift') is-invalid @enderror" value="{{ isset($product) ? $product->gift :  old('gift') }}">
+
+					@error('gift')
+						<span class="invalid-feedback" role="alert">
+							<strong>{{$message}}</strong>
+						</span>
+					@enderror
+				</div>
+				<!-- product gift_ar -->
+				<div class="form-group">
+					<label for="gift_ar">Gift Name Arbic</label>
+					<input type="text" name="gift_ar" id="gift_ar" class="form-control @error('gift_ar') is-invalid @enderror" value="{{ isset($product) ? $product->gift_ar :  old('gift_ar') }}">
+
+					@error('gift_ar')
+						<span class="invalid-feedback" role="alert">
+							<strong>{{$message}}</strong>
+						</span>
+					@enderror
+				</div>
+				<!-- product name_sw -->
+				<div class="form-group">
+					<label for="gift_sw">Gift Name Sweden</label>
+					<input type="text" name="gift_sw" id="gift_sw" class="form-control @error('gift_sw') is-invalid @enderror" value="{{ isset($product) ? $product->gift_sw :  old('gift_sw') }}">
+
+					@error('name')
+						<span class="invalid-feedback" role="alert">
+							<strong>{{$message}}</strong>
+						</span>
+					@enderror
+				</div>
+				
+			</div>
+			<div class="row justify-content-between m-auto">
+			<!-- product description -->
+			<div class="form-group">
+				<label for="gift_description">Gift Description</label>
+				<textarea type="text" name="gift_description" id="gift_description" class="form-control @error('gift_description') is-invalid @enderror">{{ isset($product) ? $product->gift_description : old('gift_description') }}</textarea>
+
+				@error('gift_description')
+					<span class="invalid-feedback" role="alert">
+						<strong>{{$message}}</strong>
+					</span>
+				@enderror
+			</div>
+			<!-- product gift_description_ar -->
+			<div class="form-group">
+				<label for="gift_description_ar">Gift Description Arbic</label>
+				<textarea type="text" name="gift_description_ar" id="gift_description_ar" class="form-control @error('gift_description_ar') is-invalid @enderror">{{ isset($product) ? $product->gift_description_ar : old('gift_description_ar') }}</textarea>
+
+				@error('description_ar')
+					<span class="invalid-feedback" role="alert">
+						<strong>{{$message}}</strong>
+					</span>
+				@enderror
+			</div>
+			<!-- product gift_description_sw -->
+			<div class="form-group">
+				<label for="gift_description_sw">Product Description Sweden</label>
+				<textarea type="text" name="gift_description_sw" id="gift_description_sw" class="form-control @error('gift_description_sw') is-invalid @enderror">{{ isset($product) ? $product->gift_description_sw : old('gift_description_sw') }}</textarea>
+
+				@error('gift_description_sw')
+					<span class="invalid-feedback" role="alert">
+						<strong>{{$message}}</strong>
+					</span>
+				@enderror
+			</div>
 			</div>
 			<div class="row justify-content-between m-auto">
 				<!-- product images -->
