@@ -13,7 +13,13 @@
 <meta name="description" content="{{ $systemInfo->description }}">
 <meta name="keywords" content="{{ $systemInfo->description }}, {{ $systemInfo->description }}">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-{{ App::setLocale(session()->get('locale') ? session()->get('locale')  : "en") }}
+{{ App::setLocale(session()->get('locale') ? session()->get('locale')  : "it") }}
+<script
+  src="https://code.jquery.com/jquery-1.12.4.js"
+  integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU="
+  crossorigin="anonymous"></script>
+<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 @endsection
 
 @section('content')
@@ -31,6 +37,7 @@
 							<tr>
 								<th class="product-th">{{ trans('frontend.Product') }}</th>
 								<th class="quy-th">{{ trans('frontend.Quantity') }}</th>
+								<th class="quy-th">donate to get extra chance</th>
 								<th class="size-th">{{ trans('frontend.Size') }}</th>
 								<th class="total-th">{{ trans('frontend.Price') }}</th>
 							</tr>
@@ -39,6 +46,7 @@
 							@foreach(Cart::content() as $item)
 							<tr>
 								<td class="product-col">
+								<!--
 									<a href="{{ route('single-product', $item->model->slug) }}">
 										@if($item->model->photos->count() > 0)
 			                               <img src="{{ asset('$item->model->photos->first()->images') }}" alt="">
@@ -46,6 +54,7 @@
 			                                <img src="{{ asset('frontend/img/no-image.png') }}" alt="">
 			                            @endif
 									</a>
+-->
 									<div class="pc-title">
 										<h4>{{ $item->model->name }}</h4>
 										<p>${{ $item->model->price }}</p>
@@ -65,7 +74,8 @@
 										</form>
                 					</div>
 								</td>
-								<td class="size-col"><h4>{{ $item->size }}</h4></td>
+								<td class="size-col"><h4><input type="checkbox" checked data-toggle="toggle" data-on="Donated" data-off="Deliverable" data-onstyle="success" data-offstyle="danger"></h4></td>
+								<td class="size-col"><h4>{{ $item->qty }} </h4></td>
 								<td class="total-col"><h4>${{ $item->subtotal }}</h4></td>
 								<td class="total-col">
 									<form action="{{ route('cart.destroy', $item->rowId) }}" method="post">
@@ -117,6 +127,11 @@
 				</form>
 				@endif
 -->
+			<div class="checkbox">
+			<label>
+			</label>
+			</div>
+
 				<a href="{{ route('checkout.index') }}" class="site-btn">{{ trans('frontend.Proceed to checkout') }}</a>
 				<a href="{{ route('frontendCategories') }}" class="site-btn sb-dark">{{ trans('frontend.Continue shopping') }}</a>
 			</div>

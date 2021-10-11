@@ -205,11 +205,11 @@ switch ($x) {
                                 </div>
                             </div>
 	                        @endif
-                            @if(session()->get('locale') == 'it')
+                            @if(session()->get('locale') == 'it' || session()->get('locale')== null)
                             <div class="row">
                                 <div class="col-md-6 text-center">
                                 <p> {{ $p->gift_sw }} </p>
-                                <p> {{ $p->gift_description__ar }} </p>
+                                <p> {{ $p->gift_description_sw }} </p>
                                 </div>
                                 <div class="col-md-6 text-center">
                                 <p> {{ $p->name_sw }} </p>
