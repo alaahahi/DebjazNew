@@ -6,9 +6,11 @@ use App\Product;
 use App\SystemSetting;
 use Illuminate\Http\Request;
 use Gloudemans\Shoppingcart\Facades\Cart;
-
+use App\Currency;
+use Session;
 class CartController extends Controller
 {
+    
     /**
      * Display a listing of the resource.
      *
@@ -16,15 +18,16 @@ class CartController extends Controller
      */
     public function index()
     {
+        $currency_def= Session::get('currency') ? Session::get('currency') :'SEK';
         $systemInfo = SystemSetting::first(); 
 
         $mightAlsoLike = Product::inRandomOrder()->with('photos')->take(4)->get();
-
+        $currency = Currency::where('currency', strtoupper($currency_def))->first();
         $discount = session()->get('coupon')['discount'] ?? 0;
         $newSubtotal = (Cart::subtotal() - $discount);
         $newTotal = $newSubtotal;
 
-        return view('cart', compact('mightAlsoLike', 'systemInfo'))->with([
+        return view('cart', compact('mightAlsoLike', 'systemInfo','currency'))->with([
             'discount' => $discount,
             'newSubtotal' => $newSubtotal,
             'newTotal' => $newTotal,

@@ -14,16 +14,11 @@
 <meta name="keywords" content="{{ $systemInfo->description }}, {{ $systemInfo->description }}">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 {{ App::setLocale(session()->get('locale') ? session()->get('locale')  : "it") }}
-<script
-  src="https://code.jquery.com/jquery-1.12.4.js"
-  integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU="
-  crossorigin="anonymous"></script>
-<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
-<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 @endsection
 
 @section('content')
-
+<?php function  donet () { echo "checked"; } ?>
 <!-- cart section end -->
 <section class="cart-section spad">
 	<div class="container">
@@ -37,7 +32,6 @@
 							<tr>
 								<th class="product-th">{{ trans('frontend.Product') }}</th>
 								<th class="quy-th">{{ trans('frontend.Quantity') }}</th>
-								<th class="quy-th">donate to get extra chance</th>
 								<th class="size-th">{{ trans('frontend.Size') }}</th>
 								<th class="total-th">{{ trans('frontend.Price') }}</th>
 							</tr>
@@ -57,7 +51,7 @@
 -->
 									<div class="pc-title">
 										<h4>{{ $item->model->name }}</h4>
-										<p>${{ $item->model->price }}</p>
+										<p>{{ $item->model->price * $currency->price}} <?php echo  $currency->currency ?></p>
 									</div>
 								</td>
 								<td class="quy-col">
@@ -74,9 +68,8 @@
 										</form>
                 					</div>
 								</td>
-								<td class="size-col"><h4><input type="checkbox" checked data-toggle="toggle" data-on="Donated" data-off="Deliverable" data-onstyle="success" data-offstyle="danger"></h4></td>
 								<td class="size-col"><h4>{{ $item->qty }} </h4></td>
-								<td class="total-col"><h4>${{ $item->subtotal }}</h4></td>
+								<td class="total-col"><h4>{{ $item->subtotal * $currency->price}}<?php echo  $currency->currency ?></h4></td>
 								<td class="total-col">
 									<form action="{{ route('cart.destroy', $item->rowId) }}" method="post">
 										@csrf
@@ -114,7 +107,7 @@
 					</table>
 					</div>
 					<div class="total-cost">
-						<h6>{{ trans('frontend.Total Amount') }}<span style="padding: 0 20px ;font-size: 28px;">{{ $newTotal }}</span></h6>
+						<h6>{{ trans('frontend.Total Amount') }}<span style="padding: 0 20px ;font-size: 28px;">{{ $newTotal * $currency->price}}<?php echo  $currency->currency ?></span></h6>
 					</div>
 				</div>
 			</div>
@@ -131,7 +124,7 @@
 			<label>
 			</label>
 			</div>
-
+				<input type="checkbox" name="my-checkbox" checked>
 				<a href="{{ route('checkout.index') }}" class="site-btn">{{ trans('frontend.Proceed to checkout') }}</a>
 				<a href="{{ route('frontendCategories') }}" class="site-btn sb-dark">{{ trans('frontend.Continue shopping') }}</a>
 			</div>
@@ -171,7 +164,7 @@
                                 <input type="hidden" name="name" value="{{$like->name}}">
                                 <input type="hidden" name="price" value="{{$like->price}}">
                                 <input type="hidden" name="quantity" value="1">
-                                <button type="submit" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></button>
+                                <button type="submit" class="add-card"><i class="flaticon-bag"></i><span>{{ trans('frontend.Add to Cart') }}</span></button>
                             </form>
                             <form action="{{ route('wishlist.store') }}" method="post">
                                 @csrf
@@ -184,7 +177,7 @@
 						</div>
 					</div>
 					<div class="pi-text">
-						<h6>${{ $like->price }}</h6>
+						<h6>${{ $like->price * $currency->price}} <?php echo  $currency->currency ?></h6>
 						<p>{{ $like->name }}</p>
 					</div>
 				</div>
@@ -193,6 +186,7 @@
 		</div>
 	</div>
 </section>
-<!-- Related product section end -->
-
+<script>
+	$("[name='my-checkbox']").bootstrapSwitch();
+</script>
 @endsection

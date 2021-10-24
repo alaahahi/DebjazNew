@@ -169,5 +169,8 @@ return [
     "YOU ALSO VIEWED"=>"أنت أيضا شاهدت",
     "Profile Settings"=>"إعدادات الملف الشخصي",
     "Edit your account"=>"تعديل حسابك",
-    "Submit Profile Changes"=>"إرسال تغييرات ملف التعريف"
+    "Submit Profile Changes"=>"إرسال تغييرات ملف التعريف",
+    "donate to get extra chance"=>"تبرع للحصول على فرصة إضافية",
+    "Donated"=>"التبرع",
+    "Deliverable"=>"توصيل"
 ];

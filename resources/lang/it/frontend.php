@@ -171,5 +171,8 @@ return [
     "YOU ALSO VIEWED"=>"YOU ALSO VIEWED",
     "Profile Settings"=>"Profile Settings",
     "Edit your account"=>"Edit your account",
-    "Submit Profile Changes"=>"Submit Profile Changes"
+    "Submit Profile Changes"=>"Submit Profile Changes",
+    "donate to get extra chance"=>"Donate to get extra chance",
+    "Donated"=>"Donated",
+    "Deliverable"=>"Deliverable"
 ];
