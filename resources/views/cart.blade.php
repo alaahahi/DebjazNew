@@ -14,7 +14,9 @@
 <meta name="keywords" content="{{ $systemInfo->description }}, {{ $systemInfo->description }}">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 {{ App::setLocale(session()->get('locale') ? session()->get('locale')  : "it") }}
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/4.0.0-alpha.1/css/bootstrap-switch.css" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/4.0.0-alpha.1/js/bootstrap-switch.js"></script>
 @endsection
 
 @section('content')
@@ -68,7 +70,7 @@
 										</form>
                 					</div>
 								</td>
-								<td class="size-col"><h4>{{ $item->qty }} </h4></td>
+								<td class="size-col"><h4 class="loto">{{ $item->qty }} </h4></td>
 								<td class="total-col"><h4>{{ $item->subtotal * $currency->price}}<?php echo  $currency->currency ?></h4></td>
 								<td class="total-col">
 									<form action="{{ route('cart.destroy', $item->rowId) }}" method="post">
@@ -124,7 +126,12 @@
 			<label>
 			</label>
 			</div>
-				<input type="checkbox" name="my-checkbox" checked>
+				<input type="checkbox" name="my-checkbox" checked data-on-color="success" data-switch-value="small" data-on-text="{{ trans('frontend.Donated') }}" data-off-text="{{ trans('frontend.Deliverable') }}">
+				<br>
+				<h6>
+				{{ trans('frontend.donate to get extra chance') }}
+				</h6>
+				<br>
 				<a href="{{ route('checkout.index') }}" class="site-btn">{{ trans('frontend.Proceed to checkout') }}</a>
 				<a href="{{ route('frontendCategories') }}" class="site-btn sb-dark">{{ trans('frontend.Continue shopping') }}</a>
 			</div>
@@ -188,5 +195,8 @@
 </section>
 <script>
 	$("[name='my-checkbox']").bootstrapSwitch();
+	$('input[name="my-checkbox"]').on('switchChange.bootstrapSwitch', function(event, state) {
+	$('.loto').val();
+});
 </script>
 @endsection
