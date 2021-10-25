@@ -124,14 +124,18 @@
 			<label>
 			</label>
 			</div>
+			<div class="text-center">
 				<input type="checkbox" name="my-checkbox" checked data-on-color="success" data-switch-value="small" data-on-text="{{ trans('frontend.Donated') }}" data-off-text="{{ trans('frontend.Deliverable') }}">
-				<br>
-				<h6>
-				{{ trans('frontend.donate to get extra chance') }}
+				<h6 style="color: #5cb85c; font-weight: bold;padding: 10px;">
+				{{ trans('frontend.Donate to receive an additional entry!') }}
 				</h6>
+				<p>
+				{{ trans("frontend.I agree to donate all purchased products to charity as per the 'Draw Terms & Conditions'") }}
+				</p>
 				<br>
 				<a href="{{ route('checkout.index') }}" class="site-btn">{{ trans('frontend.Proceed to checkout') }}</a>
 				<a href="{{ route('frontendCategories') }}" class="site-btn sb-dark">{{ trans('frontend.Continue shopping') }}</a>
+			</div>
 			</div>
 		</div>
 	</div>

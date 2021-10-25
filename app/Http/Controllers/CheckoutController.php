@@ -9,6 +9,7 @@ use App\SystemSetting;
 use Illuminate\Http\Request;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Session;
+use App\Currency;
 use Stripe;
 
 class CheckoutController extends Controller
@@ -21,13 +22,15 @@ class CheckoutController extends Controller
      */
     public function index()
     {
+        $currency_def= Session::get('currency') ? Session::get('currency') :'SEK';
+        $currency = Currency::where('currency', strtoupper($currency_def))->first();
         $systemInfo = SystemSetting::first();
 
         $discount = session()->get('coupon')['discount'] ?? 0;
         $newSubtotal = (Cart::subtotal() - $discount);
         $newTotal = $newSubtotal;
 
-        return view('checkout', compact('systemInfo'))->with([
+        return view('checkout', compact('systemInfo','currency'))->with([
             'discount' => $discount,
             'newSubtotal' => $newSubtotal,
             'newTotal' => $newTotal,
