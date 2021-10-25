@@ -34,7 +34,6 @@
 							<tr>
 								<th class="product-th">{{ trans('frontend.Product') }}</th>
 								<th class="quy-th">{{ trans('frontend.Quantity') }}</th>
-								<th class="size-th">{{ trans('frontend.Size') }}</th>
 								<th class="total-th">{{ trans('frontend.Price') }}</th>
 							</tr>
 						</thead>
@@ -70,7 +69,6 @@
 										</form>
                 					</div>
 								</td>
-								<td class="size-col"><h4 class="loto">{{ $item->qty }} </h4></td>
 								<td class="total-col"><h4>{{ $item->subtotal * $currency->price}}<?php echo  $currency->currency ?></h4></td>
 								<td class="total-col">
 									<form action="{{ route('cart.destroy', $item->rowId) }}" method="post">
