@@ -127,7 +127,7 @@
 						<div class="card-header" id="headingOne">
 						<h5 class="mb-0 ">
 							<button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-							Payment cards
+							{{ trans('frontend.Payment cards') }}
 							</button>
 						</h5>
 						</div>
@@ -146,11 +146,11 @@
 										@endif
 
 											<div class='col-xs-12 form-group required'>
-												<label class='control-label'>Name on Card</label> <input
+												<label class='control-label'>{{ trans('frontend.Name on Card') }}</label> <input
 													class='form-control' size='12' type='text'>
 											</div>
 											<div class='col-xs-12 form-group required'>
-												<label class='control-label'>Card Number</label> <input
+												<label class='control-label'>{{ trans('frontend.Card Number') }}</label> <input
 													autocomplete='off' class='form-control card-number' size='20'
 													type='text'>
 											</div>
@@ -161,20 +161,19 @@
 													type='number'>
 											</div>
 											<div class='col-xs-12 col-md-4 form-group expiration required'>
-												<label class='control-label'>Expiration Month</label> <input
+												<label class='control-label'>{{ trans('frontend.Expiration Month') }}</label> <input
 													class='form-control card-expiry-month' placeholder='MM' size='2'
 													type='number'>
 											</div>
 											<div class='col-xs-12 col-md-4 form-group expiration required'>
-												<label class='control-label'>Expiration Year</label> <input
+												<label class='control-label'>{{ trans('frontend.Expiration Year') }}</label> <input
 													class='form-control card-expiry-year' placeholder='YYYY' size='4'
 													type='number'>
 											</div>
 											</div>
 											<div class='form-row row'>
 											<div class='col-md-12 error form-group hide' >
-												<div class='alert-danger alert '>Please correct the errors and try
-													again.
+												<div class='alert-danger alert '>{{ trans('frontend.Please correct the errors and try again.') }}
 												</div>
 											</div>
 											</div>
@@ -244,7 +243,7 @@
 					</div>
 					@endif
 					</div>				
-					<button type="submit" class="site-btn submit-order-btn">Place Order</button>
+					<button type="submit" class="site-btn submit-order-btn">{{ trans('frontend.Place Order') }}</button>
 
 			</div>
 			</form>

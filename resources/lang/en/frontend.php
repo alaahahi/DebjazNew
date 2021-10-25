@@ -172,5 +172,13 @@ return [
     "Submit Profile Changes"=>"Submit Profile Changes",
     "donate to get extra chance"=>"Donate to get extra chance",
     "Donated"=>"Donated",
-    "Deliverable"=>"Deliverable"
+    "Deliverable"=>"Deliverable",
+    "Payment cards"=>"Payment cards",
+    "Name on Card"=>"Name on Card",
+    "Card Number"=>"Card Number",
+    "Expiration Month"=>"Expiration Month",
+    "Expiration Year"=>"Expiration Year",
+    "Please correct the errors and try again."=>"Please correct the errors and try again.",
+    "Place Order"=>"Place Order"
+
 ];

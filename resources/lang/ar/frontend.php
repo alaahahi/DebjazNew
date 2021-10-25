@@ -172,5 +172,13 @@ return [
     "Submit Profile Changes"=>"إرسال تغييرات ملف التعريف",
     "donate to get extra chance"=>"تبرع للحصول على فرصة إضافية",
     "Donated"=>"التبرع",
-    "Deliverable"=>"توصيل"
+    "Deliverable"=>"توصيل",
+    "Payment cards"=>"بطاقات الدفع",
+    "Name on Card"=>"الاسم على البطاقة",
+    "Card Number"=>"رقم البطاقة",
+    "Expiration Month"=>"الشهر",
+    "Expiration Year"=>"السنة",
+    "Please correct the errors and try again."=>"يرجى تصحيح الأخطاء والمحاولة مرة أخرى",
+    "Place Order"=>"دفع والمتابعة"
+
 ];
