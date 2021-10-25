@@ -13,7 +13,8 @@
 <meta name="description" content="{{ $systemInfo->description }}">
 <meta name="keywords" content="{{ $systemInfo->description }}, {{ $systemInfo->description }}">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-{{ App::setLocale(session()->get('locale') ? session()->get('locale')  : "it") }}
+<?php $lang=session()->get('locale') ? session()->get('locale')  : "it" ?>
+{{App::setLocale($lang) }}
 <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/4.0.0-alpha.1/css/bootstrap-switch.css" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/4.0.0-alpha.1/js/bootstrap-switch.js"></script>
@@ -51,7 +52,18 @@
 									</a>
 -->
 									<div class="pc-title">
-										<h4>{{ $item->model->name }}</h4>
+									<h4>	<?php if($lang=='it')
+											{
+												echo $item->model->name;
+											}
+											if($lang=='ar'){
+												echo $item->model->name_ar;
+											}
+											if($lang=='en'){
+												echo $item->model->name_en;
+											}
+											?>
+									</h4>
 										<p>{{ $item->model->price * $currency->price}} <?php echo  $currency->currency ?></p>
 									</div>
 								</td>
@@ -171,6 +183,8 @@
                                 @csrf
                                 <input type="hidden" name="id" value="{{$like->id}}">
                                 <input type="hidden" name="name" value="{{$like->name}}">
+								<input type="hidden" name="name_ar" value="{{$like->name_ar}}">
+                                <input type="hidden" name="name_sw" value="{{$like->name_sw}}">
                                 <input type="hidden" name="price" value="{{$like->price}}">
                                 <input type="hidden" name="quantity" value="1">
                                 <button type="submit" class="add-card"><i class="flaticon-bag"></i><span>{{ trans('frontend.Add to Cart') }}</span></button>
@@ -179,6 +193,8 @@
                                 @csrf
                                 <input type="hidden" name="id" value="{{$like->id}}">
                                 <input type="hidden" name="name" value="{{$like->name}}">
+								<input type="hidden" name="name_ar" value="{{$like->name_ar}}">
+                                <input type="hidden" name="name_sw" value="{{$like->name_sw}}">
                                 <input type="hidden" name="price" value="{{$like->price}}">
                                 <input type="hidden" name="quantity" value="1">
                                 <button type="submit" class="wishlist-btn"><i class="flaticon-heart"></i></button>
@@ -186,7 +202,7 @@
 						</div>
 					</div>
 					<div class="pi-text">
-						<h6>${{ $like->price * $currency->price}} <?php echo  $currency->currency ?></h6>
+						<h6><?php echo  $currency->currency ?>{{ $like->price * $currency->price}} <?php echo  $currency->currency ?></h6>
 						<p>{{ $like->name }}</p>
 					</div>
 				</div>

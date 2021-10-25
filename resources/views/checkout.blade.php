@@ -11,7 +11,8 @@
 <script crossorigin="anonymous" src="https://unpkg.com/@dintero/checkout-web-sdk@0.0.17/dist/dintero-checkout-web-sdk.umd.min.js" integrity="sha384-C+s7429Bxo4cmt8Tt3N5MRR4fZ/OsEBHDJaHwOnhlizydtc7wgCGvH5u5cXnjSSx"></script>
 @endif
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-{{ App::setLocale(session()->get('locale') ? session()->get('locale')  : "en") }}
+<?php $lang=session()->get('locale') ? session()->get('locale')  : "it" ?>
+{{App::setLocale($lang) }}
 <style type="text/css">
          .panel-title {
          display: inline;
@@ -260,16 +261,26 @@
 	                                <img src="{{ asset('frontend/img/no-image.png') }}" alt="">
 	                            @endif
 							</div>
-							<h6>{{ $item->model->name }}</h6>
-							<p>${{ $item->subtotal }}</p>
+							<h6><?php if($lang=='it')
+											{
+												echo $item->model->name;
+											}
+											if($lang=='ar'){
+												echo $item->model->name_ar;
+											}
+											if($lang=='en'){
+												echo $item->model->name_en;
+											}
+											?></h6>
+							<p><?php echo  $currency->currency ?> {{ $item->subtotal  * $currency->price}}</p>
 							<p>Qty {{ $item->qty }}</p>
 						</li>
 						@endforeach
 					</ul>
 					<ul class="price-list">
-						<li>{{ trans('frontend.Total') }}<span>${{ $newSubtotal }}.00</span></li>
+						<li>{{ trans('frontend.Total') }}<span><?php echo  $currency->currency ?> {{ $newSubtotal * $currency->price}} .00</span></li>
 						<li>{{ trans('frontend.Shipping') }}<span>{{ trans('frontend.Free') }}</span></li>
-						<li class="total">{{ trans('frontend.Total') }}<span>${{ $newTotal }}.00</span></li>
+						<li class="total">{{ trans('frontend.Total') }}<span><?php echo  $currency->currency ?> {{ $newTotal  * $currency->price}} .00</span></li>
 					</ul>
 				</div>
 				<div id="smart-button-container">

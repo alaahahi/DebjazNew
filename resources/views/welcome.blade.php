@@ -165,14 +165,18 @@ switch ($x) {
                                     @csrf
                                     <input type="hidden" name="id" value="{{$p->id}}">
                                     <input type="hidden" name="name" value="{{$p->name}}">
+                                    <input type="hidden" name="name_ar" value="{{$p->name_ar}}">
+                                    <input type="hidden" name="name_sw" value="{{$p->name_sw}}">
                                     <input type="hidden" name="price" value="{{$p->price}}">
                                     <input type="hidden" name="quantity" value="1">
-                                    <button type="submit" class="add-card"><i class="flaticon-bag"></i><span style="font-size:14px;padding-top: 12px;">ADD TO CART</span></button>
+                                    <button type="submit" class="add-card"><i class="flaticon-bag"></i><span style="font-size:14px;padding-top: 12px;">{{ trans('frontend.Buy') }}</span></button>
                                 </form>
                                 <form action="{{ route('wishlist.store') }}" method="post">
                                     @csrf
                                     <input type="hidden" name="id" value="{{$p->id}}">
                                     <input type="hidden" name="name" value="{{$p->name}}">
+                                    <input type="hidden" name="name_ar" value="{{$p->name_ar}}">
+                                    <input type="hidden" name="name_sw" value="{{$p->name_sw}}">
                                     <input type="hidden" name="price" value="{{$p->price}}">
                                     <input type="hidden" name="quantity" value="1">
                                     <button type="submit" class="wishlist-btn"><i class="flaticon-heart"></i></button>
@@ -256,15 +260,19 @@ switch ($x) {
                                 @csrf
                                 <input type="hidden" name="id" value="{{$p->id}}">
                                 <input type="hidden" name="name" value="{{$p->name}}">
+                                <input type="hidden" name="name_ar" value="{{$p->name_ar}}">
+                                <input type="hidden" name="name_sw" value="{{$p->name_sw}}">
                                 <input type="hidden" name="price" value="{{$p->price}}">
                                 <input type="hidden" name="quantity" value="1">
-                                <button type="submit" class="add-card"><i class="flaticon-bag"></i><span>{{ trans('frontend.Add to Cart') }}</span></button>
+                                <button type="submit" class="add-card"><i class="flaticon-bag"></i><span>{{ trans('frontend.Buy') }}</span></button>
                             </form>
                             <form action="{{ route('wishlist.store') }}" method="post">
                                 @csrf
                                 <input type="hidden" name="id" value="{{$p->id}}">
                                 <input type="hidden" name="name" value="{{$p->name}}">
                                 <input type="hidden" name="price" value="{{$p->price}}">
+                                <input type="hidden" name="name_ar" value="{{$p->name_ar}}">
+                                <input type="hidden" name="name_sw" value="{{$p->name_sw}}">
                                 <input type="hidden" name="quantity" value="1">
                                 <button type="submit" class="wishlist-btn"><i class="flaticon-heart"></i></button>
                             </form>

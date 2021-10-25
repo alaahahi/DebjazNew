@@ -52,6 +52,8 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
+        $currency_def= Session::get('locale') ? Session::get('locale') :'it';
+
         // dd($request->all());
         $duplicates = Cart::search(function ($cartItem, $rowId) use ($request) {
             return $cartItem->id  === $request->id;
@@ -62,10 +64,22 @@ class CartController extends Controller
 
             return redirect(route('cart.index'));
         }
-
+        if($currency_def == "it")
+        {
+        Cart::add($request->id, $request->name_sw, $request->quantity, $request->price, ['size' => $request->Size, 'color' => $request->Color])->associate('App\Product');
+        session()->flash('success', "$request->name_sw added to your cart successfully!");
+        }
+        if($currency_def == "ar")
+        {
+        Cart::add($request->id, $request->name_ar, $request->quantity, $request->price, ['size' => $request->Size, 'color' => $request->Color])->associate('App\Product');
+        session()->flash('success', "$request->name_ar added to your cart successfully!");
+        }
+        if($currency_def == "en")
+        {
         Cart::add($request->id, $request->name, $request->quantity, $request->price, ['size' => $request->Size, 'color' => $request->Color])->associate('App\Product');
-
         session()->flash('success', "$request->name added to your cart successfully!");
+        }
+
 
         return redirect(route('cart.index'));
     }
