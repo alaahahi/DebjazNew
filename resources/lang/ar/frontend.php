@@ -179,6 +179,7 @@ return [
     "Expiration Month"=>"الشهر",
     "Expiration Year"=>"السنة",
     "Please correct the errors and try again."=>"يرجى تصحيح الأخطاء والمحاولة مرة أخرى",
-    "Place Order"=>"دفع والمتابعة"
+    "Place Order"=>"دفع والمتابعة",
+    "View Order"=>"مشاهدة الطلب"
 
 ];

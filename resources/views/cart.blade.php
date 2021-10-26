@@ -187,7 +187,7 @@
                                 <input type="hidden" name="name_sw" value="{{$like->name_sw}}">
                                 <input type="hidden" name="price" value="{{$like->price}}">
                                 <input type="hidden" name="quantity" value="1">
-                                <button type="submit" class="add-card"><i class="flaticon-bag"></i><span>{{ trans('frontend.Add to Cart') }}</span></button>
+                                <button type="submit" class="add-card"><i class="flaticon-bag"></i><span>{{ trans('frontend.Buy') }}</span></button>
                             </form>
                             <form action="{{ route('wishlist.store') }}" method="post">
                                 @csrf

@@ -32,7 +32,8 @@ switch ($x) {
 }
 }
 ?>
-{{ App::setLocale(session()->get('locale') ? session()->get('locale')  : "it") }}
+<?php $lang=session()->get('locale') ? session()->get('locale')  : "it" ?>
+{{App::setLocale($lang) }}
 @section('content')
 
   @if($slides->count() > 0)
@@ -117,7 +118,7 @@ switch ($x) {
                 {{$categories->where('id','=',$p->category_id)->first()->name}}
                 </a></li>
                 </ul>
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-bottom: 2%;background-color: #f8f8f8;border-radius: 20px;padding: 1%;">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 home_card" style="margin-bottom: 2%;background-color: #f8f8f8;border-radius: 20px;padding: 1%;">
                     <div class="product-item">
                         <div class="pi-pic">
                             @if($p->on_sale == 1)
@@ -129,12 +130,36 @@ switch ($x) {
                             <a href="{{ route('single-product', $p->slug) }}">
                                 <a href="{{ route('single-product', $p->slug) }}">
                                 @if($p->photos->count() > 0)
-                                <div class="row">
+                                <div class="row text-center">
                                     <div  class="col-md-4" >
                                     <img src="<?php echo env('APP_NAME') ?>{{ $p->photos->first()->images }} " class="img-fluid" alt="">
+                                    @if( session()->get('locale')  == 'en')
+                                    <div class="row">
+                                        <div class="col-md-12 text-center">
+                                        <p> {{ $p->gift }} </p>
+                                        <p> {{ $p->gift_description }} </p>
+                                        </div>
+                                    </div>
+                                    @endif
+                                    @if( session()->get('locale')  == 'ar')
+                                    <div class="row">
+                                        <div class="col-md-12 text-center">
+                                        <p> {{ $p->gift_ar }} </p>
+                                        <p> {{ $p->gift_description_ar }} </p>
+                                        </div>
+                                    </div>
+                                    @endif
+                                    @if(session()->get('locale') == 'it' || session()->get('locale')== null)
+                                    <div class="row">
+                                        <div class="col-md-12 text-center">
+                                        <p> {{ $p->gift_sw }} </p>
+                                        <p> {{ $p->gift_description_sw }} </p>
+                                        </div>
+                                    </div>
+                                    @endif
                                     </div>
                                     <div  class="col-md-4" >
-                                    <div  style="  position: absolute;top: 30%;left: 35%;">
+                                    <div class="circl-pay">
                                             <div  class="progress blue  mx-auto"   data-value='<?php echo $value = (100/$p->quantity)*($orderProduct->where('product_id',"=",$p->id)->sum('quantity'))?>' ><span class="progress-left"><span class="progress-bar <?php color($value); ?>"></span></span><span class="progress-right"><span class="progress-bar  <?php color($value); ?>"></span></span>
                                                 <div class="progress-value"><?php echo ($orderProduct->where('product_id',"=",$p->id)->sum('quantity'))  ?>
                                             <br>
@@ -149,9 +174,34 @@ switch ($x) {
                                                 <div class="progress-value">37.5%</div>
                                             </div>-->
                                     </div>
-
                                     </div>
-                                    <img class="col-md-4" src="<?php echo env('APP_NAME') ?>{{ $p->photos->last()->images }} " class="img-fluid" alt="">
+                                    <div class="col-md-4">
+                                    <img  src="<?php echo env('APP_NAME') ?>{{ $p->photos->last()->images }} " class="img-fluid" alt="">
+                                    @if( session()->get('locale')  == 'en')
+                                    <div class="row">
+                                        <div class="col-md-12 text-center">
+                                        <p> {{ $p->name }} </p>
+                                        <p> {{ $p->description }} </p>
+                                        </div>
+                                    </div> 
+                                     @endif
+                                     @if( session()->get('locale')  == 'ar')
+                                    <div class="row">
+                                        <div class="col-md-12 text-center">
+                                        <p> {{ $p->name_ar }} </p>
+                                        <p> {{ $p->description_ar }} </p>
+                                        </div>
+                                    </div> 
+                                     @endif
+                                     @if( session()->get('locale')  == 'it')
+                                    <div class="row">
+                                        <div class="col-md-12 text-center">
+                                        <p> {{ $p->name_sw }} </p>
+                                        <p> {{ $p->description_sw }} </p>
+                                        </div>
+                                    </div> 
+                                    @endif
+                                    </div>
                                     </div>
                                 </div>
 
@@ -183,45 +233,7 @@ switch ($x) {
                                 </form>
                             </div>
                         </div>
-                        <div class="pi-text">
-                            <h5 class="text-center">{{ $p->price * $currency->price}} <?php echo  $currency->currency ?></h5>
-                            @if( session()->get('locale')  == 'en')
-                            <div class="row">
-                                <div class="col-md-6 text-center">
-                                <p> {{ $p->gift }} </p>
-                                <p> {{ $p->gift_description }} </p>
-                                </div>
-                                <div class="col-md-6 text-center">
-                                <p> {{ $p->name }} </p>
-                                <p> {{ $p->description }} </p>
-                                </div>
-                            </div>
-                            @endif
-                            @if( session()->get('locale')  == 'ar')
-                            <div class="row">
-                                <div class="col-md-6 text-center">
-                                <p> {{ $p->gift_ar }} </p>
-                                <p> {{ $p->gift_description_ar }} </p>
-                                </div>
-                                <div class="col-md-6 text-center">
-                                <p> {{ $p->name_ar }} </p>
-                                <p> {{ $p->description_ar }} </p>
-                                </div>
-                            </div>
-	                        @endif
-                            @if(session()->get('locale') == 'it' || session()->get('locale')== null)
-                            <div class="row">
-                                <div class="col-md-6 text-center">
-                                <p> {{ $p->gift_sw }} </p>
-                                <p> {{ $p->gift_description_sw }} </p>
-                                </div>
-                                <div class="col-md-6 text-center">
-                                <p> {{ $p->name_sw }} </p>
-                                <p> {{ $p->description_sw }} </p>
-                                </div>
-                            </div>
-	                        @endif
-                        </div>
+                        <h5 class="text-center">{{ $p->price * $currency->price}} <?php echo  $currency->currency ?></h5>
                     </div>
                 @endforeach
             </div>
@@ -279,8 +291,20 @@ switch ($x) {
                         </div>
                     </div>
                     <div class="pi-text">
-                        <h3>{{ $p->price * $currency->price}} <?php echo  $currency->currency ?></h3>
-                        <a href="{{ route('single-product', $p->slug) }}"><p>{{ $p->name }}</p></a> 
+                        <h4>{{ $p->price * $currency->price}} <?php echo  $currency->currency ?></h4>
+                        <a href="{{ route('single-product', $p->slug) }}"><p>
+                        <?php if($lang=='it')
+											{
+												echo $p->name;
+											}
+											if($lang=='ar'){
+												echo $p->name_ar;
+											}
+											if($lang=='en'){
+												echo $p->name_en;
+											}
+											?>
+                        </p></a> 
                     </div>
                 </div>
                 @endforeach

@@ -179,6 +179,7 @@ return [
     "Expiration Month"=>"Expiration Month",
     "Expiration Year"=>"Expiration Year",
     "Please correct the errors and try again."=>"Please correct the errors and try again.",
-    "Place Order"=>"Place Order"
+    "Place Order"=>"Place Order",
+    "View Order"=>"View Order"
 
 ];

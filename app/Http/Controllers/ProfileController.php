@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Order;
 use App\Product;
 use Illuminate\Http\Request;
+use App\Currency;
+use Session;
 
 class ProfileController extends Controller
 {
@@ -15,11 +17,13 @@ class ProfileController extends Controller
      */
     public function index()
     {
+        $currency_def= Session::get('currency') ? Session::get('currency') :'SEK';
+        $currency = Currency::where('currency', strtoupper($currency_def))->first();
         $orders = auth()->user()->orders()->orderBy('created_at', 'DESC')->paginate(5);
 
         $recentlyViewed = Product::inRandomOrder()->take(4)->get();
 
-        return view('profile.index', compact('orders', 'recentlyViewed'));
+        return view('profile.index', compact('orders', 'recentlyViewed','currency'));
     }
 
     /**

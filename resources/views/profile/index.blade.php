@@ -9,7 +9,8 @@
 </title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-{{ App::setLocale(session()->get('locale') ? session()->get('locale')  : "en") }}
+<?php $lang=session()->get('locale') ? session()->get('locale')  : "it" ?>
+{{App::setLocale($lang) }}
 @endsection
 
 @section('content')
@@ -26,16 +27,16 @@
 								<thead>
 									<tr>
 										<th class="size-col">{{ trans('frontend.Order Number') }}</th>
-										<th class="size-col">{{ trans('frontend.Amount') }}</th>
+										<th class="size-col">{{ trans('frontend.Total Amount') }}</th>
 									</tr>
 								</thead>
 								<tbody>
 									@foreach($orders as $order)
 									<tr>
 										<td class="size-col"><h4>{{ $order->order_number }}</h4></td>
-										<td class="total-col"><h4>${{ $order->billing_total }}</h4></td>
+										<td class="total-col"><h4>{{ $order->billing_total  * $currency->price}} <?php echo  $currency->currency ?> </h4></td>
 										<td>
-											<a href="{{ route('my-profile.show', $order->id) }}" class="btn btn-success btn-sm">View Order</a>
+											<a href="{{ route('my-profile.show', $order->id) }}" class="btn btn-success btn-sm">{{ trans('frontend.View Order') }}</a>
 										</td>
 									</tr>
 									@endforeach
@@ -80,9 +81,11 @@
                                 @csrf
                                 <input type="hidden" name="id" value="{{$view->id}}">
                                 <input type="hidden" name="name" value="{{$view->name}}">
+								<input type="hidden" name="name_ar" value="{{$view->name_ar}}">
+                                <input type="hidden" name="name_sw" value="{{$view->name_sw}}">
                                 <input type="hidden" name="price" value="{{$view->price}}">
                                 <input type="hidden" name="quantity" value="1">
-                                <button type="submit" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></button>
+                                <button type="submit" class="add-card"><i class="flaticon-bag"></i><span>{{ trans('frontend.Buy') }}</span></button>
                             </form>
                             <form>
                                 <button type="submit" class="wishlist-btn"><i class="flaticon-heart"></i></button>
@@ -90,8 +93,20 @@
 						</div>
 					</div>
 					<div class="pi-text">
-						<h6>${{ $view->price }}</h6>
-						<p>{{ $view->name }}</p>
+						<h6>${{ $view->price * $currency->price}} <?php echo  $currency->currency ?></h6>
+						<p>
+						<?php if($lang=='it')
+											{
+												echo $view->name;
+											}
+											if($lang=='ar'){
+												echo $view->name_ar;
+											}
+											if($lang=='en'){
+												echo $view->name_en;
+											}
+											?>
+						</p>
 					</div>
 				</div>
 			</div>

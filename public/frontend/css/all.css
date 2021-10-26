@@ -3775,7 +3775,9 @@ ol {
 -----------------------*/
 
 /* buttons */
-
+.circl-pay {
+  margin-top: 15%;MARGIN-LEFT: 30%;
+}
 .site-btn {
 	display: inline-block;
 	border: none;
@@ -6222,6 +6224,13 @@ ol {
 /* Large Mobile :480px. */
 
 @media only screen and (max-width: 767px) {
+  .circl-pay {
+    margin-top: 0%;
+    MARGIN-LEFT: 35%;
+  }
+  .img-fluid{
+    max-width: 60%;
+  }
 	.site-logo {
 		margin-bottom: 20px;
 	}
@@ -6245,6 +6254,7 @@ ol {
 	.slicknav_menu {
 		background: #282828;
 		display: block;
+    text-align: center;
 	}
 	.slicknav_menu .new {
 		font-size: 10px;
@@ -6620,7 +6630,7 @@ padding-top: 20px;
   #accordion >.card  > .card-header{
     background: #3b3b3b;
   }
-  
+
   
   
     
