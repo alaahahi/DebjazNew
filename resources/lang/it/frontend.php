@@ -182,6 +182,8 @@ return [
     "Expiration Year"=>"Expiration Year",
     "Please correct the errors and try again."=>"Please correct the errors and try again.",
     "Place Order"=>"Place Order",
-    "View Order"=>"View Order"
+    "View Order"=>"View Order",
+    "Back to Categories"=>"Back to Categories",
+    "Description"=>"Description sw"
 
 ];

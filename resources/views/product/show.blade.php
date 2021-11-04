@@ -9,7 +9,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 @endsection
-
+<?php $lang=session()->get('locale') ? session()->get('locale')  : "it" ?>
+{{App::setLocale($lang) }}
 @section('content')
 
 	<!-- Page info -->
@@ -17,8 +18,7 @@
 		<div class="container">
 			<h4>{{ $product->category->name }}</h4>
 			<div class="site-pagination">
-				<a href="{{ route('welcome') }}">Home</a> /
-				<a href="">Shop</a>
+				<a href="{{ route('welcome') }}">{{ trans('frontend.Home') }}</a>
 			</div>
 		</div>
 	</div>
@@ -29,12 +29,11 @@
 	<section class="product-section">
 		<div class="container">
 			<div class="back-link">
-				<a href="{{ route('frontendCategories') }}"> &lt;&lt; Back to Categories</a>
+				<a href="{{ route('frontendCategories') }}"> &lt;&lt; {{ trans('frontend.Back to Categories') }}</a>
 			</div>
 			<div class="row">
 				<div class="col-lg-6">
 					<div class="product-pic-zoom">
-						
 						@if($singleImage != null)
                             <img class="product-big-img" src="<?php echo env('APP_NAME') ?>{{ $singleImage->images }}" alt="">
                         @else
@@ -62,8 +61,20 @@
 					</div>
 				</div>
 				<div class="col-lg-6 product-details">
-					<h2 class="p-title">{{ $product->name }}</h2>
-					<h3 class="p-price">${{ $product->price }}</h3>
+					<h2 class="p-title">
+						<?php if($lang=='it')
+											{
+												echo $product->name_sw;
+											}
+											if($lang=='ar'){
+												echo $product->name_ar;
+											}
+											if($lang=='en'){
+												echo $product->name;
+											}
+											?>
+					</h2>
+					<h3 class="p-price">{{ $product->price * $currency->price}} <?php echo  $currency->currency ?></h3>
 					@if($pieces)
 						<h4 class="p-stock">Pieces: 
 							<span>
@@ -71,6 +82,7 @@
 							</span>
 						</h4>
 					@endif
+						<!-- 
 					<h4 class="p-stock">Availability: 
 						<span>
 							@if($product->inStock())
@@ -80,9 +92,10 @@
 							@endif
 						</span>
 					</h4>
-					<!-- Add to cart logic -->
+					-->
 					<form action="{{ route('cart.store') }}" method="post">
 						@csrf
+					<!-- Add to cart logic
 					@if(!empty($color))
 						<div class="fw-size-choose">
 							<p>Color</p>
@@ -106,29 +119,42 @@
 							@endforeach
 						</div>
 					@endif
-
+ 					-->
                     
 						<div class="quantity">
-							<p>Quantity</p>
+							<p>{{ trans('frontend.Quantity') }}</p>
 	                        <div class="pro-qty"><input type="text" name="quantity" value="1"></div>
 	                    </div>
 						<input type="hidden" name="id" value="{{ $product->id }}">
 						<input type="hidden" name="name" value="{{ $product->name }}">
 						<input type="hidden" name="price" value="{{ $product->price }}">
-						<button type="submit" class="site-btn">Add To Cart</button>
+						<button type="submit" class="site-btn">{{ trans('frontend.Add to Cart') }}</button>
 					</form>
 
 					<div id="accordion" class="accordion-area">
 						<div class="panel">
 							<div class="panel-header" id="headingOne">
-								<button class="panel-link active" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapse1">Description</button>
+								<button class="panel-link active" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapse1">{{ trans('frontend.Description') }}</button>
 							</div>
 							<div id="collapse1" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
 								<div class="panel-body">
-									<p>{{ $product->description }}</p>
+									<p>{{ $product->description }}
+									<?php if($lang=='it')
+											{
+												echo $product->description_sw;
+											}
+											if($lang=='ar'){
+												echo $product->description_ar;
+											}
+											if($lang=='en'){
+												echo $product->description;
+											}
+											?>
+									</p>
 								</div>
 							</div>
 						</div>
+<!--
 						<div class="panel">
 							<div class="panel-header" id="headingThree">
 								<button class="panel-link" data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controls="collapse3">shipping & Returns</button>
@@ -141,6 +167,7 @@
 								</div>
 							</div>
 						</div>
+										-->
 					</div>
 					<div class="social-sharing">
 						<a href=""><i class="fa fa-instagram"></i></a>
@@ -157,6 +184,7 @@
 
 
 	<!-- RELATED PRODUCTS section -->
+	<!--
 	<section class="related-product-section">
 		<div class="container">
 			<div class="section-title">
@@ -178,14 +206,19 @@
                                 @csrf
                                 <input type="hidden" name="id" value="{{$related->id}}">
                                 <input type="hidden" name="name" value="{{$related->name}}">
+								<input type="hidden" name="name_ar" value="{{$related->name_ar}}">
+                                <input type="hidden" name="name_sw" value="{{$related->name_sw}}">
                                 <input type="hidden" name="price" value="{{$related->price}}">
+								
                                 <input type="hidden" name="quantity" value="1">
-                                <button type="submit" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></button>
+                                <button type="submit" class="add-card"><i class="flaticon-bag"></i><span>{{ trans('frontend.Add to Cart') }}</span></button>
                             </form>
                             <form action="{{ route('wishlist.store') }}" method="post">
                                 @csrf
                                 <input type="hidden" name="id" value="{{$related->id}}">
                                 <input type="hidden" name="name" value="{{$related->name}}">
+								<input type="hidden" name="name_ar" value="{{$related->name_ar}}">
+                                <input type="hidden" name="name_sw" value="{{$related->name_sw}}">
                                 <input type="hidden" name="price" value="{{$related->price}}">
                                 <input type="hidden" name="quantity" value="1">
                                 <button type="submit" class="wishlist-btn"><i class="flaticon-heart"></i></button>
@@ -201,6 +234,6 @@
 			</div>
 		</div>
 	</section>
-	<!-- RELATED PRODUCTS section end -->
+	 RELATED PRODUCTS section end -->
 
 @endsection

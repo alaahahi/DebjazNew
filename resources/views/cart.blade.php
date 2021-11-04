@@ -54,13 +54,13 @@
 									<div class="pc-title">
 									<h4>	<?php if($lang=='it')
 											{
-												echo $item->model->name;
+												echo $item->model->name_sw;
 											}
 											if($lang=='ar'){
 												echo $item->model->name_ar;
 											}
 											if($lang=='en'){
-												echo $item->model->name_en;
+												echo $item->model->name;
 											}
 											?>
 									</h4>

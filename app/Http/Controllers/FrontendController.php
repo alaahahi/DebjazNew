@@ -42,12 +42,13 @@ class FrontendController extends Controller
     // show single product details
     public function show($slug)
     {
+        $currency_def= Session::get('currency') ? Session::get('currency') :'SEK';
         $product = Product::where('slug', $slug)->with('photos', 'attributes')->firstOrFail();
 
         $singleImage = $product->photos()->get()->first();
 
         $relatedProducts = $product->category->products()->with('photos')->inRandomOrder()->take(5)->get();
-
+        $currency = Currency::where('currency', strtoupper($currency_def))->first();
         $systemName = SystemSetting::first();
 
         $color = $product->attributes()->where('attribute_name', 'Color')->get();
@@ -55,7 +56,7 @@ class FrontendController extends Controller
         $pieces = $product->attributes()->where('attribute_name', 'Pieces')->first();
         // dd($pieces);
 
-        return view('product.show', compact('product', 'relatedProducts', 'singleImage', 'systemName', 'color', 'sizes', 'pieces'));
+        return view('product.show', compact('product', 'currency', 'relatedProducts', 'singleImage', 'systemName', 'color', 'sizes', 'pieces'));
     }
 
     // Get contact us page

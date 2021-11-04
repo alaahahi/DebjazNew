@@ -180,6 +180,8 @@ return [
     "Expiration Year"=>"السنة",
     "Please correct the errors and try again."=>"يرجى تصحيح الأخطاء والمحاولة مرة أخرى",
     "Place Order"=>"دفع والمتابعة",
-    "View Order"=>"مشاهدة الطلب"
+    "View Order"=>"مشاهدة الطلب",
+    "Back to Categories"=>"العودة الى الأصناف",
+    "Description"=>"الشرح"
 
 ];

@@ -34,7 +34,8 @@
 	@endif
 </head>
 <body>
-{{ App::setLocale(session()->get('locale') ? session()->get('locale')  : "it") }}
+<?php $lang=session()->get('locale') ? session()->get('locale')  : "it" ?>
+{{App::setLocale($lang) }}
 	<!-- Header section -->
 	<header class="header-section">
 		<div class="header-top">
