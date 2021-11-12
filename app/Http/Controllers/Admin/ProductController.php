@@ -226,6 +226,14 @@ class ProductController extends Controller
 
         return redirect(route('products.index'));
     }
+    public function print(Product $product)
+    {
+
+
+        session()->flash('success', "$product->name print successfully.");
+
+        return redirect(route('products.index'));
+    }
 
 
     /**

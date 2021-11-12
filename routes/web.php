@@ -66,6 +66,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
 	Route::resource('admin/categories', 'Admin\CategoryController');
 	Route::resource('admin/subcategories', 'Admin\SubCategoryController');
 	Route::delete('admin/products/photo/{id}', 'Admin\ProductController@destroyImage')->name('destroyImage');
+	Route::post('admin/products/print/{id}', 'Admin\ProductController@print')->name('printCards');
 	Route::delete('admin/products/attribute/{id}', 'Admin\ProductController@destroyAttribute')->name('destroyAttribute');
 	Route::resource('admin/coupon', 'Admin\CouponController');
 	Route::resource('admin/products', 'Admin\ProductController');

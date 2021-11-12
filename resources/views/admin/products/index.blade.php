@@ -69,7 +69,16 @@
 					</td>
 					<td>{{ $p->price }}</td>
 					<td>{{ $p->quantity }}</td>
-					<td>{{ $orderProduct->where('product_id',"=",$p->id)->sum('quantity') }}</td>
+					<td>
+						@if($p->quantity == $orderProduct->where('product_id',"=",$p->id)->sum('quantity'))
+						<form action="{{ route('printCards', $p->id) }}" method="post">
+							@csrf
+							<button class="btn btn-success btn-sm">Print Cards</button>
+						</form>
+                        @else
+						{{ $orderProduct->where('product_id',"=",$p->id)->sum('quantity') }}
+                        @endif
+					</td>
 					<td>
 						<a href="{{ route('products.edit', $p->slug) }}" class="btn btn-primary btn-sm">Edit</a>
 					</td>
