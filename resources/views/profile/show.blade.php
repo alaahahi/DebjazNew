@@ -11,7 +11,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 @endsection
-
+<?php $lang=session()->get('locale') ? session()->get('locale')  : "it" ?>
+{{App::setLocale($lang) }}
 @section('content')
 
 	<!-- cart section end -->
@@ -20,17 +21,20 @@
 			<div class="row">
 				<div class="col-lg-8">
 					<div class="cart-table">
-					<h3>Order {{ $order->order_number }} 
-						<strong class="text-uppercase text-danger">{{ $order->status }}</strong>
+					<h3>{{ trans('frontend.Order Number') }} {{ $order->order_number }} 
 					</h3>
+					<h4>
+					<strong class="text-uppercase text-danger">{{ $order->status }}</strong>
+					</h4>
+					<br>
 					<div class="cart-table-warp">
 						<table>
 						<thead>
 							<tr>
-								<th class="product-th">Product</th>
-								<th class="size-th">Quantity</th>
+								<th class="product-th">{{ trans('frontend.Product') }} </th>
+								<th class="size-th">{{ trans('frontend.Quantity') }}</th>
 								<th class="size-th">Code</th>
-								<th class="total-th">Price</th>
+								<th class="total-th">{{ trans('frontend.Price') }}</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -43,33 +47,45 @@
 		                             {{--    <img src="{{ asset('frontend/img/no-image.png') }}" alt="">
 		                            @endif --}}
 									<div class="pc-title">
-										<h4>{{ $p->name }}</h4>
-										<p>${{ $p->price }}</p>
+										<h4>
+											<?php
+										if($lang=='it')
+											{
+												echo $p->name_sw;
+											}
+											if($lang=='ar'){
+												echo $p->name_ar;
+											}
+											if($lang=='en'){
+												echo $p->name;
+											}?>
+										</h4>
+										<p>{{ $p->price * $currency->price}} <?php echo  $currency->currency ?></p>
 									</div>
 								</td>
 								<td class="size-col"><h4>{{ $p->pivot->quantity }}</h4></td>
 								<td class="size-col"><h4>{{ $p->code }}</h4></td>
-								<td class="total-col"><h4>${{ $p->price * $p->pivot->quantity }}</h4></td>
+								<td class="total-col"><h4>{{ $p->price * $p->pivot->quantity * $currency->price}} <?php echo  $currency->currency ?></h4></td>
 							</tr>
 							@endforeach
 						</tbody>
 					</table>
 					</div>
 					<div class="total-cost">
-						<h6>Order Total <span>${{ $order->billing_total }}</span></h6>
+						<h6>{{ trans('frontend.Total Amount') }} <span>{{ $order->billing_total * $currency->price}} <?php echo  $currency->currency ?></span></h6>
 					</div>
 				</div>
 				</div>
 				<div class="col-lg-4 card-right">
-					<a href="" class="site-btn">Profile Settings</a>
-					<a href="" class="site-btn sb-dark">Continue shopping</a>
+					<a href="" class="site-btn">{{ trans('frontend.Profile Settings') }}</a>
+					<a href="" class="site-btn sb-dark">{{ trans('frontend.Continue shopping') }}</a>
 				</div>
 			</div>
 		</div>
 	</section>
 	<!-- cart section end -->
 
-	<!-- Related product section -->
+	<!-- Related product section
 <section class="related-product-section">
 	<div class="container">
 		<div class="section-title text-uppercase">
@@ -112,6 +128,7 @@
 		</div>
 	</div>
 </section>
+ -->
 <!-- Related product section end -->
 
 @endsection

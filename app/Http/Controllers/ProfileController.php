@@ -56,6 +56,8 @@ class ProfileController extends Controller
     public function show($id)
     {
         $order = Order::find($id);
+        $currency_def= Session::get('currency') ? Session::get('currency') :'SEK';
+        $currency = Currency::where('currency', strtoupper($currency_def))->first();
 
         if (auth()->id() != $order->user_id) {
             return back()->withErrors('You do not have acces to this!');
@@ -65,7 +67,7 @@ class ProfileController extends Controller
 
         $recentlyViewed = Product::inRandomOrder()->take(4)->get();
 
-        return view('profile.show', compact('order', 'recentlyViewed', 'products'));
+        return view('profile.show', compact('order', 'recentlyViewed', 'products','currency'));
     }
 
     /**

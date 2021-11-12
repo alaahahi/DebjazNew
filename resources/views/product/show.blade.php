@@ -154,7 +154,7 @@
 								</div>
 							</div>
 						</div>
-<!--
+						<!--
 						<div class="panel">
 							<div class="panel-header" id="headingThree">
 								<button class="panel-link" data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controls="collapse3">shipping & Returns</button>
@@ -167,7 +167,7 @@
 								</div>
 							</div>
 						</div>
-										-->
+						-->
 					</div>
 					<div class="social-sharing">
 						<a href=""><i class="fa fa-instagram"></i></a>
