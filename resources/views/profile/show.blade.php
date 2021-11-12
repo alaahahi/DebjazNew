@@ -86,7 +86,7 @@
 	<!-- cart section end -->
 
 	<!-- Related product section
-<section class="related-product-section">
+	<section class="related-product-section">
 	<div class="container">
 		<div class="section-title text-uppercase">
 			<h2>You Also Viewed</h2>

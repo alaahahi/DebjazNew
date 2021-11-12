@@ -7,6 +7,7 @@ use App\Product;
 use App\Category;
 use App\SubCategory;
 use App\ProductAttribute;
+use App\OrderProduct;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -29,10 +30,10 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::orderBy('created_at', 'DESC')->with('photos', 'category', 'subCategory')->paginate(10);
-
+        $orderProduct = OrderProduct::all();
         // dd(SubCategory::find(2));
 
-        return view('admin.products.index', compact('products'));
+        return view('admin.products.index', compact('products','orderProduct'));
     }
 
     /**
@@ -161,8 +162,7 @@ class ProductController extends Controller
         $request->validate([
             'category_id' => 'required',
         ]);
-
-        $data = $request->only(['name', 'code', 'description', 'price', 'category_id', 'sub_category_id', 'quantity', 'meta_description', 'meta_keywords', 'is_new', 'on_sale']);
+        $data = $request->only(['name',  'name_ar','name_sw','description_ar','description_sw','gift','gift_ar','gift_sw','gift_description','gift_description_ar','gift_description_sw','code', 'description', 'price', 'category_id', 'sub_category_id', 'quantity', 'meta_description', 'meta_keywords', 'is_new', 'on_sale']);
 
         $product->update($data);
 

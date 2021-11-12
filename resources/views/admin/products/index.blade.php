@@ -47,10 +47,10 @@
 				<th>#</th>
 				<th>Name</th>
 				<th>Category</th>
-				<th>Sub-Category</th>
 				<th>Image</th>
 				<th>Price</th>
 				<th>Quantity</th>
+				<th>Pay</th>
 				<th>Edit</th>
 				<th>Delete</th>
 			</thead>
@@ -61,13 +61,6 @@
 					<td>{{ $p->name }}</td>
 					<td>{{ $p->category->name }}</td>
 					<td>
-						@if($p->sub_category_id != null)
-						       {{ $p->subCategory->name ?? 'No subcategory' }}
-						@else
-						<p>N/A</p>
-						@endif
-					</td>
-					<td>
 						@if($p->photos->count() > 0)
                             <img src="http://localhost/ZimCart/storage/app/public/{{ $p->photos->first()->images }}" style="border-radius: 100%; width: 25px; height: 25px;">
                         @else
@@ -76,6 +69,7 @@
 					</td>
 					<td>{{ $p->price }}</td>
 					<td>{{ $p->quantity }}</td>
+					<td>{{ $orderProduct->where('product_id',"=",$p->id)->sum('quantity') }}</td>
 					<td>
 						<a href="{{ route('products.edit', $p->slug) }}" class="btn btn-primary btn-sm">Edit</a>
 					</td>
