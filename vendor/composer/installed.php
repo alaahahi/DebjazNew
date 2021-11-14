@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => 'efc1e05f3539794b760198efa736ee958fa9dd4c',
+        'reference' => '6ca2c4ebd903a098244600d4cd3fc90d3ee39d5b',
         'name' => 'laravel/laravel',
         'dev' => true,
     ),
@@ -26,6 +26,15 @@
             'install_path' => __DIR__ . '/../brick/math',
             'aliases' => array(),
             'reference' => 'ca57d18f028f84f777b2168cd1911b0dee2343ae',
+            'dev_requirement' => false,
+        ),
+        'carlos-meneses/laravel-mpdf' => array(
+            'pretty_version' => '2.1.8',
+            'version' => '2.1.8.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../carlos-meneses/laravel-mpdf',
+            'aliases' => array(),
+            'reference' => '8b5010666d8620b38c696a5ee66e11634cc60fc2',
             'dev_requirement' => false,
         ),
         'cordoval/hamcrest-php' => array(
@@ -465,7 +474,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => 'efc1e05f3539794b760198efa736ee958fa9dd4c',
+            'reference' => '6ca2c4ebd903a098244600d4cd3fc90d3ee39d5b',
             'dev_requirement' => false,
         ),
         'laravel/legacy-factories' => array(
@@ -585,6 +594,15 @@
             'reference' => '71312564759a7db5b789296369c1a264efc43aad',
             'dev_requirement' => false,
         ),
+        'mpdf/mpdf' => array(
+            'pretty_version' => 'v8.0.15',
+            'version' => '8.0.15.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../mpdf/mpdf',
+            'aliases' => array(),
+            'reference' => 'd8a5294a6cc2e814c4157aecc8d7ac25014b18ed',
+            'dev_requirement' => false,
+        ),
         'mtdowling/cron-expression' => array(
             'dev_requirement' => false,
             'replaced' => array(
@@ -598,7 +616,7 @@
             'install_path' => __DIR__ . '/../myclabs/deep-copy',
             'aliases' => array(),
             'reference' => '776f831124e9c62e1a2c601ecc52e776d8bb7220',
-            'dev_requirement' => true,
+            'dev_requirement' => false,
             'replaced' => array(
                 0 => '1.10.2',
             ),
@@ -655,6 +673,15 @@
             'install_path' => __DIR__ . '/../opis/closure',
             'aliases' => array(),
             'reference' => '06e2ebd25f2869e54a306dda991f7db58066f7f6',
+            'dev_requirement' => false,
+        ),
+        'paragonie/random_compat' => array(
+            'pretty_version' => 'v9.99.100',
+            'version' => '9.99.100.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../paragonie/random_compat',
+            'aliases' => array(),
+            'reference' => '996434e5492cb4c3edcb9168db6fbb1359ef965a',
             'dev_requirement' => false,
         ),
         'phar-io/manifest' => array(
@@ -1068,6 +1095,15 @@
             'aliases' => array(),
             'reference' => 'c6c1022351a901512170118436c764e473f6de8c',
             'dev_requirement' => true,
+        ),
+        'setasign/fpdi' => array(
+            'pretty_version' => 'v2.3.6',
+            'version' => '2.3.6.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../setasign/fpdi',
+            'aliases' => array(),
+            'reference' => '6231e315f73e4f62d72b73f3d6d78ff0eed93c31',
+            'dev_requirement' => false,
         ),
         'srmklive/paypal' => array(
             'pretty_version' => '1.9.0',

@@ -14,6 +14,7 @@ use App\Http\Controllers\Controller;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\Product\CreateProductRequest;
+use PDF;
 
 class ProductController extends Controller
 {
@@ -228,9 +229,13 @@ class ProductController extends Controller
     }
     public function print(Product $product)
     {
-
-
         session()->flash('success', "$product->name print successfully.");
+
+        $pdf = PDF::loadView('report/card_from_to_pdf',compact('customers','new','type_ar'));
+
+        return $pdf->download(' '.$new.'..pdf');
+
+
 
         return redirect(route('products.index'));
     }
