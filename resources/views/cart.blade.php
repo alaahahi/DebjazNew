@@ -35,6 +35,7 @@
 							<tr>
 								<th class="product-th">{{ trans('frontend.Product') }}</th>
 								<th class="quy-th">{{ trans('frontend.Quantity') }}</th>
+								<th class="quy-th">{{ trans('frontend.Cards Lottery') }}</th>
 								<th class="total-th">{{ trans('frontend.Price') }}</th>
 							</tr>
 						</thead>
@@ -80,6 +81,9 @@
 											</button>
 										</form>
                 					</div>
+								</td>
+								<td style="text-align: center;">
+									<input name="cards" style="text-align: center;width:76px;height: 36px; border: 1px solid #fff;padding: 0 15px;background-color: white; border-radius: 40px;" type="text" class="quant" value="{{$item->qty * 2}}" disabled>
 								</td>
 								<td class="total-col"><h4>{{ $item->subtotal * $currency->price}}<?php echo  $currency->currency ?></h4></td>
 								<td class="total-col">
@@ -138,11 +142,11 @@
 			</div>
 			<div class="text-center">
 				<input type="checkbox" name="my-checkbox" checked data-on-color="success" data-switch-value="small" data-on-text="{{ trans('frontend.Donated') }}" data-off-text="{{ trans('frontend.Deliverable') }}">
-				<h6 style="color: #5cb85c; font-weight: bold;padding: 10px;">
+				<h6 class="Donate" style="color: #5cb85c; font-weight: bold;padding: 10px;">
 				{{ trans('frontend.Donate to receive an additional entry!') }}
 				</h6>
-				<p>
-				{{ trans("frontend.I agree to donate all purchased products to charity as per the 'Draw Terms & Conditions'") }}
+				<p class="agree">
+				{{ trans("frontend.I agree to donate all purchased products to charity as per the") }}
 				</p>
 				<br>
 				<a href="{{ route('checkout.index') }}" class="site-btn">{{ trans('frontend.Proceed to checkout') }}</a>
@@ -212,8 +216,19 @@
 	</div>
 </section>
 <script>
+	var $q =$('.quant').val();
 	$("[name='my-checkbox']").bootstrapSwitch();
 	$('input[name="my-checkbox"]').on('switchChange.bootstrapSwitch', function(event, state) {
+	if(state){
+		$('.Donate').text("{{ trans('frontend.Donate to receive an additional entry!') }}");
+		$('.agree').text("{{ trans('frontend.I agree to donate all purchased products to charity as per the') }}");
+		$('.quant').val($q);
+	}
+	if(!state){
+		$('.Donate').text("{{ trans('frontend.Deliverable') }}");
+		$('.agree').text("");
+		$('.quant').val($q/2);
+	}
 	$('.loto').val();
 });
 </script>

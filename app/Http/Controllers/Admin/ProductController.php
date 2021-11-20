@@ -256,7 +256,6 @@ class ProductController extends Controller
 
         return $pdf->download(' '.$new.'..pdf');
 
-        return redirect(route('products.index'));
     }
 
 

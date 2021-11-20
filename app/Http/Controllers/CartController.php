@@ -66,17 +66,17 @@ class CartController extends Controller
         }
         if($currency_def == "it")
         {
-        Cart::add($request->id, $request->name_sw, $request->quantity, $request->price, ['size' => $request->Size, 'color' => $request->Color])->associate('App\Product');
+        Cart::add($request->id, $request->name_sw, $request->cards, $request->quantity, $request->price, ['size' => $request->Size, 'color' => $request->Color])->associate('App\Product');
         session()->flash('success', "$request->name_sw added to your cart successfully!");
         }
         if($currency_def == "ar")
         {
-        Cart::add($request->id, $request->name_ar, $request->quantity, $request->price, ['size' => $request->Size, 'color' => $request->Color])->associate('App\Product');
+        Cart::add($request->id, $request->name_ar, $request->cards, $request->quantity, $request->price, ['size' => $request->Size, 'color' => $request->Color])->associate('App\Product');
         session()->flash('success', "$request->name_ar added to your cart successfully!");
         }
         if($currency_def == "en")
         {
-        Cart::add($request->id, $request->name, $request->quantity, $request->price, ['size' => $request->Size, 'color' => $request->Color])->associate('App\Product');
+        Cart::add($request->id, $request->name, $request->cards, $request->quantity, $request->price, ['size' => $request->Size, 'color' => $request->Color])->associate('App\Product');
         session()->flash('success', "$request->name added to your cart successfully!");
         }
 
@@ -115,7 +115,7 @@ class CartController extends Controller
      */
     public function update(Request $request, $id)
     {
-        Cart::update($id, $request->quantity);
+        Cart::update($id, $request->quantity, $request->cards);
 
         session()->flash('success', "Item updated successfully!");
 

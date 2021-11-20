@@ -116,7 +116,7 @@ return [
     "Full Name"=> "Full Name",
     "Confirm Password"=> "Confirm Password",
     "Donate to receive an additional entry!"=> "Donate to receive an additional entry!",
-    "I agree to donate all purchased products to charity as per the 'Draw Terms & Conditions'"=> "I agree to donate all purchased products to charity as per the 'Draw Terms & Conditions'",
+    "I agree to donate all purchased products to charity as per the"=> "I agree to donate all purchased products to charity as per the 'Draw Terms & Conditions'",
     "Payment completed successfuly"=> "Payment completed successfuly",
     "you will be redirected to order page after 3 seconds"=> "you will be redirected to order page after 3 seconds",
     "Your wishlist is empty"=> "Your wishlist is empty",
