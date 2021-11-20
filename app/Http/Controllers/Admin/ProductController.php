@@ -14,6 +14,7 @@ use App\Http\Controllers\Controller;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\Product\CreateProductRequest;
+use Illuminate\Support\Facades\DB;
 use PDF;
 
 class ProductController extends Controller
@@ -227,15 +228,26 @@ class ProductController extends Controller
 
         return redirect(route('products.index'));
     }
-    public function print(Product $product)
+    public function print(Request $product)
     {
         session()->flash('success', "$product->name print successfully.");
 
-        $pdf = PDF::loadView('report/card_from_to_pdf',compact('customers','new','type_ar'));
+        $products =  DB::table('order_product')
+        ->join('orders', 'orders.id', '=', 'order_product.order_id')
+        ->join('products', 'products.id', '=', 'order_product.product_id')
+        ->where('order_product.product_id',  $product->id  )
+        ->select(['products.name','products.description','products.price','products.gift','products.gift_description','orders.order_number','orders.billing_fullname', 'orders.billing_phone' ,'orders.created_at','order_product.quantity'])
+        ->get();       
+        //return response()->json($products );
+        //Product::orderBy('created_at', 'DESC')->with('photos', 'category', 'subCategory');
+
+        $orderProduct = OrderProduct::where('product_id',$product->id)->get();
+
+     
+        return  view('report.card_from_to_pdf', compact('products','orderProduct'));
+        $new="ALL";
 
         return $pdf->download(' '.$new.'..pdf');
-
-
 
         return redirect(route('products.index'));
     }
