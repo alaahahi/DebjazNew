@@ -79,6 +79,7 @@
 				<div class="col-lg-4 card-right">
 					<a href="" class="site-btn">{{ trans('frontend.Profile Settings') }}</a>
 					<a href="" class="site-btn sb-dark">{{ trans('frontend.Continue shopping') }}</a>
+					<a href="" class="site-btn">Print Card Lottery</a>
 				</div>
 			</div>
 		</div>
