@@ -33,7 +33,7 @@
 							<tr>
 								<th class="product-th">{{ trans('frontend.Product') }} </th>
 								<th class="size-th">{{ trans('frontend.Quantity') }}</th>
-								<th class="size-th">Code</th>
+								<th class="size-th">{{ trans('frontend.Cards Lottery') }}</th>
 								<th class="total-th">{{ trans('frontend.Price') }}</th>
 							</tr>
 						</thead>
@@ -64,7 +64,10 @@
 									</div>
 								</td>
 								<td class="size-col"><h4>{{ $p->pivot->quantity }}</h4></td>
-								<td class="size-col"><h4>{{ $p->code }}</h4></td>
+								<td class="size-col">
+								<h4>
+								<a href="{{ route('my-print.printCards',[ $p->id, $order->id]) }}" class="site-btn btn-sm">{{ trans('frontend.Show') }}</a>
+								</h4></td>
 								<td class="total-col"><h4>{{ $p->price * $p->pivot->quantity * $currency->price}} <?php echo  $currency->currency ?></h4></td>
 							</tr>
 							@endforeach
@@ -79,7 +82,7 @@
 				<div class="col-lg-4 card-right">
 					<a href="" class="site-btn">{{ trans('frontend.Profile Settings') }}</a>
 					<a href="" class="site-btn sb-dark">{{ trans('frontend.Continue shopping') }}</a>
-					<a href="" class="site-btn">Print Card Lottery</a>
+			
 				</div>
 			</div>
 		</div>

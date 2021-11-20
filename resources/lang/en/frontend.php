@@ -182,6 +182,8 @@ return [
     "Place Order"=>"Place Order",
     "View Order"=>"View Order",
     "Back to Categories"=>"Back to Categories",
-    "Description"=>"Description"
+    "Description"=>"Description",
+    "Cards Lottery"=>"Cards Lottery",
+    "Show"=>"Show"
 
 ];

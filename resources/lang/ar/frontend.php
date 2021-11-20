@@ -182,6 +182,8 @@ return [
     "Place Order"=>"دفع والمتابعة",
     "View Order"=>"مشاهدة الطلب",
     "Back to Categories"=>"العودة الى الأصناف",
-    "Description"=>"الشرح"
+    "Description"=>"الشرح",
+    "Cards Lottery"=>"بطاقات اليانصيب",
+    "Show"=>"عرض"
 
 ];

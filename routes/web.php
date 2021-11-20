@@ -29,6 +29,7 @@ Route::get('/about', 'FrontendController@aboutUs')->name('about-us');
 Route::get('/contact', 'FrontendController@contact')->name('contact-us');
 Route::get('/terms-and-conditions', 'FrontendController@terms')->name('terms.conditions');
 Route::get('/privacy-policy', 'FrontendController@privacy')->name('privacy.policy');
+Route::get('my-print/{id}/{order_id?}', 'Admin\ProductController@print')->name('my-print.printCards');
 
 Route::resource('cart', 'CartController');
 Route::resource('wishlist', 'WishlistController');

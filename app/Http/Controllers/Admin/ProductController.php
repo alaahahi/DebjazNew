@@ -228,23 +228,30 @@ class ProductController extends Controller
 
         return redirect(route('products.index'));
     }
-    public function print(Request $product)
+    public function print(Request $product,$id,$order_id="")
     {
-        session()->flash('success', "$product->name print successfully.");
+        //session()->flash('success', "$product->name print successfully.");
 
-        $products =  DB::table('order_product')
+        $product =  DB::table('order_product')
         ->join('orders', 'orders.id', '=', 'order_product.order_id')
         ->join('products', 'products.id', '=', 'order_product.product_id')
-        ->where('order_product.product_id',  $product->id  )
-        ->select(['products.name','products.description','products.price','products.gift','products.gift_description','orders.order_number','orders.billing_fullname', 'orders.billing_phone' ,'orders.created_at','order_product.quantity'])
-        ->get();       
-        //return response()->json($products );
+        ->where('order_product.product_id',  $id  );
+        if( $order_id != "")
+        {
+        $products=$product->where('order_product.order_id', $order_id)->select(['products.name','products.description','products.price','products.gift','products.gift_description','orders.order_number','orders.billing_fullname', 'orders.billing_phone' ,'orders.created_at','order_product.quantity'])
+        ->get();
+        }
+        else
+        {
+        $products=$product->select(['products.name','products.description','products.price','products.gift','products.gift_description','orders.order_number','orders.billing_fullname', 'orders.billing_phone' ,'orders.created_at','order_product.quantity'])
+        ->get();
+        }       
+        //return response()->json($id );
         //Product::orderBy('created_at', 'DESC')->with('photos', 'category', 'subCategory');
 
-        $orderProduct = OrderProduct::where('product_id',$product->id)->get();
 
      
-        return  view('report.card_from_to_pdf', compact('products','orderProduct'));
+        return  view('report.card_from_to_pdf', compact('products'));
         $new="ALL";
 
         return $pdf->download(' '.$new.'..pdf');
