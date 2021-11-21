@@ -190,6 +190,7 @@
 								<input type="hidden" name="name_ar" value="{{$like->name_ar}}">
                                 <input type="hidden" name="name_sw" value="{{$like->name_sw}}">
                                 <input type="hidden" name="price" value="{{$like->price}}">
+								<input type="hidden" name="cards" value="1">
                                 <input type="hidden" name="quantity" value="1">
                                 <button type="submit" class="add-card"><i class="flaticon-bag"></i><span>{{ trans('frontend.Buy') }}</span></button>
                             </form>
@@ -200,6 +201,7 @@
 								<input type="hidden" name="name_ar" value="{{$like->name_ar}}">
                                 <input type="hidden" name="name_sw" value="{{$like->name_sw}}">
                                 <input type="hidden" name="price" value="{{$like->price}}">
+								<input type="hidden" name="cards" value="1">
                                 <input type="hidden" name="quantity" value="1">
                                 <button type="submit" class="wishlist-btn"><i class="flaticon-heart"></i></button>
                             </form>
