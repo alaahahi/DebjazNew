@@ -273,6 +273,7 @@
 											?></h6>
 							<p><?php echo  $currency->currency ?> {{ $item->subtotal  * $currency->price}}</p>
 							<p>Qty {{ $item->qty }}</p>
+							<p>Cards {{ $item->card }}</p>
 						</li>
 						@endforeach
 					</ul>

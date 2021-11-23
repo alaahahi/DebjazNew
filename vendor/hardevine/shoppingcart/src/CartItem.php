@@ -45,6 +45,8 @@ class CartItem implements Arrayable, Jsonable
      */
     public $price;
 
+    public $card;
+
     /**
      * The options for this cart item.
      *
@@ -81,7 +83,7 @@ class CartItem implements Arrayable, Jsonable
      * @param float      $price
      * @param array      $options
      */
-    public function __construct($id, $name, $price, array $options = [])
+    public function __construct($id, $name,$card, $price, array $options = [])
     {
         if(empty($id)) {
             throw new \InvalidArgumentException('Please supply a valid identifier.');
@@ -95,6 +97,7 @@ class CartItem implements Arrayable, Jsonable
 
         $this->id       = $id;
         $this->name     = $name;
+        $this->card       = $card;
         $this->price    = floatval($price);
         $this->options  = new CartItemOptions($options);
         $this->rowId = $this->generateRowId($id, $options);
@@ -217,6 +220,7 @@ class CartItem implements Arrayable, Jsonable
     {
         $this->id       = Arr::get($attributes, 'id', $this->id);
         $this->qty      = Arr::get($attributes, 'qty', $this->qty);
+        $this->card      = Arr::get($attributes, 'card', $this->card);
         $this->name     = Arr::get($attributes, 'name', $this->name);
         $this->price    = Arr::get($attributes, 'price', $this->price);
         $this->priceTax = $this->price + $this->tax;
@@ -337,9 +341,9 @@ class CartItem implements Arrayable, Jsonable
      * @param array      $options
      * @return \Gloudemans\Shoppingcart\CartItem
      */
-    public static function fromAttributes($id, $name, $price, array $options = [])
+    public static function fromAttributes($id, $name,$card ,$price, array $options = [])
     {
-        return new self($id, $name, $price, $options);
+        return new self($id, $name,$card, $price, $options);
     }
 
     /**
@@ -369,6 +373,7 @@ class CartItem implements Arrayable, Jsonable
             'name'     => $this->name,
             'qty'      => $this->qty,
             'price'    => $this->price,
+            'card'     => $this->card,
             'options'  => $this->options->toArray(),
             'tax'      => $this->tax,
             'isSaved'      => $this->isSaved,

@@ -22,6 +22,7 @@ class CheckoutController extends Controller
      */
     public function index()
     {
+       // dd(Cart::content() );
         $currency_def= Session::get('currency') ? Session::get('currency') :'SEK';
         $currency = Currency::where('currency', strtoupper($currency_def))->first();
         $systemInfo = SystemSetting::first();
@@ -95,13 +96,13 @@ class CheckoutController extends Controller
             ]);
         }
 
-        dd(Cart::content() );
+      
         foreach (Cart::content() as $item) {
             OrderProduct::create([
                 'order_id' => $order->id,
                 'product_id' => $item->model->id,
                 'quantity' => $item->qty,
-                'cards' => $item->card,
+                'card' => $item->card,
             ]);        
         }
 

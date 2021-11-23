@@ -83,7 +83,7 @@
                 					</div>
 								</td>
 								<td style="text-align: center;">
-									<input name="cards" style="text-align: center;width:76px;height: 36px; border: 1px solid #fff;padding: 0 15px;background-color: white; border-radius: 40px;" type="text" class="quant" value="{{$item->qty * 2}}" disabled>
+									<input name="card" style="text-align: center;width:76px;height: 36px; border: 1px solid #fff;padding: 0 15px;background-color: white; border-radius: 40px;" type="text" class="quant" value="{{$item->card}}" disabled>
 								</td>
 								<td class="total-col"><h4>{{ $item->subtotal * $currency->price}}<?php echo  $currency->currency ?></h4></td>
 								<td class="total-col">
@@ -190,7 +190,7 @@
 								<input type="hidden" name="name_ar" value="{{$like->name_ar}}">
                                 <input type="hidden" name="name_sw" value="{{$like->name_sw}}">
                                 <input type="hidden" name="price" value="{{$like->price}}">
-								<input type="hidden" name="cards" value="1">
+								<input type="hidden" name="card" value="1">
                                 <input type="hidden" name="quantity" value="1">
                                 <button type="submit" class="add-card"><i class="flaticon-bag"></i><span>{{ trans('frontend.Buy') }}</span></button>
                             </form>
@@ -201,7 +201,7 @@
 								<input type="hidden" name="name_ar" value="{{$like->name_ar}}">
                                 <input type="hidden" name="name_sw" value="{{$like->name_sw}}">
                                 <input type="hidden" name="price" value="{{$like->price}}">
-								<input type="hidden" name="cards" value="1">
+								<input type="hidden" name="card" value="1">
                                 <input type="hidden" name="quantity" value="1">
                                 <button type="submit" class="wishlist-btn"><i class="flaticon-heart"></i></button>
                             </form>
