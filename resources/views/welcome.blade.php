@@ -218,7 +218,7 @@ switch ($x) {
                                     <input type="hidden" name="name_ar" value="{{$p->name_ar}}">
                                     <input type="hidden" name="name_sw" value="{{$p->name_sw}}">
                                     <input type="hidden" name="price" value="{{$p->price}}">
-                                    <input type="hidden" name="card" value="1">
+                                    <input type="hidden" name="card" value="2">
                                     <input type="hidden" name="quantity" value="1">
                                     <button type="submit" class="add-card"><i class="flaticon-bag"></i><span style="font-size:14px;padding-top: 12px;">{{ trans('frontend.Buy') }}</span></button>
                                 </form>
@@ -229,7 +229,7 @@ switch ($x) {
                                     <input type="hidden" name="name_ar" value="{{$p->name_ar}}">
                                     <input type="hidden" name="name_sw" value="{{$p->name_sw}}">
                                     <input type="hidden" name="price" value="{{$p->price}}">
-                                    <input type="hidden" name="card" value="1">
+                                    <input type="hidden" name="card" value="2">
                                     <input type="hidden" name="quantity" value="1">
                                     <button type="submit" class="wishlist-btn"><i class="flaticon-heart"></i></button>
                                 </form>
@@ -277,7 +277,7 @@ switch ($x) {
                                 <input type="hidden" name="name_ar" value="{{$p->name_ar}}">
                                 <input type="hidden" name="name_sw" value="{{$p->name_sw}}">
                                 <input type="hidden" name="price" value="{{$p->price}}">
-                                <input type="hidden" name="card" value="1">
+                                <input type="hidden" name="card" value="2">
                                 <input type="hidden" name="quantity" value="1">
                                 <button type="submit" class="add-card"><i class="flaticon-bag"></i><span>{{ trans('frontend.Buy') }}</span></button>
                             </form>
@@ -288,7 +288,7 @@ switch ($x) {
                                 <input type="hidden" name="price" value="{{$p->price}}">
                                 <input type="hidden" name="name_ar" value="{{$p->name_ar}}">
                                 <input type="hidden" name="name_sw" value="{{$p->name_sw}}">
-                                <input type="hidden" name="card" value="1">
+                                <input type="hidden" name="card" value="2">
                                 <input type="hidden" name="quantity" value="1">
                                 <button type="submit" class="wishlist-btn"><i class="flaticon-heart"></i></button>
                             </form>
