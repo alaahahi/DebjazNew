@@ -23,6 +23,8 @@
 			<thead>
 				<th>#</th>
 				<th>Category Name</th>
+				<th>Category Name Arbic</th>
+				<th>Category Name Swidth</th>
 				<th>Slug</th>
 				<th>Edit</th>
 				<th>Delete</th>
@@ -32,6 +34,8 @@
 				<tr>
 					<td>{{ $index+1 }}</td>
 					<td>{{ $cat->name }}</td>
+					<td>{{ $cat->name_ar }}</td>
+					<td>{{ $cat->name_sw }}</td>
 					<td>{{ $cat->slug }}</td>
 					<td><a href="{{ route('categories.edit', $cat->slug) }}" class="btn btn-primary btn-sm">Edit</a></td>
 					<td>

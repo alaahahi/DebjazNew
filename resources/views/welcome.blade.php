@@ -115,8 +115,22 @@ switch ($x) {
                 @foreach($products as $p)
                 <ul class="product-filter-menu">
                 <li><a href="{{ route('frontendCategory', $categories->where('id','=',$p->category_id)->first()->slug) }}">
-                {{$categories->where('id','=',$p->category_id)->first()->name}}
+                <?php if($lang=='it')
+											{
+												echo $categories->where('id','=',$p->category_id)->first()->name_sw;
+											}
+											if($lang=='ar'){
+												echo $categories->where('id','=',$p->category_id)->first()->name_ar;
+											}
+											if($lang=='en'){
+												echo $categories->where('id','=',$p->category_id)->first()->name;
+											}
+											?>
                 </a></li>
+                <br>
+                <li> 
+                <h2><div id="the-final-countdown"><p></p></div></h2>
+                </li>
                 </ul>
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 home_card" style="margin-bottom: 2%;background-color: #f8f8f8;border-radius: 20px;padding: 1%;">
                     <div class="product-item">
@@ -349,7 +363,19 @@ function percentageToDegrees(percentage) {
 
 }
 });
-
+setInterval(function time(){
+  var d = new Date();
+  var hours = 24 - d.getHours();
+  var min = 60 - d.getMinutes();
+  if((min + '').length == 1){
+    min = '0' + min;
+  }
+  var sec = 60 - d.getSeconds();
+  if((sec + '').length == 1){
+        sec = '0' + sec;
+  }
+  jQuery('#the-final-countdown p').html(hours+':'+min+':'+sec)
+}, 1000);
     </script>
     <!-- Product filter section end -->
 

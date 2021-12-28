@@ -41,15 +41,19 @@ class CategoryController extends Controller
     {
         $request->validate([
             'name' => 'required|unique:categories',
+            'name_ar' => 'required|unique:categories',
+            'name_sw' => 'required|unique:categories',
             'slug' => 'unique:categories'
         ]);
 
         Category::create([
             'name' => $request->name,
+            'name_ar' => $request->name_ar,
+            'name_sw' => $request->name_sw,
             'slug' => Str::slug($request->name),
         ]);
 
-        session()->flash('success', "Category, $request->name added successfully");
+        session()->flash('success', "Category, $request->name and $request->name_ar and $request->name_sw added successfully");
 
         return redirect(route('categories.index'));
     }
@@ -88,15 +92,13 @@ class CategoryController extends Controller
         // returns id to identify the comparison of the slug uniqueness
         $id = $category->id;
 
-        $request->validate([
-            'name' => 'required|unique:categories,name' .$id,
-            'slug' => 'unique:categories,slug,' .$id,
-        ]);
 
         $slug = Str::slug($request->slug);
 
         $category->update([
             'name' => $request->name,
+            'name_ar' => $request->name_ar,
+            'name_sw' => $request->name_sw,
             'slug' => $slug
         ]);
 

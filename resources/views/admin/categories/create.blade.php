@@ -23,7 +23,24 @@
 						</span>
 					@enderror
 				</div>
+				<div class="form-group">
+					<input type="text" name="name_ar" id="name_ar" class="form-control @error('name_ar') is-invalid @enderror" placeholder="Add Category Arbic" value="{{ isset($category) ? $category->name_ar : '' }}">
 
+					@error('name_ar')
+						<span class="invalid-feedback" role="alert">
+							<strong>{{ $message }}</strong>
+						</span>
+					@enderror
+				</div>
+				<div class="form-group">
+					<input type="text" name="name_sw" id="name_sw" class="form-control @error('name_sw') is-invalid @enderror" placeholder="Add Category Swidth" value="{{ isset($category) ? $category->name_sw : '' }}">
+
+					@error('name_sw')
+						<span class="invalid-feedback" role="alert">
+							<strong>{{ $message }}</strong>
+						</span>
+					@enderror
+				</div>
 				@if(isset($category))
 					<div class="form-group ml-5">
 						<input type="text" name="slug" id="slug" class="form-control @error('slug') is-invalid @enderror" placeholder="Add Category" value="{{ isset($category) ? $category->slug : '' }}">
