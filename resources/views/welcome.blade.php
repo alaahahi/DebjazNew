@@ -10,6 +10,12 @@
 @if( session()->get('locale')  == 'ar')
     <link href="{{ asset('frontend/css/allrtl.css') }}" rel="stylesheet">
 	@endif
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.css" integrity="sha512-cOGz9gyEibwgs1MVDCcfmQv6mPyUkfvrV9TsRbTuOA12SQnLzBROihf6/jK57u0YxzlxosBFunSt4V75K6azMw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/js/bootstrap-datetimepicker.min.js" integrity="sha512-PDFb+YK2iaqtG4XelS5upP1/tFSmLUVJ/BVL8ToREQjsuXC5tyqEfAQV7Ca7s8b7RLHptOmTJak9jxlA2H9xQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 @endsection
 <?php 
 function color($x){
@@ -127,11 +133,11 @@ switch ($x) {
 											}
 											?>
                 </a></li>
-                <br>
-                <li> 
-                <h2><div id="the-final-countdown"><p></p></div></h2>
-                </li>
+            
+                
+
                 </ul>
+                <div class="the-final-countdown"></div>
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 home_card" style="margin-bottom: 2%;background-color: #f8f8f8;border-radius: 20px;padding: 1%;">
                     <div class="product-item">
                         <div class="pi-pic">
@@ -374,7 +380,7 @@ setInterval(function time(){
   if((sec + '').length == 1){
         sec = '0' + sec;
   }
-  jQuery('#the-final-countdown p').html(hours+':'+min+':'+sec)
+  jQuery('.the-final-countdown').html(hours+':'+min+':'+sec)
 }, 1000);
     </script>
     <!-- Product filter section end -->

@@ -6627,8 +6627,8 @@ padding-top: 20px;
   #accordion >.card  > .card-header{
     background: #3b3b3b;
   }
-  #the-final-countdown {
-    font-size: 25px;
+  .the-final-countdown {
+    font-size: 28px;
     text-align: center;
     text-transform: uppercase;
     background: #ebebeb;
@@ -6636,7 +6636,8 @@ padding-top: 20px;
     width: 100%;
     padding: 10px 34px;
     border-radius: 31px;
-    color: black;
+    color: #f51167;
+    font-weight: bold;
 
   }
 
