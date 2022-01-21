@@ -31,6 +31,9 @@ Route::get('/terms-and-conditions', 'FrontendController@terms')->name('terms.con
 Route::get('/privacy-policy', 'FrontendController@privacy')->name('privacy.policy');
 Route::get('my-print/{id}/{order_id?}', 'Admin\ProductController@print')->name('my-print.printCards');
 
+Route::get('livewire/ShowPost','FrontendController@index_livewire');
+//Route::get('ShowPosts','livewire\ShowPost');
+
 Route::resource('cart', 'CartController');
 Route::resource('wishlist', 'WishlistController');
 Route::post('coupons', 'CouponsController@store')->name('coupons.store');

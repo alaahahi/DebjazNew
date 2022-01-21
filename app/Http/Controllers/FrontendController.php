@@ -38,7 +38,10 @@ class FrontendController extends Controller
 
         return view('welcome', compact('products', 'currency','slides', 'categories', 'systemName','orderProduct'));
     }
-
+    public function  index_livewire ()
+    {
+        return view('index_livewire');
+    }
     // show single product details
     public function show($slug)
     {

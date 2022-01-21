@@ -92,6 +92,12 @@ class ClientRequestWatcher extends Watcher
     {
         $content = $response->body();
 
+        $stream = $response->toPsrResponse()->getBody();
+
+        if ($stream->isSeekable()) {
+            $stream->rewind();
+        }
+
         if (is_string($content)) {
             if (is_array(json_decode($content, true)) &&
                 json_last_error() === JSON_ERROR_NONE) {
@@ -100,7 +106,7 @@ class ClientRequestWatcher extends Watcher
                         : 'Purged By Telescope';
             }
 
-            if (Str::startsWith(strtolower($response->header('Content-Type')), 'text/plain')) {
+            if (Str::startsWith(strtolower($response->header('Content-Type') ?? ''), 'text/plain')) {
                 return $this->contentWithinLimits($content) ? $content : 'Purged By Telescope';
             }
         }

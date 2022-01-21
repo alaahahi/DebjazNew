@@ -46,11 +46,8 @@
 						<a href="<?php echo url("/") ?>" class="site-logo">
 							<img src="<?php echo env('APP_NAME') ?>images\logo.png" alt="" width="150px">
 						</a>
-					</div>
-					<div class="col-sm-5"></div>
-					<!-- search area
+					</div>				
 					<livewire:search-dropdown>
-					 -->
 					<div class="col-sm-5" style="text-align: right;">
 						<div class="user-panel">
 							<div class="up-item">

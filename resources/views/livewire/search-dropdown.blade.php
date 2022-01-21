@@ -1,4 +1,4 @@
-<div class="col-xl-6 col-lg-5">
+<div class="col-xl-5">
 	<div class="header-search-form">
 		<input wire:model.debounce.500ms="search" type="text" placeholder="Search on {{ $systemName->name }} ....">
 		<span><i class="flaticon-search"></i></span>
