@@ -164,7 +164,7 @@ return [
     "Zip code"=>"Postnummer",
     "Province or State"=>"Land",
     "City"=>"Stad",
-    "Notes. Eg on delivery hoot or beep, am available Monday to Friday 7am to 7pm"=>"Obs: leverans tillgänglig måndag till fredag 7.00 till 19.00"
+    "Notes. Eg on delivery hoot or beep, am available Monday to Friday 7am to 7pm"=>"Obs: leverans tillgänglig måndag till fredag 7.00 till 19.00",
     "Free"=>"Gratis",
     "Shipping"=>"Leverans",
     "Order Number"=>"Beställnings nummer",
