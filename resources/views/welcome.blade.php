@@ -137,7 +137,9 @@ switch ($x) {
                 
 
                 </ul>
+                @if($p->category_id == 1)
                 <div class="the-final-countdown"></div>
+                @endif
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 home_card" style="margin-bottom: 2%;background-color: #f8f8f8;border-radius: 20px;padding: 1%;">
                     <div class="product-item">
                         <div class="pi-pic">
@@ -179,6 +181,7 @@ switch ($x) {
                                     @endif
                                     </div>
                                     <div  class="col-md-4" >
+                                    @if($p->category_id == 3)
                                     <div class="circl-pay">
                                             <div  class="progress blue  mx-auto"   data-value='<?php echo $value = (100/$p->quantity)*($orderProduct->where('product_id',"=",$p->id)->sum('quantity'))?>' ><span class="progress-left"><span class="progress-bar <?php color($value); ?>"></span></span><span class="progress-right"><span class="progress-bar  <?php color($value); ?>"></span></span>
                                                 <div class="progress-value"><?php echo ($orderProduct->where('product_id',"=",$p->id)->sum('quantity'))  ?>
@@ -194,6 +197,7 @@ switch ($x) {
                                                 <div class="progress-value">37.5%</div>
                                             </div>-->
                                     </div>
+                                    @endif
                                     </div>
                                     <div class="col-md-4">
                                     <img  src="<?php echo env('APP_NAME') ?>{{ $p->photos->last()->images }} " class="img-fluid" alt="">
