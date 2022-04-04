@@ -5,6 +5,8 @@ use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\App;
 use App\Http\Controllers\StripeController;
 use App\Http\Controllers\CheckoutController;
+//use Livewire\ShowProduct;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,7 +34,9 @@ Route::get('/privacy-policy', 'FrontendController@privacy')->name('privacy.polic
 Route::get('my-print/{id}/{order_id?}', 'Admin\ProductController@print')->name('my-print.printCards');
 
 Route::get('livewire/ShowPost','FrontendController@index_livewire');
-//Route::get('ShowPosts','livewire\ShowPost');
+//Route::get('/show',[App\Http\Livewire\ShowProduct::class])->name('show');
+//Route::get('ShowPosts',ShowProduct::class);
+
 
 Route::resource('cart', 'CartController');
 Route::resource('wishlist', 'WishlistController');
