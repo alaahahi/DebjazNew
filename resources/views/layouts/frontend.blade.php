@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="zxx"> 
 <head>
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
 	@yield('seo')
 	<!-- Favicon -->
 	<link href=<?php echo env('APP_NAME') ?>{{$shareSettings->favicon}}" rel="shortcut icon"/>

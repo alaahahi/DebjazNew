@@ -146,7 +146,7 @@ class Telescope
             (static::runningApprovedArtisanCommand($app) ||
             static::handlingApprovedRequest($app))
         ) {
-            static::startRecording();
+            static::startRecording($loadMonitoredTags = false);
         }
     }
 
@@ -232,7 +232,7 @@ class Telescope
             collect([
                 'telescope-api*',
                 'vendor/telescope*',
-                'horizon*',
+                (config('horizon.path') ?? 'horizon').'*',
                 'vendor/horizon*',
             ])
             ->merge(config('telescope.ignore_paths', []))
@@ -246,11 +246,14 @@ class Telescope
     /**
      * Start recording entries.
      *
+     * @param  bool  $loadMonitoredTags
      * @return void
      */
-    public static function startRecording()
+    public static function startRecording($loadMonitoredTags = true)
     {
-        app(EntriesRepository::class)->loadMonitoredTags();
+        if ($loadMonitoredTags) {
+            app(EntriesRepository::class)->loadMonitoredTags();
+        }
 
         static::$shouldRecord = ! cache('telescope:pause-recording');
     }
@@ -665,7 +668,7 @@ class Telescope
                 }
 
                 collect(static::$afterStoringHooks)->every->__invoke(static::$entriesQueue, $batchId);
-            } catch (Exception $e) {
+            } catch (Throwable $e) {
                 app(ExceptionHandler::class)->report($e);
             }
         });
