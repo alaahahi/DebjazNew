@@ -136,7 +136,10 @@ switch ($x) {
 
                 </ul>
                 @if($p->category_id == 1)
-                <div class="the-final-countdown"></div>
+                <div class="countdown">
+                    <span class="the-final-countdown"></span>
+                    <span class="float-right">موعد الإغلاق <i class="fa fa-clock"></i></span>
+                </div>
                 @endif
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 home_card" style="margin-bottom: 2%;background-color: #f8f8f8;border-radius: 20px;padding: 1%;">
                     <div class="product-item">
@@ -382,9 +385,9 @@ setInterval(function time(){
   if((sec + '').length == 1){
         sec = '0' + sec;
   }
-  jQuery('.the-final-countdown').html(hours+':'+min+':'+sec)
+  jQuery('.the-final-countdown').html(hours+' H '+':'+min+' M '+':'+sec+' S ')
 }, 1000);
-    </script>
+</script>
     <!-- Product filter section end -->
 
 @endsection
