@@ -22,7 +22,7 @@ mix.js('resources/js/app.js', 'public/js')
    		'public/frontend/js/jquery.zoom.min.js',
    		'public/frontend/js/jquery-ui.min.js',
    		'public/frontend/js/main.js'
-   	], 'public/frontend/js/all.js');
+   	], 'public/frontend/js/alls.js');
 
    mix.styles([
    		'public/frontend/css/bootstrap.min.css',
@@ -32,4 +32,4 @@ mix.js('resources/js/app.js', 'public/js')
    		'public/frontend/css/owl.carousel.min.css',
    		'public/frontend/css/animate.css',
    		'public/frontend/css/style.css'
-   	], 'public/frontend/css/all.css');
+   	], 'public/frontend/css/alls.css');

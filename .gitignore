@@ -1,3 +1,4 @@
 
 .env
 storage/app/public
+node_modules/

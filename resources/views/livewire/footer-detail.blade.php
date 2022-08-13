@@ -85,7 +85,7 @@
 				@endif
 			</div>
 			@endif
-			<p class="text-white text-center mt-5">Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Developed By <a href="https://intellijapp.github.io/" target="_blank">Intellijapp</a></p>
+			<p class="text-white text-center">Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Developed By <a href="https://intellijapp.github.io/" target="_blank">Intellijapp</a></p>
 
 		</div>
 	</div>
