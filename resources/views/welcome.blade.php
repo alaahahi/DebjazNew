@@ -147,6 +147,12 @@ switch ($x) {
                     <span class="float-right">موعد الإغلاق <i class="fa fa-clock"></i></span>
                 </div>
                 @endif
+                @if( $p->end =="0000-00-00 00:00:00")
+                <div class="offer">
+                    <span  data-countdown="{{$p->early }}"></span>
+                    <span class="float-right"> عرض الشراء المبكر <i class="fa fa-clock"></i></span>
+                </div>
+                @endif
                     <div class="product-item">
                         <div class="pi-pic">
                             @if($p->on_sale == 1)

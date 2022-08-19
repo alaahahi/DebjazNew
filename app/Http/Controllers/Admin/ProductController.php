@@ -87,6 +87,7 @@ class ProductController extends Controller
             'slug' => Str::slug($request->name),
             'start' => $request->start,
             'end' =>  ($request->category_id ==1 ? date('Y-m-d', strtotime($request->start. ' + 1 days')) : $request->category_id ==9 ) ? date('Y-m-d', strtotime($request->start. ' + 3 days')) : ''  ,
+            'early' => date('Y-m-d', strtotime($request->start. ' + 1 days')),
         ]);
 
         foreach ($request->images as $photo) {

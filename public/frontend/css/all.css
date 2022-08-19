@@ -6648,6 +6648,17 @@ ol {
     transform: scale(1.1);
     transition-duration: 2s;
 }
-  
+.offer{
+  font-size: 24px;
+  text-transform: uppercase;
+  background: #ebebeb;
+  display: block;
+  width: 100%;
+  padding: 10px 34px;
+  border-radius: 30px 30px 0 0;
+  color: #fff;
+  background-color: #218838;
+  font-weight: bold;
+}
   
     
