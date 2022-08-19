@@ -116,7 +116,9 @@ switch ($x) {
                 <h3>{{ trans('frontend.BROWSE TOP SELLING PRODUCTS') }}</h3>
             </div>
             <div class="row">
+                <?php $date = date('Y-m-d h:i:s') ?>   
                 @foreach($products as $p)
+                @if($p->end >  $date || !$p->end || $p->end =="0000-00-00 00:00:00")
                 <ul class="product-filter-menu">
                 <li><a href="{{ route('frontendCategory', $categories->where('id','=',$p->category_id)->first()->slug) }}">
                 <?php if($lang=='it')
@@ -136,7 +138,7 @@ switch ($x) {
 
                 </ul>
                
-                @if($p->category_id == 1)
+                @if($p->end >  $date || $p->end !="0000-00-00 00:00:00")
                 <div class="countdown">
                     <span  data-countdown="{{$p->end}}"></span>
                     <span class="float-right">موعد الإغلاق <i class="fa fa-clock"></i></span>
@@ -263,6 +265,7 @@ switch ($x) {
                         </div>
                         <h5 class="text-center">{{ $p->price * $currency->price}} <?php echo  $currency->currency ?></h5>
                     </div>
+                    @endif
                 @endforeach
             </div>
             @if($products->count() > 8)

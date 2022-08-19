@@ -52,7 +52,7 @@ return [
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),
-            'url' => 'https://localhost/ZimCart/storage/app/public/',
+            'url' => 'https://savingservices.net/debjaz/storage/app/public/',
             'visibility' => 'public',
         ],
 
