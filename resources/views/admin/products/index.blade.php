@@ -62,7 +62,7 @@
 					<td>{{ $p->category->name }}</td>
 					<td>
 						@if($p->photos->count() > 0)
-                            <img src="https://savingservices.net/debjaz/public/storage/app/public/{{ $p->photos->first()->images }}" style="border-radius: 100%; width: 25px; height: 25px;">
+                            <img src="https://savingservices.net/debjaz/storage/app/public/{{ $p->photos->first()->images }}" style="border-radius: 100%; width: 25px; height: 25px;">
                         @else
                             <img src="{{ asset('frontend/img/no-image.png') }}" style="border-radius: 100%; width: 25px; height: 25px;">
                         @endif
