@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-    protected $fillable = ['name', 'name_ar','name_sw','category_id', 'sub_category_id', 'description','description_ar','description_sw','gift','gift_ar','gift_sw','gift_description','gift_description_ar','gift_description_sw','code', 'image', 'slug', 'quantity', 'price', 'meta_keywords', 'meta_description', 'on_sale', 'is_new'];
+    protected $fillable = ['name', 'name_ar','name_sw','category_id', 'sub_category_id', 'description','description_ar','description_sw','gift','gift_ar','gift_sw','gift_description','gift_description_ar','gift_description_sw','code', 'image', 'slug', 'quantity', 'price', 'meta_keywords', 'meta_description', 'on_sale', 'is_new','start','end'];
 
     /**
     * change key from id to slug
