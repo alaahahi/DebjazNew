@@ -12,7 +12,7 @@
 			@if(isset($product))
 				@foreach($product->photos as $image)
 					<div class="form-group">
-						<img src="http://localhost/ZimCart/storage/app/public/{{ $image->images }}" style="width: 200px;">
+						<img src="https://savingservices.net/debjaz/public/storage/app/public/{{ $image->images }}" style="width: 200px;">
 						<form action="{{ route('destroyImage', $image->id) }}" method="post">
 							@csrf
 							@method('DELETE')
