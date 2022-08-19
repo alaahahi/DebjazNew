@@ -4490,6 +4490,7 @@ ol {
 .product-item .pi-pic {
 	position: relative;
 	display: block;
+  padding-top: 25px;
 }
 
 .product-item .tag-new {
