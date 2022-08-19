@@ -280,9 +280,24 @@
 					@enderror
 				</div>
 			</div>
-			<!-- product status -->
+			<div class="row  m-auto">
+				<!-- product start -->
+				<div class="form-group">
+					<label for="start">start</label>
+					<input type="date" name="start" id="start" class="form-control @error('start') is-invalid @enderror" value="{{ isset($product) ? $product->start : old('start') }}">
+
+					@error('start')
+						<span class="invalid-feedback" role="alert">
+							<strong>{{$message}}</strong>
+						</span>
+					@enderror
+				</div>
+				<!-- product end -->
+			
+			</div>
+			<!-- product status 
 			<div class="row ml-2">
-				<!-- product on sale -->
+				
 				<div class="form-group">
 					<label for="on_sale">On Sale</label>
 					<select name="on_sale" id="on_sale" class="form-control @error('on_sale') is-invalid @enderror">
@@ -296,7 +311,7 @@
 						</span>
 					@enderror
 				</div>
-				<!-- product on sale -->
+			
 				<div class="form-group ml-5">
 					<label for="is_new">New Product</label>
 					<select name="is_new" id="is_new" class="form-control @error('is_new') is-invalid @enderror">
@@ -311,6 +326,7 @@
 					@enderror
 				</div>
 			</div>
+			-->
 			<!-- product seo start -->
 			<div class="form-group">
 				<label for="meta_description">Product Meta Description</label>
@@ -323,7 +339,6 @@
 			<!-- product seo start -->
 
 			<!-- products attributes start -->
-			@livewire('attribute')
 			
 			<!-- products attributes end -->
 

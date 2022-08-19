@@ -135,9 +135,10 @@ switch ($x) {
                 
 
                 </ul>
+               
                 @if($p->category_id == 1)
                 <div class="countdown">
-                    <span class="the-final-countdown"></span>
+                    <span  data-countdown="{{$p->end}}"></span>
                     <span class="float-right">موعد الإغلاق <i class="fa fa-clock"></i></span>
                 </div>
                 @endif
@@ -338,6 +339,8 @@ switch ($x) {
                 </div>
                 @endforeach
             </div>
+            <div 
+            ></div>
         </div>
     </section>
     <!-- letest product section end -->
@@ -350,7 +353,14 @@ switch ($x) {
   crossorigin="anonymous"></script>
 
 <script>
+
 $(document).ready(function() {
+    $('[data-countdown]').each(function() {
+   var $this = $(this), finalDate = $(this).data('countdown');
+   $this.countdown(finalDate, function(event) {
+     $this.html(event.strftime('%D Day %H H %M M %S S'));
+});
+});
 $(".progress").each(function() {
 
   var value = $(this).attr('data-value');
