@@ -6660,5 +6660,15 @@ ol {
   background-color: #218838;
   font-weight: bold;
 }
+@media screen and (max-width: 768px) {
+  .countdown,.offer {
+    font-size: 16px;
+
+  }
+  }  
+  @media screen and (max-width: 521px) {
+    .countdown,.offer {
+      font-size: 14px;
   
-    
+    }
+    }  
