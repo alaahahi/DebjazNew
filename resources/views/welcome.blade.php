@@ -41,9 +41,11 @@ switch ($x) {
 @section('content')
 
   @if($slides->count() > 0)
+
     <!-- Hero section -->
     <section class="hero-section">
         <div class="hero-slider owl-carousel">
+            
             @foreach($slides as $slide)
             <div class="hs-item set-bg" data-setbg="<?php echo env('APP_NAME') ?>{{ $slide->image }}">
                 <div class="container">
