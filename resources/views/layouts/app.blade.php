@@ -174,6 +174,7 @@
 
 <!-- Scripts -->
 <script src="{{ asset('js/app.js') }}"></script>
+
 <livewire:scripts />
 @stack('scripts')
 @yield('scripts')
