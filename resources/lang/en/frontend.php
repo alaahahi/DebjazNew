@@ -184,6 +184,7 @@ return [
     "Back to Categories"=>"Back to Categories",
     "Description"=>"Description",
     "Cards Lottery"=>"Cards Lottery",
-    "Show"=>"Show"
+    "Show"=>"Show",
+    "winner"=>"The Winner"
 
 ];

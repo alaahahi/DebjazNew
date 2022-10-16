@@ -184,6 +184,7 @@ return [
     "Back to Categories"=>"العودة الى الأصناف",
     "Description"=>"الشرح",
     "Cards Lottery"=>"بطاقات اليانصيب",
-    "Show"=>"عرض"
+    "Show"=>"عرض",
+    "winner"=>"الرابحين"
 
 ];

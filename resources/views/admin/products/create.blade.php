@@ -244,6 +244,7 @@
 					</span>
 				@enderror
 			</div>
+
 			</div>
 			<div class="row justify-content-between m-auto">
 				<!-- product images -->
@@ -279,6 +280,16 @@
 						</span>
 					@enderror
 				</div>
+			</div>
+			<div class="form-group">
+				<label for="gift_description_sw">Winner</label>
+				<input type="text" name="winner" id="winner" class="form-control @error('winner') is-invalid @enderror" value={{ isset($product) ? $product->winner : old('winner') }} />
+
+				@error('gift_description_sw')
+					<span class="invalid-feedback" role="alert">
+						<strong>{{$winner}}</strong>
+					</span>
+				@enderror
 			</div>
 			<div class="row  m-auto">
 				<!-- product start -->

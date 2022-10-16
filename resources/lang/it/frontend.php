@@ -187,6 +187,7 @@ return [
     "Description"=>"Beskrivning",
     "Cards Lottery"=>"Lotto kort",
     "Show"=>"Visa",
+    "winner"=>"The Winner"
 
 
 ];

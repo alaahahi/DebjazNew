@@ -26,7 +26,7 @@ class FrontendController extends Controller
 
         $categories = Category::all();
 
-        $products = Product::orderBy('created_at', 'DESC')->with('category', 'photos')->paginate(8); 
+        $products = Product::orderBy('created_at', 'DESC')->with('category', 'photos')->paginate(12); 
 
         $orderProduct = OrderProduct::all();
 
@@ -50,7 +50,7 @@ class FrontendController extends Controller
 
         $singleImage = $product->photos()->get()->first();
 
-        $relatedProducts = $product->category->products()->with('photos')->inRandomOrder()->take(5)->get();
+        $relatedProducts = $product->category->products()->with('photos')->inRandomOrder()->take(12)->get();
         $currency = Currency::where('currency', strtoupper($currency_def))->first();
         $systemName = SystemSetting::first();
 
@@ -67,7 +67,7 @@ class FrontendController extends Controller
     {
         $info = SystemSetting::first();
 
-        $products = Product::orderBy('id', 'DESC')->with('photos')->take(4)->get();
+        $products = Product::orderBy('id', 'DESC')->with('photos')->take(12)->get();
 
         return view('contact', compact('info', 'products'));
     }

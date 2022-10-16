@@ -151,7 +151,7 @@ switch ($x) {
                 @endif
                 @if( $p->end =="0000-00-00 00:00:00")
                 <div class="offer">
-                    <span  data-countdown="{{$p->early }}"></span>
+                  
                     <span class="float-right"> عرض الشراء المبكر <i class="fa fa-clock"></i></span>
                 </div>
                 @endif
@@ -278,78 +278,36 @@ switch ($x) {
                     @endif
                 @endforeach
             </div>
-            @if($products->count() > 8)
-                <div class="text-center pt-5">
-                    <a href="{{ route('frontendCategories') }}" class="site-btn sb-line sb-dark">{{trans('frontend.More')}}</a>
-                </div>
-            @endif
+          
         </div>
     </section>
     <!-- letest product section -->
     <section class="top-letest-product-section">
         <div class="container">
             <div class="section-title">
-                <h3>{{ trans('frontend.LATEST PRODUCTS') }}</h3>
+                <h3>{{ trans('frontend.winner') }}</h3>
             </div>
             <div class="product-slider owl-carousel">
                 @foreach($products as $p)
+                @if($p->winner)
                 <div class="product-item">
                     <div class="pi-pic">
-                        @if($p->on_sale == 1)
-                        <div class="tag-sale">ON SALE</div>
-                        @endif
-                        @if($p->is_new == 1)
-                        <div class="tag-new">New</div>
-                        @endif
-                        <a href="{{ route('single-product', $p->slug) }}">
+           
+                        <span href="{{ route('single-product', $p->slug) }}">
                             @if($p->photos->count() > 0)
                                 <img src="<?php echo env('APP_NAME') ?>{{ $p->photos->first()->images }} " alt="">
                             @else
                                 <img src="{{ asset('frontend/img/no-image.png') }}" alt="">
                             @endif
-                        </a>
-                        <div class="pi-links">
-                            <form action="{{ route('cart.store') }}" method="post">
-                                @csrf
-                                <input type="hidden" name="id" value="{{$p->id}}">
-                                <input type="hidden" name="name" value="{{$p->name}}">
-                                <input type="hidden" name="name_ar" value="{{$p->name_ar}}">
-                                <input type="hidden" name="name_sw" value="{{$p->name_sw}}">
-                                <input type="hidden" name="price" value="{{$p->price}}">
-                                <input type="hidden" name="card" value="2">
-                                <input type="hidden" name="quantity" value="1">
-                                <button type="submit" class="add-card"><i class="flaticon-bag"></i><span>{{ trans('frontend.Buy') }}</span></button>
-                            </form>
-                            <form action="{{ route('wishlist.store') }}" method="post">
-                                @csrf
-                                <input type="hidden" name="id" value="{{$p->id}}">
-                                <input type="hidden" name="name" value="{{$p->name}}">
-                                <input type="hidden" name="price" value="{{$p->price}}">
-                                <input type="hidden" name="name_ar" value="{{$p->name_ar}}">
-                                <input type="hidden" name="name_sw" value="{{$p->name_sw}}">
-                                <input type="hidden" name="card" value="2">
-                                <input type="hidden" name="quantity" value="1">
-                                <button type="submit" class="wishlist-btn"><i class="flaticon-heart"></i></button>
-                            </form>
-                        </div>
+                        </span>
+   
                     </div>
-                    <div class="pi-text">
-                        <h4>{{ $p->price * $currency->price}} <?php echo  $currency->currency ?></h4>
-                        <a href="{{ route('single-product', $p->slug) }}"><p>
-                        <?php if($lang=='it')
-											{
-												echo $p->name;
-											}
-											if($lang=='ar'){
-												echo $p->name_ar;
-											}
-											if($lang=='en'){
-												echo $p->name_en;
-											}
-											?>
-                        </p></a> 
+                    <div class="w-100 ">
+                        <h4 class="text-black text-center">{{ $p->winner;}}</h4>
+              
                     </div>
                 </div>
+                @endif
                 @endforeach
             </div>
             <div 

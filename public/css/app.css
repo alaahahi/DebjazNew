@@ -5225,7 +5225,9 @@ input[type=button].btn-block {
   list-style: none;
   border-radius: 0.25rem;
 }
-
+.relative.z-0.inline-flex.shadow-sm.rounded-md {
+display: none;
+}
 .page-link {
   position: relative;
   display: block;

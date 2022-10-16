@@ -86,6 +86,7 @@ class ProductController extends Controller
             'meta_description' => $request->meta_description,
             'slug' => Str::slug($request->name),
             'start' => $request->start,
+            'winner' => $request->winner,
             'end' =>  ($request->category_id ==1 ? date('Y-m-d', strtotime($request->start. ' + 1 days')) : $request->category_id ==9 ) ? date('Y-m-d', strtotime($request->start. ' + 3 days')) : ''  ,
             'early' => date('Y-m-d', strtotime($request->start. ' + 1 days')),
         ]);
@@ -167,7 +168,7 @@ class ProductController extends Controller
         $request->validate([
             'category_id' => 'required',
         ]);
-        $data = $request->only(['name',  'name_ar','name_sw','description_ar','description_sw','gift','gift_ar','gift_sw','gift_description','gift_description_ar','gift_description_sw','code', 'description', 'price', 'category_id', 'sub_category_id', 'quantity', 'meta_description', 'meta_keywords', 'is_new', 'on_sale','start','end']);
+        $data = $request->only(['name',  'name_ar','name_sw','description_ar','description_sw','gift','gift_ar','gift_sw','gift_description','gift_description_ar','gift_description_sw','code', 'description', 'price', 'category_id', 'sub_category_id', 'quantity', 'meta_description', 'meta_keywords', 'is_new', 'on_sale','start','end','winner']);
 
         $product->update($data);
 
