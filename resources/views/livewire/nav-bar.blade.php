@@ -3,18 +3,20 @@
 		<!-- menu -->
 		<ul class="main-menu">
 			<li><a href="<?php echo url("/")?>">{{ trans('frontend.Home') }}</a></li>
+			<!-- 
 			<li><a href="{{ route('frontendCategories') }}">{{ trans('frontend.Shop') }}</a>
-					<!-- 
+					
 				<ul class="sub-menu">
 					@foreach($navCategories as $cat)
 						<li><a href="{{ route('frontendCategory', $cat->slug) }}">{{ $cat->name }}</a></li>
 					@endforeach	
 				</ul>
-				 -->
+				
 			</li>
 			<li><a href="{{ route('on-sale') }}">{{ trans('frontend.Campaigns') }}
 				<span class="new">Sale</span>
 			</a></li>
+			 -->
 			<li><a href="#">{{ trans('frontend.About us') }}</a></li>
 			<li><a href="#">{{ trans('frontend.Help Center') }}</a></li>
 			<li><a href="{{ route('contact-us') }}">{{ trans('frontend.Contact Us') }}</a></li>

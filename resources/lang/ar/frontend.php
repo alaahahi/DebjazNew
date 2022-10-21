@@ -185,6 +185,7 @@ return [
     "Description"=>"الشرح",
     "Cards Lottery"=>"بطاقات اليانصيب",
     "Show"=>"عرض",
-    "winner"=>"الرابحين"
+    "winner"=>"الرابحين",
+    "drawDate"=>"تاريخ السحب"
 
 ];

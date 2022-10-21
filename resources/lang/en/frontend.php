@@ -185,6 +185,7 @@ return [
     "Description"=>"Description",
     "Cards Lottery"=>"Cards Lottery",
     "Show"=>"Show",
-    "winner"=>"The Winner"
+    "winner"=>"The Winner",
+    "drawDate"=>"Draw Date"
 
 ];

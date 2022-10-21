@@ -157,12 +157,6 @@ switch ($x) {
                 @endif
                     <div class="product-item">
                         <div class="pi-pic">
-                            @if($p->on_sale == 1)
-                            <div class="tag-sale">ON SALE</div>
-                            @endif
-                            @if($p->is_new == 1)
-                            <div class="tag-new">New</div>
-                            @endif
                             <a href="{{ route('single-product', $p->slug) }}">
                                 <a href="{{ route('single-product', $p->slug) }}">
                                 @if($p->photos->count() > 0)
@@ -281,6 +275,41 @@ switch ($x) {
           
         </div>
     </section>
+        <!-- letest product section -->
+        <section class="top-letest-product-section">
+            <div class="container">
+                <div class="section-title">
+                    <h3>{{trans('frontend.drawDate')}}</h3>
+                </div>
+                <div class="product-slider owl-carousel">
+                    @foreach($products as $p)
+                    @if($p->draw_date)
+                    <div class="product-item">
+                        <div class="pi-pic">
+               
+                            <span href="{{ route('single-product', $p->slug) }}">
+                                @if($p->photos->count() > 0)
+                                    <img src="<?php echo env('APP_NAME') ?>{{ $p->photos->first()->images }} " alt="">
+                                @else
+                                    <img src="{{ asset('frontend/img/no-image.png') }}" alt="">
+                                @endif
+                            </span>
+       
+                        </div>
+                        <div class="w-100 ">
+                            <h4 class="text-black text-center"> {{ $p->draw_date;}}</h4>
+                            <h6 class="text-black text-center"> {{trans('frontend.drawDate')}}</h6>
+                  
+                        </div>
+                    </div>
+                    @endif
+                    @endforeach
+                </div>
+                <div 
+                ></div>
+            </div>
+        </section>
+        <!-- letest product section end -->
     <!-- letest product section -->
     <section class="top-letest-product-section">
         <div class="container">

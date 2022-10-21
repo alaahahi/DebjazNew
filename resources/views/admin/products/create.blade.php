@@ -282,12 +282,22 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="gift_description_sw">Winner</label>
+				<label for="winner">Winner</label>
 				<input type="text" name="winner" id="winner" class="form-control @error('winner') is-invalid @enderror" value={{ isset($product) ? $product->winner : old('winner') }} />
 
-				@error('gift_description_sw')
+				@error('winner')
 					<span class="invalid-feedback" role="alert">
 						<strong>{{$winner}}</strong>
+					</span>
+				@enderror
+			</div>
+			<div class="form-group">
+				<label for="draw_date">Draw date</label>{{$product->draw_date }}
+				<input type="datetime-local" name="draw_date" id="draw_date" class="form-control @error('draw_date') is-invalid @enderror" value={{ isset($product) ? $product->draw_date : old('draw_date') }} />
+
+				@error('draw_date')
+					<span class="invalid-feedback" role="alert">
+						<strong>{{$draw_date}}</strong>
 					</span>
 				@enderror
 			</div>
